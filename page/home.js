@@ -65,3 +65,20 @@ function slider2() {
   }
 }
 slider2();
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Select the text element
+  var textElement = document.querySelector(".heading--20.is--successstory");
+
+  // Get the text content
+  var textContent = textElement.textContent;
+
+  // Maximum number of characters allowed
+  var maxCharacters = 60;
+
+  // If the text content is longer than the maximum number of characters allowed
+  if (textContent.length > maxCharacters) {
+    // Truncate the text and add ellipsis
+    textElement.textContent = textContent.substring(0, maxCharacters) + "...";
+  }
+});
