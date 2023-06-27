@@ -5,5 +5,11 @@
 .heading--20.is--successstory {
   overflow: hidden; /* Hide the text that overflows */
   text-overflow: ellipsis; /* Add ellipsis for overflow text */
+  max-width: 50ch; /* Set the maximum width in characters */
+}
+
+.home--successstories-item .paragraph--16 {
+  overflow: hidden; /* Hide the text that overflows */
+  text-overflow: ellipsis; /* Add ellipsis for overflow text */
   max-width: 60ch; /* Set the maximum width in characters */
 }
