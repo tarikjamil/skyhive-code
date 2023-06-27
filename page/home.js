@@ -2,13 +2,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   let splide = new Splide(".slider1", {
     type: "slide",
-    perPage: 4,
+    perPage: 1,
     perMove: 1,
-    autoplay: true,
-    interval: 0,
-    speed: 7000,
-    drag: false,
-    easing: "linear",
     gap: "24rem",
     breakpoints: {
       991: {
