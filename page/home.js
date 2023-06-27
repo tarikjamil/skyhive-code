@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let textContent = textElement.textContent;
 
   // Maximum number of characters allowed
-  let maxCharacters = 50;
+  let maxCharacters = 60;
 
   // If the text content is longer than the maximum number of characters allowed
   if (textContent.length > maxCharacters) {
