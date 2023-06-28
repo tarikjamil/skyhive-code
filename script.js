@@ -77,3 +77,8 @@ $(document).ready(function () {
     }
   });
 });
+
+// navbar menu background click
+$(".navbar--menu--bg").on("click", function () {
+  $(".navbar--menu-close").click();
+});
