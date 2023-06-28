@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     gap: "56rem",
     drag: false,
     arrows: false,
+    pagination: false,
     breakpoints: {
       991: {
         // Tablet
