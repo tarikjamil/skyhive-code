@@ -1,3 +1,7 @@
 .splide__track {
   overflow: visible;
 }
+
+.splide__slide:local-styles {
+  align-self: stretch;
+}
