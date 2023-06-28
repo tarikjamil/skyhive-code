@@ -2,5 +2,9 @@
   opacity: 0;
 }
 
+.navbar.is--scrolled {
+  background-color: #fff;
+}
+
 @media (max-width: 991px) {
 }
