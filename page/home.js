@@ -8,17 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
     breakpoints: {
       991: {
         // Tablet
-        perPage: 1,
-        arrows: false,
-      },
-      767: {
-        // Mobile Landscape
-        perPage: 1,
-        arrows: false,
-      },
-      479: {
-        // Mobile Portrait
-        perPage: 1,
         arrows: false,
       },
     },
@@ -28,53 +17,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // slider success stories
 document.addEventListener("DOMContentLoaded", function () {
-  let splide = null;
-
-  function initSplide() {
-    if (!splide && window.innerWidth <= 991) {
-      splide = new Splide(".slider2", {
-        type: "slide",
-        perPage: 1,
-        perMove: 1,
+  let splide = new Splide(".slider2", {
+    type: "slide",
+    perPage: 1,
+    perMove: 1,
+    gap: "56rem",
+    drag: false,
+    arrows: false,
+    breakpoints: {
+      991: {
+        // Tablet
         gap: "24rem",
-        breakpoints: {
-          991: {
-            perPage: 1,
-            arrows: false,
-          },
-          767: {
-            perPage: 1,
-            arrows: false,
-          },
-          479: {
-            perPage: 1,
-            arrows: false,
-          },
-        },
-      }).mount();
-    }
-  }
-
-  function destroySplide() {
-    if (splide) {
-      splide.destroy();
-      splide = null;
-    }
-  }
-
-  function handleResize() {
-    if (window.innerWidth > 991) {
-      destroySplide();
-    } else {
-      initSplide();
-    }
-  }
-
-  // Initialize Splide or destroy it depending on the initial window size
-  handleResize();
-
-  // Listen for window resize and initialize/destroy Splide accordingly
-  window.addEventListener("resize", handleResize);
+        drag: true,
+      },
+    },
+  });
+  splide.mount();
 });
 
 document.addEventListener("DOMContentLoaded", function () {
