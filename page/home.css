@@ -2,6 +2,6 @@
   overflow: visible;
 }
 
-.splide__slide:local-styles {
+.splide__slide {
   align-self: stretch;
 }
