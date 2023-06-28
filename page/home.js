@@ -26,6 +26,57 @@ document.addEventListener("DOMContentLoaded", function () {
   splide.mount();
 });
 
+// slider success stories
+document.addEventListener("DOMContentLoaded", function () {
+  let splide;
+
+  function initSplide() {
+    if (window.innerWidth <= 991) {
+      splide = new Splide(".slider2", {
+        type: "slide",
+        perPage: 1,
+        perMove: 1,
+        gap: "24rem",
+        breakpoints: {
+          991: {
+            // Tablet
+            perPage: 1,
+            arrows: false,
+          },
+          767: {
+            // Mobile Landscape
+            perPage: 1,
+            arrows: false,
+          },
+          479: {
+            // Mobile Portrait
+            perPage: 1,
+            arrows: false,
+          },
+        },
+      }).mount();
+    }
+  }
+
+  function destroySplide() {
+    if (splide) {
+      splide.destroy();
+      splide = null;
+    }
+  }
+
+  initSplide(); // Initial check to create slider if required
+
+  // On window resize, check if the slider should be initialized or destroyed
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 991) {
+      destroySplide();
+    } else {
+      initSplide();
+    }
+  });
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   // Select the text element
   let textElement = document.querySelector(".heading--20.is--successstory");
