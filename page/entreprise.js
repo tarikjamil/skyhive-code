@@ -44,7 +44,7 @@ let imagesAndAnimations = [
   },
   {
     selector: ".entreprise--hero-wrapper .entreprise-hero-img2",
-    initial: { y: "100rem", scale: 1.1 },
+    initial: { y: "150rem", scale: 1.15 },
     animation: { y: "0rem", scale: 1 },
   },
   {
