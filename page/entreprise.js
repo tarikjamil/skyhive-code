@@ -49,7 +49,7 @@ let imagesAndAnimations = [
   },
   {
     selector: ".entreprise--hero-wrapper .entreprise-hero-img3",
-    initial: { x: "-50rem", scale: 1.5 },
+    initial: { x: "-200rem", scale: 1.5 },
     animation: { x: "0rem", scale: 1 },
   },
   {
