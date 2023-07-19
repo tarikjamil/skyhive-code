@@ -36,18 +36,33 @@ document.addEventListener("DOMContentLoaded", function () {
   splide.mount();
 });
 
-// Get all image elements
-let images = gsap.utils.toArray(
-  ".entreprise--hero-wrapper .entreprise-hero-img1, .entreprise--hero-wrapper .entreprise-hero-img2, .entreprise--hero-wrapper .entreprise-hero-img3, .entreprise--hero-wrapper .entreprise-hero-img4"
-);
+// Define an array of your images and their animations
+let imagesAndAnimations = [
+  {
+    selector: ".entreprise--hero-wrapper .entreprise-hero-img1",
+    animation: { scale: 1 },
+  },
+  {
+    selector: ".entreprise--hero-wrapper .entreprise-hero-img2",
+    animation: { rotation: 360 },
+  },
+  {
+    selector: ".entreprise--hero-wrapper .entreprise-hero-img3",
+    animation: { x: 200 },
+  },
+  {
+    selector: ".entreprise--hero-wrapper .entreprise-hero-img4",
+    animation: { y: 200 },
+  },
+];
 
 // Animation for each image
-images.forEach((image) => {
+imagesAndAnimations.forEach((item) => {
   gsap.fromTo(
-    image,
-    { scale: 1.2 },
+    item.selector,
+    { scale: 1.5 },
     {
-      scale: 1,
+      ...item.animation,
       scrollTrigger: {
         trigger: ".entreprise--hero-wrapper",
         start: "top bottom", // when the top of the trigger hits the bottom of the viewport
