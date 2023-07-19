@@ -39,8 +39,8 @@ document.addEventListener("DOMContentLoaded", function () {
 let imagesAndAnimations = [
   {
     selector: ".entreprise--hero-wrapper .entreprise-hero-img1",
-    initial: { x: "150rem", scale: 1.8 },
-    animation: { x: "0rem", scale: 1 },
+    initial: { x: "150rem", y: "-20rem", scale: 1.8 },
+    animation: { x: "0rem", y: "0rem", scale: 1 },
   },
   {
     selector: ".entreprise--hero-wrapper .entreprise-hero-img2",
@@ -49,8 +49,8 @@ let imagesAndAnimations = [
   },
   {
     selector: ".entreprise--hero-wrapper .entreprise-hero-img3",
-    initial: { x: "-200rem", scale: 1.5 },
-    animation: { x: "0rem", scale: 1 },
+    initial: { x: "-200rem", y: "-50rem", scale: 1.5 },
+    animation: { x: "0rem", y: "0rem", scale: 1 },
   },
   {
     selector: ".entreprise--hero-wrapper .entreprise-hero-img4",
