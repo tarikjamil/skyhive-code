@@ -36,39 +36,37 @@ document.addEventListener("DOMContentLoaded", function () {
   splide.mount();
 });
 
-// Define an array of your images and their animations
 let imagesAndAnimations = [
   {
     selector: ".entreprise--hero-wrapper .entreprise-hero-img1",
-    animation: { x: "10%" },
+    initial: { y: "-10%", scale: 1.2 },
+    animation: { y: "0%", scale: 1 },
   },
   {
     selector: ".entreprise--hero-wrapper .entreprise-hero-img2",
-    animation: { y: "10%" },
+    initial: { y: "10%", scale: 1.1 },
+    animation: { y: "0%", scale: 1 },
   },
   {
     selector: ".entreprise--hero-wrapper .entreprise-hero-img3",
-    animation: { x: "-10%" },
+    initial: { x: "10%", scale: 1.3 },
+    animation: { x: "0%", scale: 1 },
   },
   {
     selector: ".entreprise--hero-wrapper .entreprise-hero-img4",
-    animation: { y: "-10%" },
+    initial: { x: "-10%", scale: 1.5 },
+    animation: { x: "0%", scale: 1 },
   },
 ];
 
-// Animation for each image
 imagesAndAnimations.forEach((item) => {
-  gsap.fromTo(
-    item.selector,
-    { scale: 1.5 },
-    {
-      ...item.animation,
-      scrollTrigger: {
-        trigger: ".entreprise--hero-wrapper",
-        start: "top bottom", // when the top of the trigger hits the bottom of the viewport
-        end: "bottom top", // when the bottom of the trigger hits the top of the viewport
-        scrub: true,
-      },
-    }
-  );
+  gsap.fromTo(item.selector, item.initial, {
+    ...item.animation,
+    scrollTrigger: {
+      trigger: ".entreprise--hero-wrapper",
+      start: "top bottom", // when the top of the trigger hits the bottom of the viewport
+      end: "bottom top", // when the bottom of the trigger hits the top of the viewport
+      scrub: true,
+    },
+  });
 });
