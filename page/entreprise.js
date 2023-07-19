@@ -40,19 +40,19 @@ document.addEventListener("DOMContentLoaded", function () {
 let imagesAndAnimations = [
   {
     selector: ".entreprise--hero-wrapper .entreprise-hero-img1",
-    animation: { scale: 1 },
+    animation: { x: "10%" },
   },
   {
     selector: ".entreprise--hero-wrapper .entreprise-hero-img2",
-    animation: { rotation: 360 },
+    animation: { y: "10%" },
   },
   {
     selector: ".entreprise--hero-wrapper .entreprise-hero-img3",
-    animation: { x: 200 },
+    animation: { x: "-10%" },
   },
   {
     selector: ".entreprise--hero-wrapper .entreprise-hero-img4",
-    animation: { y: 200 },
+    animation: { y: "-10%" },
   },
 ];
 
