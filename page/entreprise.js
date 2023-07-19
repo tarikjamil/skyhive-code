@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     type: "slide",
     perPage: 1,
     perMove: 1,
-    gap: "56rem",
+    gap: "24rem",
     drag: false,
     arrows: false,
     pagination: false,
