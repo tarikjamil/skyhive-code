@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
 let imagesAndAnimations = [
   {
     selector: ".entreprise--hero-wrapper .entreprise-hero-img1",
-    initial: { x: "100rem", scale: 1.2 },
+    initial: { x: "100rem", scale: 1.5 },
     animation: { x: "0rem", scale: 1 },
   },
   {
