@@ -82,3 +82,10 @@ $(document).ready(function () {
 $(".navbar--menu--bg").on("click", function () {
   $(".navbar--menu-close").click();
 });
+
+// navbar use cases dropdown
+
+$(".navbar--usecases-dropdown").on("click", function () {
+  $(".navbar--usecases-dropdown").toggleClass("is--active");
+  $(".navbar--dropwdown-text-wrapper").toggleClass("is--active");
+});
