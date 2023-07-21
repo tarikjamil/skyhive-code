@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
 gsap.from(".flex--24gap", {
   y: "-100rem",
   scrollTrigger: {
-    trigger: ".is--hcos-parallax",
+    trigger: ".section.is--hcos-parallax",
     start: "top bottom", // When the top of the trigger hits the bottom of the viewport
     end: "bottom top", // When the bottom of the trigger hits the top of the viewport
     scrub: true,
