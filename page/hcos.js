@@ -19,26 +19,30 @@ document.addEventListener("DOMContentLoaded", function () {
   splide.mount();
 });
 
-gsap.from(".flex--24gap.is--first", {
-  y: "-100rem",
-  scrollTrigger: {
-    trigger: ".section.is--hcos-parallax",
-    start: "top bottom", // When the top of the trigger hits the bottom of the viewport
-    end: "bottom top", // When the bottom of the trigger hits the top of the viewport
-    scrub: true,
-    markers: true,
-  },
-  y: "100rem",
-});
+ScrollTrigger.matchMedia({
+  "(min-width: 992px)": function () {
+    gsap.from(".flex--24gap.is--first", {
+      y: "-100rem",
+      scrollTrigger: {
+        trigger: ".section.is--hcos-parallax",
+        start: "top bottom", // When the top of the trigger hits the bottom of the viewport
+        end: "bottom top", // When the bottom of the trigger hits the top of the viewport
+        scrub: true,
+        markers: true,
+      },
+      y: "100rem",
+    });
 
-gsap.from(".flex--24gap.is--second", {
-  y: "100rem",
-  scrollTrigger: {
-    trigger: ".section.is--hcos-parallax",
-    start: "top bottom", // When the top of the trigger hits the bottom of the viewport
-    end: "bottom top", // When the bottom of the trigger hits the top of the viewport
-    scrub: true,
-    markers: true,
+    gsap.from(".flex--24gap.is--second", {
+      y: "100rem",
+      scrollTrigger: {
+        trigger: ".section.is--hcos-parallax",
+        start: "top bottom", // When the top of the trigger hits the bottom of the viewport
+        end: "bottom top", // When the bottom of the trigger hits the top of the viewport
+        scrub: true,
+        markers: true,
+      },
+      y: "-100rem",
+    });
   },
-  y: "-100rem",
 });
