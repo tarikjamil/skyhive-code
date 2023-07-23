@@ -19,6 +19,26 @@ document.addEventListener("DOMContentLoaded", function () {
   splide.mount();
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  let splide = new Splide(".slider-resources", {
+    type: "slide",
+    perPage: 1,
+    perMove: 1,
+    gap: "24rem",
+    drag: false,
+    arrows: false,
+    pagination: false,
+    breakpoints: {
+      991: {
+        // Tablet
+        gap: "24rem",
+        drag: true,
+      },
+    },
+  });
+  splide.mount();
+});
+
 ScrollTrigger.matchMedia({
   "(min-width: 992px)": function () {
     gsap.from(".flex--24gap.is--first", {
