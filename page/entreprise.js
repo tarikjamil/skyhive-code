@@ -1,6 +1,6 @@
 // slider
 document.addEventListener("DOMContentLoaded", function () {
-  let splide = new Splide(".slider1", {
+  let splide = new Splide(".slider-resources", {
     type: "slide",
     perPage: 1,
     perMove: 1,
