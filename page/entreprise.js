@@ -5,10 +5,14 @@ document.addEventListener("DOMContentLoaded", function () {
     perPage: 1,
     perMove: 1,
     gap: "24rem",
+    drag: false,
+    arrows: false,
+    pagination: false,
     breakpoints: {
       991: {
         // Tablet
-        arrows: false,
+        gap: "24rem",
+        drag: true,
       },
     },
   });
