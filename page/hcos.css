@@ -14,16 +14,16 @@
 
 .heading--28 {
   transition-property: all;
-  transition-duration: 400ms;
+  transition-duration: 300ms;
   transition-timing-function: ease;
-  transition-delay: 0.2s;
+  transition-delay: 0.1s;
 }
 
 .paragraph--16 {
   transition-property: all;
-  transition-duration: 600ms;
+  transition-duration: 300ms;
   transition-timing-function: ease;
-  transition-delay: 0.4s;
+  transition-delay: 0.1s;
 }
 
 .entreprise--item .heading--14,
