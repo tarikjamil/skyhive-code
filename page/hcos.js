@@ -125,6 +125,19 @@ const sketch = (p) => {
   p.draw = () => {
     p.background(220);
 
+    // Get the current scroll position.
+    let scrollY = window.scrollY || window.pageYOffset;
+
+    // Map the scroll position to a value between 0 and 1.
+    // Assumes that the effect should start at the top of the page and finish at the bottom.
+    let scrollRatio = p.map(scrollY, 0, p.height, 0, 1);
+
+    // Adjust the x positions of the balls based on the scroll position.
+    // When at the top of the page, the balls should be apart.
+    // When at the bottom of the page, the balls should be together.
+    ball1.x = p.map(scrollRatio, 0, 1, p.width / 2, p.width / 2 + 100);
+    ball2.x = p.map(scrollRatio, 0, 1, p.width / 2 + 200, p.width / 2 + 100);
+
     let distance = p.dist(ball1.x, ball1.y, ball2.x, ball2.y);
 
     if (distance < ball1.r + ball2.r) {
