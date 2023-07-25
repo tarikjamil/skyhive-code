@@ -31,9 +31,6 @@
 .entreprise--item .paragraph--16 {
   opacity: 0;
   transform: translate(0px, 20rem);
-  transition-property: all;
-  transition-duration: 200ms;
-  transition-timing-function: ease;
 }
 
 .body--new.is--feature-1 .entreprise--item.is--feature1 .heading--14,
