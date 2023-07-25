@@ -17,11 +17,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // slider success stories
 document.addEventListener("DOMContentLoaded", function () {
-  let splide = new Splide(".slider2", {
+  let splide = new Splide(".is--success-stories-slider", {
     type: "slide",
     perPage: 1,
     perMove: 1,
     gap: "56rem",
+    drag: false,
+    arrows: false,
+    pagination: false,
+    breakpoints: {
+      991: {
+        // Tablet
+        gap: "24rem",
+        drag: true,
+      },
+    },
+  });
+  splide.mount();
+});
+
+// slider success stories
+document.addEventListener("DOMContentLoaded", function () {
+  let splide = new Splide(".slider2", {
+    type: "slide",
+    perPage: 1,
+    perMove: 1,
+    gap: "24rem",
     drag: false,
     arrows: false,
     pagination: false,
