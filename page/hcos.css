@@ -6,11 +6,22 @@
   align-self: stretch;
 }
 
+.heading--14,
+.heading--28,
+.paragraph--16 {
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+}
+
 .entreprise--item .heading--14,
 .entreprise--item .heading--28,
 .entreprise--item .paragraph--16 {
   opacity: 0;
   transform: translate(0px, 20rem);
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
 }
 
 .body--new.is--feature-1 .entreprise--item.is--feature1 .heading--14,
