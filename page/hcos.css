@@ -46,3 +46,17 @@
   opacity: 1;
   transform: translate(0px, 0rem);
 }
+
+.body--new.is--feature-3 .entreprise--item.is--feature3 .heading--14,
+.body--new.is--feature-3 .entreprise--item.is--feature3 .heading--28,
+.body--new.is--feature-3 .entreprise--item.is--feature3 .paragraph--16 {
+  opacity: 1;
+  transform: translate(0px, 0rem);
+}
+
+.body--new.is--feature-4 .entreprise--item.is--feature4 .heading--14,
+.body--new.is--feature-4 .entreprise--item.is--feature4 .heading--28,
+.body--new.is--feature-4 .entreprise--item.is--feature4 .paragraph--16 {
+  opacity: 1;
+  transform: translate(0px, 0rem);
+}
