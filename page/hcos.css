@@ -6,11 +6,21 @@
   align-self: stretch;
 }
 
-.heading--14,
-.heading--28,
-.paragraph--16 {
+.heading--14 {
   transition-property: all;
   transition-duration: 200ms;
+  transition-timing-function: ease;
+}
+
+.heading--28 {
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+}
+
+.paragraph--16 {
+  transition-property: all;
+  transition-duration: 400ms;
   transition-timing-function: ease;
 }
 
