@@ -118,8 +118,13 @@ const sketch = (p) => {
     canvas.style("width", "100%");
     canvas.style("height", "100%");
 
-    ball1 = new Ball(p.width / 2, p.height / 2, 50);
-    ball2 = new Ball(p.width / 2 + 200, p.height / 2, 50);
+    // Define initial positions
+    let initialX1 = p.width / 2;
+    let initialY = p.height / 2;
+    let initialX2 = p.width / 2 + 200;
+
+    ball1 = new Ball(initialX1, initialY, 50);
+    ball2 = new Ball(initialX2, initialY, 50);
   };
 
   p.draw = () => {
@@ -130,7 +135,7 @@ const sketch = (p) => {
 
     // Map the scroll position to a value between 0 and 1.
     // Assumes that the effect should start at the top of the page and finish at the bottom.
-    let scrollRatio = p.map(scrollY, 0, p.height, 0, 1);
+    let scrollRatio = p.map(scrollY, 0, document.body.scrollHeight, 0, 1);
 
     // Adjust the x positions of the balls based on the scroll position.
     // When at the top of the page, the balls should be apart.
