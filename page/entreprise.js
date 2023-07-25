@@ -73,7 +73,7 @@ imagesAndAnimations.forEach((item) => {
     ...item.animation,
     scrollTrigger: {
       trigger: ".entreprise--hero-wrapper",
-      start: "top bottom", // when the top of the trigger hits the bottom of the viewport
+      start: "top center", // when the top of the trigger hits the bottom of the viewport
       end: "bottom top", // when the bottom of the trigger hits the top of the viewport
       scrub: true,
     },
