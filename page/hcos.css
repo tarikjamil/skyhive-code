@@ -14,13 +14,13 @@
 
 .heading--28 {
   transition-property: all;
-  transition-duration: 300ms;
+  transition-duration: 400ms;
   transition-timing-function: ease;
 }
 
 .paragraph--16 {
   transition-property: all;
-  transition-duration: 400ms;
+  transition-duration: 600ms;
   transition-timing-function: ease;
 }
 
