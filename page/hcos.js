@@ -106,11 +106,17 @@ window.addEventListener("DOMContentLoaded", (event) => {
 const sketch = (p) => {
   let ball1;
   let ball2;
+  let parentDiv;
 
   p.setup = () => {
-    let canvas = p.createCanvas(p.windowWidth, p.windowHeight);
-    // Here we are setting the parent of the canvas
-    canvas.parent(".img--100.is--feature2");
+    parentDiv = p.select(".img--100.is--feature2");
+    let canvas = p.createCanvas(parentDiv.width, parentDiv.height);
+    canvas.parent(parentDiv);
+
+    // Additional styles to override default canvas styles
+    canvas.style("display", "block");
+    canvas.style("width", "100%");
+    canvas.style("height", "100%");
 
     ball1 = new Ball(p.width / 2, p.height / 2, 50);
     ball2 = new Ball(p.width / 2 + 200, p.height / 2, 50);
