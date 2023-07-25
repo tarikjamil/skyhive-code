@@ -103,34 +103,59 @@ window.addEventListener("DOMContentLoaded", (event) => {
   });
 });
 
-window.onload = () => {
-  const metaballs = document.querySelectorAll(".metaball");
-  const initialPositions = Array.from(metaballs).map((metaball) => {
-    const rect = metaball.getBoundingClientRect();
-    return {
-      left: rect.left,
-      top: rect.top,
-    };
-  });
+let ball1;
+let ball2;
 
-  window.addEventListener("scroll", () => {
-    const triggerSection = document.querySelector(
-      ".hcos--feature-trigger2.is--third"
-    );
-    const triggerPosition =
-      triggerSection.getBoundingClientRect().top + window.scrollY;
-    const isVisible = window.scrollY >= triggerPosition;
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  ball1 = new Ball(width / 2, height / 2, 50);
+  ball2 = new Ball(width / 2 + 200, height / 2, 50);
+}
 
-    if (isVisible) {
-      metaballs[0].style.transform =
-        "translate(" +
-        (metaballs[1].getBoundingClientRect().left - initialPositions[0].left) +
-        "px, " +
-        (metaballs[1].getBoundingClientRect().top - initialPositions[0].top) +
-        "px)";
-    } else {
-      // Update with original position
-      metaballs[0].style.transform = "translate(0px, 0px)";
+function draw() {
+  background(220);
+
+  let distance = dist(ball1.x, ball1.y, ball2.x, ball2.y);
+
+  if (distance < ball1.r + ball2.r) {
+    for (let i = 0; i <= ball1.r; i++) {
+      let inter = map(i, 0, ball1.r, 1, 0.5);
+      let c = lerpColor(
+        color(255, 255, 255, 255 * inter),
+        color(0, 0, 0, 255 * inter),
+        inter
+      );
+      stroke(c);
+      let rad = ball1.r * (1 - inter);
+      ellipse(ball1.x, ball1.y, rad * 2);
     }
-  });
-};
+    for (let i = 0; i <= ball2.r; i++) {
+      let inter = map(i, 0, ball2.r, 1, 0.5);
+      let c = lerpColor(
+        color(255, 255, 255, 255 * inter),
+        color(0, 0, 0, 255 * inter),
+        inter
+      );
+      stroke(c);
+      let rad = ball2.r * (1 - inter);
+      ellipse(ball2.x, ball2.y, rad * 2);
+    }
+  } else {
+    ball1.show();
+    ball2.show();
+  }
+}
+
+class Ball {
+  constructor(x, y, r) {
+    this.x = x;
+    this.y = y;
+    this.r = r;
+  }
+
+  show() {
+    fill(255);
+    stroke(0);
+    ellipse(this.x, this.y, this.r * 2);
+  }
+}
