@@ -103,59 +103,66 @@ window.addEventListener("DOMContentLoaded", (event) => {
   });
 });
 
-let ball1;
-let ball2;
+const sketch = (p) => {
+  let ball1;
+  let ball2;
 
-function setup() {
-  createCanvas(windowWidth, windowHeight);
-  ball1 = new Ball(width / 2, height / 2, 50);
-  ball2 = new Ball(width / 2 + 200, height / 2, 50);
-}
+  p.setup = () => {
+    let canvas = p.createCanvas(p.windowWidth, p.windowHeight);
+    // Here we are setting the parent of the canvas
+    canvas.parent(".img--100.is--feature2");
 
-function draw() {
-  background(220);
+    ball1 = new Ball(p.width / 2, p.height / 2, 50);
+    ball2 = new Ball(p.width / 2 + 200, p.height / 2, 50);
+  };
 
-  let distance = dist(ball1.x, ball1.y, ball2.x, ball2.y);
+  p.draw = () => {
+    p.background(220);
 
-  if (distance < ball1.r + ball2.r) {
-    for (let i = 0; i <= ball1.r; i++) {
-      let inter = map(i, 0, ball1.r, 1, 0.5);
-      let c = lerpColor(
-        color(255, 255, 255, 255 * inter),
-        color(0, 0, 0, 255 * inter),
-        inter
-      );
-      stroke(c);
-      let rad = ball1.r * (1 - inter);
-      ellipse(ball1.x, ball1.y, rad * 2);
+    let distance = p.dist(ball1.x, ball1.y, ball2.x, ball2.y);
+
+    if (distance < ball1.r + ball2.r) {
+      for (let i = 0; i <= ball1.r; i++) {
+        let inter = p.map(i, 0, ball1.r, 1, 0.5);
+        let c = p.lerpColor(
+          p.color(255, 255, 255, 255 * inter),
+          p.color(0, 0, 0, 255 * inter),
+          inter
+        );
+        p.stroke(c);
+        let rad = ball1.r * (1 - inter);
+        p.ellipse(ball1.x, ball1.y, rad * 2);
+      }
+      for (let i = 0; i <= ball2.r; i++) {
+        let inter = p.map(i, 0, ball2.r, 1, 0.5);
+        let c = p.lerpColor(
+          p.color(255, 255, 255, 255 * inter),
+          p.color(0, 0, 0, 255 * inter),
+          inter
+        );
+        p.stroke(c);
+        let rad = ball2.r * (1 - inter);
+        p.ellipse(ball2.x, ball2.y, rad * 2);
+      }
+    } else {
+      ball1.show();
+      ball2.show();
     }
-    for (let i = 0; i <= ball2.r; i++) {
-      let inter = map(i, 0, ball2.r, 1, 0.5);
-      let c = lerpColor(
-        color(255, 255, 255, 255 * inter),
-        color(0, 0, 0, 255 * inter),
-        inter
-      );
-      stroke(c);
-      let rad = ball2.r * (1 - inter);
-      ellipse(ball2.x, ball2.y, rad * 2);
+  };
+
+  class Ball {
+    constructor(x, y, r) {
+      this.x = x;
+      this.y = y;
+      this.r = r;
     }
-  } else {
-    ball1.show();
-    ball2.show();
-  }
-}
 
-class Ball {
-  constructor(x, y, r) {
-    this.x = x;
-    this.y = y;
-    this.r = r;
+    show() {
+      p.fill(255);
+      p.stroke(0);
+      p.ellipse(this.x, this.y, this.r * 2);
+    }
   }
+};
 
-  show() {
-    fill(255);
-    stroke(0);
-    ellipse(this.x, this.y, this.r * 2);
-  }
-}
+new p5(sketch);
