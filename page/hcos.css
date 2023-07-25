@@ -5,3 +5,15 @@
 .splide__slide {
   align-self: stretch;
 }
+
+.entreprise--item .heading--14,
+.entreprise--item .heading--28,
+.entreprise--item .paragraph--16 {
+  opacity: 0;
+  transform: translate(0px, 20rem);
+}
+
+.body--new.is--feature-1 .entreprise--item .heading--14 {
+  opacity: 1;
+  transform: translate(0px, 0rem);
+}
