@@ -103,10 +103,15 @@ window.addEventListener("DOMContentLoaded", (event) => {
   });
 });
 
-//metaballs code
 window.onload = () => {
-  const metaball1 = document.getElementById("metaball1");
-  const metaball2 = document.getElementById("metaball2");
+  const metaballs = document.querySelectorAll(".metaball");
+  const initialPositions = Array.from(metaballs).map((metaball) => {
+    const rect = metaball.getBoundingClientRect();
+    return {
+      left: rect.left,
+      top: rect.top,
+    };
+  });
 
   window.addEventListener("scroll", () => {
     const triggerSection = document.querySelector(
@@ -117,11 +122,15 @@ window.onload = () => {
     const isVisible = window.scrollY >= triggerPosition;
 
     if (isVisible) {
-      metaball1.setAttribute("cx", metaball2.getAttribute("cx"));
-      metaball1.setAttribute("cy", metaball2.getAttribute("cy"));
+      metaballs[0].style.transform =
+        "translate(" +
+        (metaballs[1].getBoundingClientRect().left - initialPositions[0].left) +
+        "px, " +
+        (metaballs[1].getBoundingClientRect().top - initialPositions[0].top) +
+        "px)";
     } else {
-      metaball1.setAttribute("cx", "50");
-      metaball1.setAttribute("cy", "50");
+      // Update with original position
+      metaballs[0].style.transform = "translate(0px, 0px)";
     }
   });
 };
