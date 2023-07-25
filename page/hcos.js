@@ -102,3 +102,31 @@ window.addEventListener("DOMContentLoaded", (event) => {
     });
   });
 });
+
+//metaballs code
+window.onload = () => {
+  const metaballs = document.querySelectorAll(".metaball");
+
+  window.addEventListener("scroll", () => {
+    const triggerSection = document.querySelector(
+      ".hcos--feature-trigger2.is--third"
+    );
+    const triggerPosition =
+      triggerSection.getBoundingClientRect().top + window.scrollY;
+    const isVisible = window.scrollY >= triggerPosition;
+
+    if (isVisible) {
+      metaballs[0].style.transform =
+        "translate(" +
+        metaballs[1].getBoundingClientRect().left +
+        "px, " +
+        metaballs[1].getBoundingClientRect().top +
+        "px)";
+    } else {
+      // Update with original position
+      metaballs[0].style.transform = "translate(0px, 0px)";
+    }
+  });
+};
+
+//splitbee code omitted for brevity
