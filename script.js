@@ -89,3 +89,24 @@ $(".navbar--usecases-dropdown").on("click", function () {
   $(".navbar--usecases-dropdown").toggleClass("is--active");
   $(".navbar--dropwdown-text-wrapper").toggleClass("is--active");
 });
+
+// slider success stories
+document.addEventListener("DOMContentLoaded", function () {
+  let splide = new Splide(".is--slider-products", {
+    type: "slide",
+    perPage: 1,
+    perMove: 1,
+    gap: "24rem",
+    drag: false,
+    arrows: false,
+    pagination: false,
+    breakpoints: {
+      991: {
+        // Tablet
+        gap: "24rem",
+        drag: true,
+      },
+    },
+  });
+  splide.mount();
+});
