@@ -5,3 +5,11 @@
 .splide__slide {
   align-self: stretch;
 }
+
+.home--accordion-trigger.open .icon--15 {
+  transform: rotate(180deg);
+}
+
+.home--accordion-response {
+  height: 0px;
+}
