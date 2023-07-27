@@ -23,5 +23,5 @@
 }
 
 .hs-dependent-field {
-  grid-column: 2;
+  grid-column-start: span 2;
 }
