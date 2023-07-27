@@ -32,3 +32,8 @@
   grid-column-gap: 24rem;
   grid-row-gap: 24rem;
 }
+
+.hs-dependent-field ul label {
+  display: flex;
+  column-gap: 8rem;
+}
