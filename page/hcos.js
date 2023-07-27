@@ -43,6 +43,7 @@ $(".is--hcos--graph-parent").each(function (index) {
   });
 });
 
+// HCOS grid
 $(".hcos--grid-os").each(function (index) {
   let triggerElement = $(this);
 
@@ -62,12 +63,14 @@ $(".hcos--grid-os").each(function (index) {
     x: "-50rem",
     opacity: 0,
     duration: 0.6,
+    delay: -0.3,
     stagger: { each: 0.1, from: "start" },
   });
   tl.from($(this).find(".flex--24gap.is--second").find(".hcos--os-element"), {
     x: "50rem",
     opacity: 0,
     duration: 0.6,
+    delay: -0.3,
     stagger: { each: 0.1, from: "start" },
   });
 });
