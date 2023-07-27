@@ -64,7 +64,7 @@ $(".is--hcos--graph-parent").each(function (index) {
     scale: 0.2,
     opacity: 0,
     duration: 1,
-    delay: 0.5,
+    delay: -1,
     stagger: { each: 0.1, from: "start" },
   });
 });
