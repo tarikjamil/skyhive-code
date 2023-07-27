@@ -18,7 +18,7 @@ $(".is--hcos--graph-parent").each(function (index) {
     scale: 0.2,
     opacity: 0,
     duration: 0.6,
-    delay: 0.5,
+    delay: 0.4,
     ease: "power1.out",
     stagger: { each: 0.1, from: "start" },
   });
@@ -26,7 +26,7 @@ $(".is--hcos--graph-parent").each(function (index) {
     scale: 0.2,
     opacity: 0,
     duration: 0.6,
-    delay: 0.5,
+    delay: 0.4,
     ease: "power1.out",
     stagger: { each: 0.1, from: "start" },
   });
@@ -34,7 +34,7 @@ $(".is--hcos--graph-parent").each(function (index) {
     scale: 0.2,
     opacity: 0,
     duration: 0.6,
-    delay: 0.5,
+    delay: 0.4,
     ease: "power1.out",
     stagger: { each: 0.1, from: "start" },
   });
@@ -42,7 +42,7 @@ $(".is--hcos--graph-parent").each(function (index) {
     scale: 0.2,
     opacity: 0,
     duration: 0.6,
-    delay: -1,
+    delay: -0.6,
     ease: "power1.out",
     stagger: { each: 0.1, from: "start" },
   });
