@@ -83,7 +83,7 @@
   border-top-right-radius: 300rem !important;
   border-bottom-left-radius: 300rem !important;
   border-bottom-right-radius: 300rem !important;
-  background-color: transparent;
+  background-color: transparent !important;
   color: #b71871;
   font-size: 16rem !important;
   line-height: 1;
