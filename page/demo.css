@@ -67,48 +67,25 @@
   padding-left: 24rem;
   border-top-style: solid;
   border-top-width: 1px;
-  border-top-color: @swatch_bc158ebd;
+  border-top-color: #b71871;
   border-right-style: solid;
   border-right-width: 1px;
-  border-right-color: @swatch_bc158ebd;
+  border-right-color: #b71871;
   border-bottom-style: solid;
   border-bottom-width: 1px;
-  border-bottom-color: @swatch_bc158ebd;
+  border-bottom-color: #b71871;
   border-left-style: solid;
   border-left-width: 1px;
-  border-left-color: @swatch_bc158ebd;
+  border-left-color: #b71871;
   border-top-left-radius: 300rem;
   border-top-right-radius: 300rem;
   border-bottom-left-radius: 300rem;
   border-bottom-right-radius: 300rem;
   background-color: transparent;
-  color: @swatch_bc158ebd;
+  color: #b71871;
   font-size: 16rem;
   line-height: 1;
   font-weight: 700;
-}
-
-.hs-button:hover {
-  border-top-color: @swatch_f0b3c692;
-  border-right-color: @swatch_f0b3c692;
-  border-bottom-color: @swatch_f0b3c692;
-  border-left-color: @swatch_f0b3c692;
-  background-color: hsla(0, 0%, 17.65%, 1);
-  color: hsla(0, 0%, 100%, 1);
-}
-
-.hs-button:small {
-  width: 100%;
-  text-align: center;
-}
-
-.hs-button {
-  border-top-color: @swatch_b4588a79;
-  border-right-color: @swatch_b4588a79;
-  border-bottom-color: @swatch_b4588a79;
-  border-left-color: @swatch_b4588a79;
-  background-color: @swatch_b4588a79;
-  color: hsla(0, 0%, 100%, 1);
 }
 
 .hs-button:hover {
@@ -116,5 +93,11 @@
   border-right-color: #d467a6;
   border-bottom-color: #d467a6;
   border-left-color: #d467a6;
-  background-color: #d467a6;
+  background-color: hsla(0, 0%, 17.65%, 1);
+  color: hsla(0, 0%, 100%, 1);
+}
+
+.hs-button:small {
+  width: 100%;
+  text-align: center;
 }
