@@ -36,26 +36,35 @@ $(".is--hcos--graph-parent").each(function (index) {
   tl.from($(this).find(".img--320"), {
     scale: 0.2,
     opacity: 0,
+    duration: 1,
     stagger: { each: 0.1, from: "start" },
   });
   tl.from($(this).find(".img--100.is--rotating"), {
     scale: 0.2,
     opacity: 0,
+    duration: 1,
+    delay: 0.5,
     stagger: { each: 0.1, from: "start" },
   });
   tl.from($(this).find(".hcos--rotating-text.is--big"), {
     scale: 0.2,
     opacity: 0,
+    duration: 1,
+    delay: 0.5,
     stagger: { each: 0.1, from: "start" },
   });
   tl.from($(this).find(".hcos--rotating-text.is--small"), {
     scale: 0.2,
     opacity: 0,
+    duration: 1,
+    delay: 0.5,
     stagger: { each: 0.1, from: "start" },
   });
   tl.from($(this).find(".is--rotating-reverse"), {
     scale: 0.2,
     opacity: 0,
+    duration: 1,
+    delay: 0.5,
     stagger: { each: 0.1, from: "start" },
   });
 });
