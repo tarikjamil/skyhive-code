@@ -103,3 +103,9 @@
   width: 100%;
   text-align: center;
 }
+
+.hs-error-msgs label {
+  color: #b71871;
+  font-size: 10rem;
+  font-weight: 700;
+}
