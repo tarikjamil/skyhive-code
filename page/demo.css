@@ -25,3 +25,10 @@
 .hs-dependent-field {
   grid-column-start: span 2;
 }
+
+.hs-dependent-field ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 24rem;
+  grid-row-gap: 24rem;
+}
