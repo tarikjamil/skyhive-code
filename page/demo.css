@@ -119,4 +119,5 @@ ul.hs-error-msgs {
 .hs-richtext a {
   color: #b71871;
   text-decoration: none;
+  font-weight: bold;
 }
