@@ -24,7 +24,7 @@ ScrollTrigger.matchMedia({
   },
 });
 
-$(".hcos--rotating-img").each(function (index) {
+$(".is--hcos--graph-parent").each(function (index) {
   let triggerElement = $(this);
 
   let tl = gsap.timeline({
