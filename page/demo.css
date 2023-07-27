@@ -61,29 +61,29 @@
 }
 
 .hs-button {
-  padding-top: 16rem;
-  padding-right: 24rem;
-  padding-bottom: 16rem;
-  padding-left: 24rem;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #b71871;
-  border-right-style: solid;
-  border-right-width: 1px;
-  border-right-color: #b71871;
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-  border-bottom-color: #b71871;
-  border-left-style: solid;
-  border-left-width: 1px;
-  border-left-color: #b71871;
-  border-top-left-radius: 300rem;
-  border-top-right-radius: 300rem;
-  border-bottom-left-radius: 300rem;
-  border-bottom-right-radius: 300rem;
+  padding-top: 16rem !important;
+  padding-right: 24rem !important;
+  padding-bottom: 16rem !important;
+  padding-left: 24rem !important;
+  border-top-style: solid !important;
+  border-top-width: 1px !important;
+  border-top-color: #b71871 !important;
+  border-right-style: solid !important;
+  border-right-width: 1px !important;
+  border-right-color: #b71871 !important;
+  border-bottom-style: solid !important;
+  border-bottom-width: 1px !important;
+  border-bottom-color: #b71871 !important;
+  border-left-style: solid !important;
+  border-left-width: 1px !important;
+  border-left-color: #b71871 !important;
+  border-top-left-radius: 300rem !important;
+  border-top-right-radius: 300rem !important;
+  border-bottom-left-radius: 300rem !important;
+  border-bottom-right-radius: 300rem !important;
   background-color: transparent;
   color: #b71871;
-  font-size: 16rem;
+  font-size: 16rem !important;
   line-height: 1;
   font-weight: 700;
 }
