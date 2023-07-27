@@ -1,6 +1,8 @@
 .hbspt-form input {
   font-size: 16rem;
   padding: 8rem;
+  padding-left: 24rem;
+  padding-right: 24rem;
   border-radius: 4rem;
   background-color: white;
   border-color: #8e8e8e;
