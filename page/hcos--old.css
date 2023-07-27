@@ -1,0 +1,144 @@
+.splide__track {
+  overflow: visible;
+}
+
+.splide__slide {
+  align-self: stretch;
+}
+
+.heading--14 {
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+}
+
+.heading--28 {
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+  transition-delay: 0.05s;
+}
+
+.paragraph--16 {
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+  transition-delay: 0.1s;
+}
+
+.hcos--animation-1 {
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+}
+
+.hcos--animation-2 {
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+  transition-delay: 0.1s;
+}
+
+.hcos--grid-animation-1-lines {
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+  transition-delay: 0.2s;
+}
+
+.img--100.is--feature2,
+.img--100.is--feature3,
+.img--100.is--feature4 {
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+  transition-delay: 0.1s;
+}
+
+.entreprise--item .heading--14,
+.entreprise--item .heading--28,
+.entreprise--item .paragraph--16 {
+  opacity: 0;
+  transform: translate(0px, 20rem);
+}
+
+.hcos--animation-1 {
+  opacity: 0;
+  transform: translate(0px, -20rem);
+}
+
+.hcos--grid-animation-1-lines {
+  opacity: 0;
+}
+
+.hcos--animation-2 {
+  opacity: 0;
+  transform: translate(0px, 20rem);
+}
+
+.img--100.is--feature2,
+.img--100.is--feature3,
+.img--100.is--feature4 {
+  opacity: 0;
+  transform: translate(0px, 20rem);
+}
+
+.body--new.is--feature-1 .entreprise--item.is--feature1 .heading--14,
+.body--new.is--feature-1 .entreprise--item.is--feature1 .heading--28,
+.body--new.is--feature-1 .entreprise--item.is--feature1 .paragraph--16 {
+  opacity: 1;
+  transform: translate(0px, 0rem);
+}
+
+.body--new.is--feature-1 .hcos--animation-1 {
+  opacity: 1;
+  transform: translate(0px, 0rem);
+}
+
+.body--new.is--feature-1 .hcos--animation-2 {
+  opacity: 1;
+  transform: translate(0px, 0rem);
+}
+
+.body--new.is--feature-1 .hcos--grid-animation-1-lines {
+  opacity: 1;
+}
+
+.body--new.is--feature-2 .entreprise--item.is--feature2 .heading--14,
+.body--new.is--feature-2 .entreprise--item.is--feature2 .heading--28,
+.body--new.is--feature-2 .entreprise--item.is--feature2 .paragraph--16 {
+  opacity: 1;
+  transform: translate(0px, 0rem);
+}
+
+.body--new.is--feature-2 .img--100.is--feature2 {
+  opacity: 1;
+  transform: translate(0px, 0rem);
+}
+
+.body--new.is--feature-3 .entreprise--item.is--feature3 .heading--14,
+.body--new.is--feature-3 .entreprise--item.is--feature3 .heading--28,
+.body--new.is--feature-3 .entreprise--item.is--feature3 .paragraph--16 {
+  opacity: 1;
+  transform: translate(0px, 0rem);
+}
+
+.body--new.is--feature-3 .img--100.is--feature2 {
+  opacity: 1;
+  transform: translate(0px, 0rem);
+}
+
+.body--new.is--feature-4 .entreprise--item.is--feature4 .heading--14,
+.body--new.is--feature-4 .entreprise--item.is--feature4 .heading--28,
+.body--new.is--feature-4 .entreprise--item.is--feature4 .paragraph--16 {
+  opacity: 1;
+  transform: translate(0px, 0rem);
+}
+
+.body--new.is--feature-4 .img--100.is--feature4 {
+  opacity: 1;
+  transform: translate(0px, 0rem);
+}
+.metaball {
+  transition: transform 0.5s ease;
+}
