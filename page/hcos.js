@@ -30,7 +30,7 @@ $(".is--hcos--graph-parent").each(function (index) {
   let tl = gsap.timeline({
     scrollTrigger: {
       trigger: triggerElement,
-      start: "top center",
+      start: "top center-=100",
     },
   });
   tl.from($(this).find(".img--320"), {
