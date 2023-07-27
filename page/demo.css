@@ -115,3 +115,8 @@ ul.hs-error-msgs {
   padding-left: 0rem;
   margin-bottom: 0rem;
 }
+
+.hs-richtext a {
+  color: #b71871;
+  text-decoration: none;
+}
