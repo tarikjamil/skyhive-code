@@ -36,4 +36,12 @@
 .hs-dependent-field ul label {
   display: flex;
   column-gap: 8rem;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.hs-dependent-field ul input {
+  width: 16rem;
+  height: 16rem;
 }
