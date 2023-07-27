@@ -19,7 +19,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 24rem;
-  grid-row-gap: 24rem;
+  grid-row-gap: 16rem;
 }
 
 .hs-dependent-field {
@@ -30,9 +30,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 24rem;
-  grid-row-gap: 24rem;
+  grid-row-gap: 16rem;
   padding-left: 0px;
-  padding-top: 24rem;
+  padding-top: 16rem;
   margin-bottom: 0rem;
 }
 
