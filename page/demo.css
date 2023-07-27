@@ -1,7 +1,18 @@
 .hbspt-form input {
   font-size: 16rem;
+  padding: 8rem;
+  border-radius: 4rem;
+  background-color: white;
+  border-color: #8e8e8e;
+  border-style: solid;
 }
 
 .hbspt-form label {
   font-size: 16rem;
+}
+
+.form-columns-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 24rem;
 }
