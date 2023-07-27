@@ -1,23 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-  let splide = new Splide(".slider-resources", {
-    type: "slide",
-    perPage: 1,
-    perMove: 1,
-    gap: "24rem",
-    drag: false,
-    arrows: false,
-    pagination: false,
-    breakpoints: {
-      991: {
-        // Tablet
-        gap: "24rem",
-        drag: true,
-      },
-    },
-  });
-  splide.mount();
-});
-
 ScrollTrigger.matchMedia({
   "(min-width: 992px)": function () {
     gsap.from(".flex--24gap.is--first", {
@@ -42,6 +22,42 @@ ScrollTrigger.matchMedia({
       y: "-100rem",
     });
   },
+});
+
+$(".hcos--rotating-img").each(function (index) {
+  let triggerElement = $(this);
+
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: triggerElement,
+      start: "top center",
+    },
+  });
+  tl.from($(this).find(".img--320"), {
+    scale: 0.5,
+    opacity: 0,
+    stagger: { each: 0.1, from: "start" },
+  });
+  tl.from($(this).find(".img--100.is--rotating"), {
+    scale: 0.5,
+    opacity: 0,
+    stagger: { each: 0.1, from: "start" },
+  });
+  tl.from($(this).find(".hcos--rotating-text.is--big"), {
+    scale: 0.5,
+    opacity: 0,
+    stagger: { each: 0.1, from: "start" },
+  });
+  tl.from($(this).find(".hcos--rotating-text.is--small"), {
+    scale: 0.5,
+    opacity: 0,
+    stagger: { each: 0.1, from: "start" },
+  });
+  tl.from($(this).find(".is--rotating-reverse"), {
+    scale: 0.5,
+    opacity: 0,
+    stagger: { each: 0.1, from: "start" },
+  });
 });
 
 // PAGE COLOR POWER-UP
