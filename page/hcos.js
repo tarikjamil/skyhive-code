@@ -11,6 +11,7 @@ $(".is--hcos--graph-parent").each(function (index) {
     scale: 0.2,
     opacity: 0,
     duration: 0.6,
+    ease: "power1.out",
     stagger: { each: 0.1, from: "start" },
   });
   tl.from($(this).find(".img--100.is--rotating"), {
@@ -18,6 +19,7 @@ $(".is--hcos--graph-parent").each(function (index) {
     opacity: 0,
     duration: 0.6,
     delay: 0.5,
+    ease: "power1.out",
     stagger: { each: 0.1, from: "start" },
   });
   tl.from($(this).find(".hcos--rotating-text.is--big"), {
@@ -25,6 +27,7 @@ $(".is--hcos--graph-parent").each(function (index) {
     opacity: 0,
     duration: 0.6,
     delay: 0.5,
+    ease: "power1.out",
     stagger: { each: 0.1, from: "start" },
   });
   tl.from($(this).find(".hcos--rotating-text.is--small"), {
@@ -32,6 +35,7 @@ $(".is--hcos--graph-parent").each(function (index) {
     opacity: 0,
     duration: 0.6,
     delay: 0.5,
+    ease: "power1.out",
     stagger: { each: 0.1, from: "start" },
   });
   tl.from($(this).find(".is--rotating-reverse"), {
@@ -39,6 +43,7 @@ $(".is--hcos--graph-parent").each(function (index) {
     opacity: 0,
     duration: 0.6,
     delay: -1,
+    ease: "power1.out",
     stagger: { each: 0.1, from: "start" },
   });
 });
@@ -57,6 +62,7 @@ $(".hcos--grid-os").each(function (index) {
     y: "50rem",
     opacity: 0,
     duration: 0.6,
+    ease: "power1.out",
     stagger: { each: 0.1, from: "start" },
   });
   tl.from($(this).find(".flex--24gap.is--first").find(".hcos--os-element"), {
@@ -64,6 +70,7 @@ $(".hcos--grid-os").each(function (index) {
     opacity: 0,
     duration: 0.6,
     delay: -0.3,
+    ease: "power1.out",
     stagger: { each: 0.1, from: "start" },
   });
   tl.from($(this).find(".flex--24gap.is--second").find(".hcos--os-element"), {
@@ -71,6 +78,7 @@ $(".hcos--grid-os").each(function (index) {
     opacity: 0,
     duration: 0.6,
     delay: -0.3,
+    ease: "power1.out",
     stagger: { each: 0.1, from: "start" },
   });
 });
