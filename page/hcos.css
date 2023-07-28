@@ -92,11 +92,11 @@
 }
 
 .container--1032.is--hcos-features {
-  margin-bottom: calc(50vh - 300rem);
+  margin-bottom: calc(300rem - 50vh);
 }
 
 .entreprise--item.is--feature4 {
-  margin-bottom: calc(300rem - 50vh);
+  margin-bottom: calc(50vh - 300rem);
 }
 
 @media (max-width: 991px) {
