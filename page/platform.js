@@ -33,7 +33,7 @@ $(".platform--graph-parent").each(function (index) {
     x: "20rem",
     opacity: 0,
     duration: 0.6,
-    delay: -0.6,
+    delay: -0.3,
     ease: "power1.out",
   });
 
