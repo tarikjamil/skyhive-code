@@ -11,7 +11,7 @@ $(".platform--graph-parent img").each(function (index) {
   tl.from(targetElement, {
     y: "20rem",
     opacity: 0,
-    duration: 0.6,
+    duration: 0.3,
     ease: "power1.out",
   });
 });
