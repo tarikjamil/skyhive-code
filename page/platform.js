@@ -9,7 +9,6 @@ $(".platform--graph-parent img").each(function (index) {
     },
   });
   tl.from(targetElement, {
-    scale: 0.2,
     y: "20rem",
     opacity: 0,
     duration: 0.6,
