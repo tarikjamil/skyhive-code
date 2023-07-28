@@ -134,3 +134,7 @@ ul.hs-error-msgs {
   text-decoration: none;
   font-weight: bold;
 }
+
+.hs_numemployees.hs-numemployees {
+  padding-top: 16rem !important;
+}
