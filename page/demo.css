@@ -11,6 +11,19 @@
   width: 100%;
 }
 
+.hbspt-form select {
+  font-size: 12rem;
+  padding: 8rem;
+  padding-left: 24rem;
+  padding-right: 24rem;
+  border-radius: 28rem;
+  background-color: #ffffff;
+  border-color: #eef3f2;
+  border-style: solid;
+  border-width: 1px;
+  width: 100%;
+}
+
 .hbspt-form label {
   font-size: 12rem;
   font-weight: normal;
