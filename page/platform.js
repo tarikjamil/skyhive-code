@@ -13,6 +13,7 @@ $(".platform--graph-parent").each(function (index) {
     opacity: 0,
     duration: 0.3,
     ease: "power1.out",
+    stagger: { each: 0.1, from: "start" },
   });
 
   tl.from(".platform--graph-img-6", {
