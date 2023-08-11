@@ -6,7 +6,14 @@
   background-color: #fff;
 }
 
+.is--features-section {
+  margin-top: -300rem;
+}
+
 @media (max-width: 991px) {
+  .is--features-section {
+    margin-top: 0rem;
+  }
 }
 
 .splide__track {
