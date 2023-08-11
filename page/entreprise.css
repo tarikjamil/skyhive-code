@@ -40,7 +40,7 @@
   transition-duration: 500ms;
 }
 
-.body--new.is--feature-1 .feature-item-image--parent.is--1 img {
+.body--new.is--feature1 .feature-item-image--parent.is--1 img {
   opacity: 1;
   top: 0;
   left: 0;
