@@ -18,28 +18,28 @@
   opacity: 0;
 }
 
-.feature-item-image--parent .img.is--1 {
+.feature-item-image--parent .is--1 {
   top: -20rem;
   transition-duration: 200ms;
   transition-property: all;
   transition-timing-function: ease;
 }
 
-.feature-item-image--parent .img.is--2 {
+.feature-item-image--parent .is--2 {
   top: 20rem;
   transition-duration: 300ms;
   transition-property: all;
   transition-timing-function: ease;
 }
 
-.feature-item-image--parent .img.is--3 {
+.feature-item-image--parent .is--3 {
   left: -20rem;
   transition-duration: 400ms;
   transition-property: all;
   transition-timing-function: ease;
 }
 
-.feature-item-image--parent .img.is--4 {
+.feature-item-image--parent .is--4 {
   left: 20rem;
   transition-duration: 500ms;
   transition-property: all;
