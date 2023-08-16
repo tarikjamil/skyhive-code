@@ -88,3 +88,20 @@ $(".platform--graph-parent").each(function (index) {
     stagger: { each: 0.1, from: "start" },
   });
 });
+
+// slider
+document.addEventListener("DOMContentLoaded", function () {
+  let splide = new Splide(".slider1", {
+    type: "slide",
+    perPage: 1,
+    perMove: 1,
+    gap: "24rem",
+    breakpoints: {
+      991: {
+        // Tablet
+        arrows: false,
+      },
+    },
+  });
+  splide.mount();
+});
