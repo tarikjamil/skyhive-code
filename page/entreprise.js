@@ -74,7 +74,7 @@ imagesAndAnimations.forEach((item) => {
     scrollTrigger: {
       trigger: ".section.is--home-hero",
       start: "top top", // when the top of the trigger hits the bottom of the viewport
-      end: "bottom -=300", // when the bottom of the trigger hits the top of the viewport
+      end: "bottom -=100", // when the bottom of the trigger hits the top of the viewport
       scrub: true,
     },
   });
