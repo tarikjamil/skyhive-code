@@ -72,9 +72,9 @@ imagesAndAnimations.forEach((item) => {
   gsap.fromTo(item.selector, item.initial, {
     ...item.animation,
     scrollTrigger: {
-      trigger: ".entreprise--hero-wrapper",
-      start: "top center", // when the top of the trigger hits the bottom of the viewport
-      end: "center center", // when the bottom of the trigger hits the top of the viewport
+      trigger: ".section.is--home-hero",
+      start: "top top", // when the top of the trigger hits the bottom of the viewport
+      end: "bottom -=300", // when the bottom of the trigger hits the top of the viewport
       scrub: true,
     },
   });
