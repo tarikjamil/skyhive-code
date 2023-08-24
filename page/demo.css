@@ -77,13 +77,13 @@
 }
 
 .hs-button {
-  color: #fff;
+  color: #fff !important;
   letter-spacing: -0.04em;
-  background-color: #334ceb;
-  border: 1px solid #334ceb;
-  border-radius: 4rem;
-  padding: 14rem 32rem;
-  font-size: 16rem;
+  background-color: #334ceb !important;
+  border: 1px solid #334ceb !important;
+  border-radius: 4rem !important;
+  padding: 14rem 32rem !important;
+  font-size: 16rem !important;
   font-weight: 700;
   line-height: 1.25;
   text-decoration: none;
