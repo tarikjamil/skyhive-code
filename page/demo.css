@@ -137,4 +137,12 @@ ul.hs-error-msgs {
   .hs-dependent-field ul {
     grid-template-columns: 1fr;
   }
+
+  .hbspt-form form {
+    grid-template-columns: 1fr;
+  }
+
+  .hs-dependent-field {
+    grid-column-start: span 1;
+  }
 }
