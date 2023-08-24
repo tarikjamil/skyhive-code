@@ -121,3 +121,8 @@ ul.hs-error-msgs {
 .hs_numemployees.hs-numemployees {
   padding-top: 16rem !important;
 }
+
+.no-list.hs-error-msgs.inputs-list {
+  padding-top: 16rem !important;
+  padding-bottom: 16rem !important;
+}
