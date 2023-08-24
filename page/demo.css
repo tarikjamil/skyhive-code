@@ -145,4 +145,8 @@ ul.hs-error-msgs {
   .hs-dependent-field {
     grid-column-start: span 1;
   }
+
+  .legal-consent-container {
+    grid-column-start: span 1;
+  }
 }
