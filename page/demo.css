@@ -127,3 +127,14 @@ ul.hs-error-msgs {
   padding-top: 16rem !important;
   padding-bottom: 16rem !important;
 }
+
+.hs-dependent-field {
+  display: grid;
+  grid-row-gap: 16rem;
+}
+
+@media (max-width: 991px) {
+  .hs-dependent-field ul {
+    grid-template-columns: 1fr;
+  }
+}
