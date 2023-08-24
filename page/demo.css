@@ -9,6 +9,7 @@
   border-style: solid;
   border-width: 1px;
   width: 100%;
+  color: #20212e;
 }
 
 .hbspt-form select {
@@ -27,7 +28,7 @@
 .hbspt-form label {
   font-size: 12rem;
   font-weight: normal;
-  color: #8e8e8e;
+  color: #20212e;
 }
 
 .hbspt-form form {
@@ -72,7 +73,7 @@
 .hs-richtext p {
   margin-bottom: 10rem;
   font-size: 12rem;
-  color: black;
+  color: #20212e;
 }
 
 .hs-button {
@@ -100,7 +101,7 @@
 }
 
 .hs-error-msgs label {
-  color: #334ceb;
+  color: #20212e;
   font-size: 10rem;
   font-weight: 700;
   padding-top: 8rem;
@@ -112,7 +113,7 @@ ul.hs-error-msgs {
 }
 
 .hs-richtext a {
-  color: #b71871;
+  color: #334ceb;
   text-decoration: none;
   font-weight: bold;
 }
