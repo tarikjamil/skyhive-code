@@ -123,6 +123,7 @@ ul.hs-error-msgs {
 }
 
 .no-list.hs-error-msgs.inputs-list {
+  display: block !important;
   padding-top: 16rem !important;
   padding-bottom: 16rem !important;
 }
