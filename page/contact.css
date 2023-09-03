@@ -22,7 +22,7 @@
   border-color: #ebedfd;
   border-style: solid;
   border-width: 1px;
-  width: 100%;
+  width: 100% !important;
   color: #20212e;
   min-height: 200rem;
 }
