@@ -148,8 +148,15 @@ ul.hs-error-msgs {
   grid-row-gap: 16rem;
 }
 
-.form-columns-2 {
+.form-columns-2,
+.form-columns-1 {
   grid-column-start: span 2;
+  width: 100%;
+  max-width: none !important;
+}
+
+.hs_submit.hs-submit {
+  display: inline-block !important;
 }
 
 @media (max-width: 991px) {
