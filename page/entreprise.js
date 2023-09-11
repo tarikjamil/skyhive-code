@@ -72,11 +72,11 @@ imagesAndAnimations.forEach((item) => {
   gsap.fromTo(item.selector, item.initial, {
     ...item.animation,
     scrollTrigger: {
-      trigger: ".section.is--hero .container--856",
+      trigger: ".section.is--scroll-fixed",
       start: "top top", // when the top of the trigger hits the bottom of the viewport
-      end: "bottom top", // when the bottom of the trigger hits the top of the viewport
+      end: "bottom bottom", // when the bottom of the trigger hits the top of the viewport
       scrub: true,
-      markers: false,
+      markers: true,
     },
   });
 });
