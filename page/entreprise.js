@@ -76,7 +76,7 @@ imagesAndAnimations.forEach((item) => {
       start: "top top", // when the top of the trigger hits the bottom of the viewport
       end: "bottom bottom", // when the bottom of the trigger hits the top of the viewport
       scrub: true,
-      markers: true,
+      markers: false,
     },
   });
 });
