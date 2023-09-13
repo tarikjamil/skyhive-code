@@ -34,3 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   splide.mount();
 });
+
+$(".about-team-bg").on("click", function () {
+  $(".about-team-close").click();
+});
