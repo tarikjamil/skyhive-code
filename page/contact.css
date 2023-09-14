@@ -10,6 +10,9 @@
   border-width: 1px;
   width: 100%;
   color: #20212e;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
 }
 
 .hbspt-form textarea {
