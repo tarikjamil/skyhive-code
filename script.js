@@ -153,21 +153,26 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  let splide = new Splide(".is--related-ressources", {
-    type: "slide",
-    perPage: 1,
-    perMove: 1,
-    gap: "24rem",
-    drag: false,
-    arrows: false,
-    pagination: false,
-    breakpoints: {
-      991: {
-        // Tablet
-        gap: "24rem",
-        drag: true,
+  // Get all the elements with the class .is--related-ressources
+  let splides = document.querySelectorAll(".is--resources-slider");
+
+  // Loop through each element and create a Splide instance
+  splides.forEach(function (el) {
+    new Splide(el, {
+      type: "slide",
+      perPage: 1,
+      perMove: 1,
+      gap: "24rem",
+      drag: false,
+      arrows: false,
+      pagination: false,
+      breakpoints: {
+        991: {
+          // Tablet
+          gap: "24rem",
+          drag: true,
+        },
       },
-    },
+    }).mount();
   });
-  splide.mount();
 });
