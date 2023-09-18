@@ -43,6 +43,8 @@
   border-left-width: 1px;
   border-left-color: black;
   color: #20212e;
+  width: 100%;
+  font-size: 14rem;
 }
 
 .footer--form-block .hs-button.primary.large {
