@@ -90,6 +90,11 @@
   grid-column-start: span 2;
 }
 
+.embed--form input.hs-button.primary.large {
+  max-width: none !important;
+  color: white !important;
+}
+
 .embed--form p {
   margin-bottom: 10rem;
   font-size: 12rem;
@@ -179,10 +184,5 @@
 
   .embed--form .legal-consent-container {
     grid-column-start: span 1;
-  }
-
-  .embed--form input.hs-button.primary.large {
-    max-width: none !important;
-    color: white !important;
   }
 }
