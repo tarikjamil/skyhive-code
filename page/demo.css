@@ -80,6 +80,11 @@
   grid-column-start: span 2;
 }
 
+.hs-form-checkbox-display {
+  display: flex;
+  column-gap: 8rem;
+}
+
 .embed--form p {
   margin-bottom: 10rem;
   font-size: 12rem;
