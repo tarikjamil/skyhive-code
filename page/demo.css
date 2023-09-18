@@ -77,7 +77,7 @@
   max-width: 16rem;
 }
 
-.hs-form-checkbox in .embed--form .legal-consent-container {
+.embed--form .legal-consent-container {
   grid-column-start: span 2;
 }
 
