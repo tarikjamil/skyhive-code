@@ -71,11 +71,6 @@
   border-color: transparent;
 }
 
-.footer--form-block .hs-button.primary.large:medium {
-  position: static;
-  height: 56rem;
-}
-
 .footer--form-block .hs-button.primary.large:hover {
   background-color: #080d27;
   color: white;
@@ -92,11 +87,18 @@
   background-color: hsla(0, 0%, 100%, 0.9);
 }
 
-.footer--form-block .input:medium {
-  display: flex;
-  overflow: visible;
-  height: auto;
-  flex-direction: column;
-  grid-row-gap: 16rem;
-  background-color: transparent;
+@media screen and (max-width: 768px) {
+  .footer--form-block .hs-button.primary.large {
+    position: static;
+    height: 56rem;
+  }
+
+  .footer--form-block .input {
+    display: flex;
+    overflow: visible;
+    height: auto;
+    flex-direction: column;
+    grid-row-gap: 16rem;
+    background-color: transparent;
+  }
 }
