@@ -92,6 +92,10 @@
   font-size: 12rem;
 }
 
+.footer--form-block a {
+  color: #d3f48b;
+}
+
 @media screen and (max-width: 768px) {
   .footer--form-block .hs-button.primary.large {
     position: static;
