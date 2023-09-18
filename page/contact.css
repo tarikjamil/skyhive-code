@@ -183,4 +183,5 @@ ul.hs-error-msgs {
 }
 input.hs-button.primary.large {
   max-width: none !important;
+  color: white !important;
 }
