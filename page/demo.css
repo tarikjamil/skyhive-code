@@ -69,12 +69,14 @@
   margin-bottom: 0rem;
 }
 
-.hs-dependent-field ul input {
+.hs-dependent-field ul input,
+.hs-form-checkbox input {
   width: 16rem !important;
   height: 16rem;
+  max-width: 16rem;
 }
 
-.embed--form .legal-consent-container {
+.hs-form-checkbox in .embed--form .legal-consent-container {
   grid-column-start: span 2;
 }
 
