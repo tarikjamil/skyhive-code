@@ -161,3 +161,7 @@
 .embed--form input.hs-button.primary.large {
   max-width: none !important;
 }
+
+.legal-consent-container .hs-form-booleancheckbox-display > span {
+  margin-left: 0px !important;
+}
