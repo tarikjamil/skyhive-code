@@ -47,6 +47,7 @@
 .embed--form .form-columns-1 {
   grid-column-start: span 2;
   width: 100%;
+  max-width: none;
 }
 
 .embed--form .hs-dependent-field ul {
