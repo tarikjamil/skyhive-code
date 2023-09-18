@@ -87,8 +87,9 @@
   background-color: hsla(0, 0%, 100%, 0.9);
 }
 
-.footer--form-block label {
-  font-size: 16rem;
+.footer--form-block label,
+.footer--form-block .hs-richtext {
+  font-size: 12rem;
 }
 
 @media screen and (max-width: 768px) {
