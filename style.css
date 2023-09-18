@@ -25,3 +25,54 @@
 .splide__slide {
   align-self: stretch;
 }
+
+.footer--form-block .hs-input {
+  height: 56rem;
+  margin-bottom: 0px;
+  padding-left: 32rem;
+  border-top-style: none;
+  border-top-width: 1px;
+  border-top-color: black;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: black;
+  border-bottom-style: none;
+  border-bottom-width: 1px;
+  border-bottom-color: black;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: black;
+  color: #20212e;
+}
+
+.footer--form-block .hs-button.primary.large {
+  position: absolute;
+  left: auto;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  padding-right: 24rem;
+  padding-left: 24rem;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 2rem;
+  border-bottom-left-radius: 0rem;
+  border-bottom-right-radius: 2rem;
+  background-color: #d3f48b;
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+  color: #080d27;
+  font-size: 16rem;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.footer--form-block .hs-button.primary.large:medium {
+  position: static;
+  height: 56rem;
+}
+
+.footer--form-block .hs-button.primary.large:hover {
+  background-color: #080d27;
+  color: white;
+}
