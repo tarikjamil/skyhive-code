@@ -43,7 +43,8 @@
 }
 
 .embed--form .hs-dependent-field,
-.embed--form .form-columns-2 .embed--form .form-columns-1 {
+.embed--form .form-columns-2,
+.embed--form .form-columns-1 {
   grid-column-start: span 2;
 }
 
