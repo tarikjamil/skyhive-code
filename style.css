@@ -87,6 +87,10 @@
   background-color: hsla(0, 0%, 100%, 0.9);
 }
 
+.footer--form-block label {
+  font-size: 16rem;
+}
+
 @media screen and (max-width: 768px) {
   .footer--form-block .hs-button.primary.large {
     position: static;
