@@ -48,3 +48,69 @@ $(".home--accordion-trigger").on("click", function () {
   // Open and close the toggle div
   $(this).toggleClass("open");
 });
+
+// slider
+document.addEventListener("DOMContentLoaded", function () {
+  let splide = new Splide(".is--home-hero-slider", {
+    type: "loop",
+    perPage: 1,
+    perMove: 1,
+    autoplay: true,
+    interval: 3000,
+    speed: 500,
+    arrows: false,
+    pagination: false,
+    gap: "0rem",
+    breakpoints: {
+      991: {
+        // Tablet
+        perPage: 1,
+        arrows: false,
+      },
+      767: {
+        // Mobile Landscape
+        perPage: 1,
+        arrows: false,
+      },
+      479: {
+        // Mobile Portrait
+        perPage: 1,
+        arrows: false,
+      },
+    },
+  });
+  splide.mount();
+});
+
+// slider
+document.addEventListener("DOMContentLoaded", function () {
+  let splide = new Splide(".is--home-hero-slider-2", {
+    type: "loop",
+    perPage: 1,
+    perMove: 1,
+    autoplay: true,
+    interval: 3000,
+    speed: 500,
+    arrows: false,
+    pagination: false,
+    gap: "0rem",
+    breakpoints: {
+      991: {
+        // Tablet
+        perPage: 1,
+        arrows: false,
+      },
+      767: {
+        // Mobile Landscape
+        perPage: 1,
+        arrows: false,
+      },
+      479: {
+        // Mobile Portrait
+        perPage: 1,
+        arrows: false,
+      },
+    },
+  });
+  splide.mount();
+});
