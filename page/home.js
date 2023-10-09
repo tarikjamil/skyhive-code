@@ -51,8 +51,7 @@ $(".home--accordion-trigger").on("click", function () {
 
 function loopingTagsAnimation(
   container,
-  movementValue = 130,
-  movementUnit = "rem",
+  movementValue = "130rem",
   delayValue = 3000
 ) {
   const tags = container.querySelectorAll(".tag--parent");
@@ -79,7 +78,7 @@ function loopingTagsAnimation(
     } else {
       tags.forEach((tag) => {
         tag.style.transition = "opacity 0.2s ease-out, left 0.2s ease-out";
-        tag.style.left = `calc(-${movementValue}${movementUnit} * ${activeTag})`;
+        tag.style.left = `calc(-${movementValue} * ${activeTag})`;
       });
 
       const nextDelay = activeTag === tags.length - 1 ? 1000 : delayValue;
@@ -96,16 +95,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const containers = document.querySelectorAll('[animation="loopingtags"]');
 
   containers.forEach((container) => {
-    const movementStyle =
+    const movement =
       window
         .getComputedStyle(container)
         .getPropertyValue("--movement")
         .trim() || "130rem";
-    const [movementValue, movementUnit] = movementStyle
-      .match(/(\d+)(.+)/)
-      .slice(1); // Split value and unit
     const delay = container.getAttribute("data-delay") || 3000;
 
-    loopingTagsAnimation(container, movementValue, movementUnit, delay);
+    loopingTagsAnimation(container, movement, delay);
   });
 });
