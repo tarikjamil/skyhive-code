@@ -119,17 +119,26 @@ document.addEventListener("DOMContentLoaded", function () {
   const tags = document.querySelectorAll(".tag--parent");
   let activeTag = 0;
 
-  tags[activeTag].style.opacity = 1; // Set the first tag's opacity to 1
+  tags[activeTag].style.opacity = 1; // Start with the first tag active
 
   setInterval(function () {
-    // Reset the position and opacity of the currently active tag
+    // Reset opacity of the currently active tag
     tags[activeTag].style.opacity = 0;
-    tags[activeTag].style.animation = "none";
 
-    activeTag = (activeTag + 1) % tags.length; // Move to the next tag
+    // Move to the next tag
+    activeTag++;
 
-    // Set the next tag's opacity to 1 and apply the moveLeft animation
-    tags[activeTag].style.opacity = 1;
-    tags[activeTag].style.animation = "moveLeft 3s linear forwards";
+    // If we've reached the end of the list, reset everything and start over
+    if (activeTag >= tags.length) {
+      activeTag = 0;
+      tags.forEach((tag) => (tag.style.left = "0")); // Reset position of all tags
+    } else {
+      tags.forEach((tag) => {
+        // Move each tag left by 260rem multiplied by the active tag index
+        tag.style.left = `-${260 * activeTag}rem`;
+      });
+    }
+
+    tags[activeTag].style.opacity = 1; // Set the opacity of the new active tag to 1
   }, 3000);
 });
