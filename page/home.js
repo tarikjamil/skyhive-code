@@ -128,12 +128,15 @@ document.addEventListener("DOMContentLoaded", function () {
     // Move to the next tag
     activeTag++;
 
-    // If we've reached the end of the list, reset everything and start over
     if (activeTag >= tags.length) {
       activeTag = 0;
-      tags.forEach((tag) => (tag.style.left = "0")); // Reset position of all tags
+      tags.forEach((tag) => {
+        tag.style.transition = "opacity 1s ease-out, left 0s"; // Make the transition instant
+        tag.style.left = "0";
+      });
     } else {
       tags.forEach((tag) => {
+        tag.style.transition = "opacity 1s ease-out, left 1s linear"; // Restore the transition
         // Move each tag left by 260rem multiplied by the active tag index
         tag.style.left = `-${260 * activeTag}rem`;
       });
