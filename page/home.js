@@ -49,76 +49,9 @@ $(".home--accordion-trigger").on("click", function () {
   $(this).toggleClass("open");
 });
 
-// slider
-document.addEventListener("DOMContentLoaded", function () {
-  let splide = new Splide(".is--home-hero-slider", {
-    type: "loop",
-    perPage: 1,
-    perMove: 1,
-    autoplay: true,
-    interval: 3000,
-    speed: 500,
-    arrows: false,
-    pagination: false,
-    gap: "0rem",
-    breakpoints: {
-      991: {
-        // Tablet
-        perPage: 1,
-        arrows: false,
-      },
-      767: {
-        // Mobile Landscape
-        perPage: 1,
-        arrows: false,
-      },
-      479: {
-        // Mobile Portrait
-        perPage: 1,
-        arrows: false,
-      },
-    },
-  });
-  splide.mount();
-});
-
-// slider
-document.addEventListener("DOMContentLoaded", function () {
-  let splide = new Splide(".is--home-hero-slider-2", {
-    type: "loop",
-    perPage: 1,
-    perMove: 1,
-    autoplay: true,
-    interval: 3500,
-    speed: 500,
-    arrows: false,
-    pagination: false,
-    gap: "0rem",
-    breakpoints: {
-      991: {
-        // Tablet
-        perPage: 1,
-        arrows: false,
-      },
-      767: {
-        // Mobile Landscape
-        perPage: 1,
-        arrows: false,
-      },
-      479: {
-        // Mobile Portrait
-        perPage: 1,
-        arrows: false,
-      },
-    },
-  });
-  splide.mount();
-});
-
 function loopingTagsAnimation(
   container,
-  movementValue = 130,
-  movementUnit = "rem",
+  movementValue = "130rem",
   delayValue = 3000
 ) {
   const tags = container.querySelectorAll(".tag--parent");
@@ -149,7 +82,7 @@ function loopingTagsAnimation(
     } else {
       tags.forEach((tag) => {
         tag.style.transition = "opacity 0.2s ease-out, left 0.2s ease-out";
-        tag.style.left = `-${movementValue * activeTag}${movementUnit}`;
+        tag.style.left = `calc(-${movementValue} * ${activeTag})`;
       });
 
       const nextDelay = activeTag === tags.length - 1 ? 1000 : delayValue;
@@ -166,11 +99,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const containers = document.querySelectorAll('[animation="loopingtags"]');
 
   containers.forEach((container) => {
-    // Fetch data-attributes from the container for configuration, or set defaults
-    const movement = container.getAttribute("data-movement") || 130;
-    const unit = container.getAttribute("data-unit") || "rem";
+    // Fetch the CSS variable for movement from the container, or set a default
+    const movement = container.style.getPropertyValue("--movement") || "130rem";
     const delay = container.getAttribute("data-delay") || 3000;
 
-    loopingTagsAnimation(container, movement, unit, delay);
+    loopingTagsAnimation(container, movement, delay);
   });
 });
