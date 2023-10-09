@@ -67,14 +67,19 @@ function loopingTagsAnimation(
 
   function animateTags() {
     tags[activeTag].style.opacity = 0;
+
     activeTag++;
 
     if (activeTag >= tags.length) {
       activeTag = 0;
       tags.forEach((tag) => {
-        tag.style.transition = "opacity 0s, left 0s";
+        tag.style.transition = `opacity 0s, left 0s`;
         tag.style.left = "0";
       });
+
+      tags[
+        activeTag
+      ].style.transition = `opacity ${speed} ease-out, left ${speed} ease-out`;
       setTimeout(animateTags, delayValue);
     } else {
       tags.forEach((tag) => {
@@ -96,7 +101,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const containers = document.querySelectorAll('[animation="loopingtags"]');
 
   containers.forEach((container) => {
-    const movement = container.style.getPropertyValue("--movement") || "130rem";
+    const movement =
+      getComputedStyle(container).getPropertyValue("--movement").trim() ||
+      "130rem";
     const delay = container.getAttribute("data-delay") || 3000;
     const speed = container.getAttribute("data-speed") || "0.2s";
 
