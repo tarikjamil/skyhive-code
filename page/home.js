@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   splide.on("move", function (newIndex) {
-    const slides = document.querySelectorAll(".splide__slide");
+    const slides = document.querySelectorAll(".splide__slide.is--home-tag");
     slides.forEach((slide, index) => {
       if (index === newIndex) {
         slide.style.opacity = 1;
