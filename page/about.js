@@ -35,6 +35,22 @@ document.addEventListener("DOMContentLoaded", function () {
   splide.mount();
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  let splide = new Splide(".is--blog", {
+    type: "slide",
+    perPage: 1,
+    perMove: 1,
+    gap: "24rem",
+    breakpoints: {
+      991: {
+        // Tablet
+        arrows: false,
+      },
+    },
+  });
+  splide.mount();
+});
+
 $(".about-team-bg").on("click", function () {
   $(".about-team-close").click();
 });
