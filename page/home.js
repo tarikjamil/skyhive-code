@@ -77,21 +77,21 @@ function loopingTagsAnimation(
         tag.style.left = "0";
       });
 
-      tags[
-        activeTag
-      ].style.transition = `opacity ${speed} ease-out, left ${speed} ease-out`;
-      setTimeout(animateTags, delayValue);
+      tags[activeTag].style.opacity = 1;
+      // Directly call animateTags to instantly switch to the first tag without delay
+      animateTags();
+      return;
     } else {
       tags.forEach((tag) => {
         tag.style.transition = `opacity ${speed} ease-out, left ${speed} ease-out`;
         tag.style.left = `calc(-${movementValue} * ${activeTag})`;
       });
-
-      const nextDelay = activeTag === tags.length - 1 ? 1000 : delayValue;
-      setTimeout(animateTags, nextDelay);
     }
 
     tags[activeTag].style.opacity = 1;
+
+    const nextDelay = activeTag === tags.length - 1 ? 0 : delayValue; // Set delay to 0 for the last tag
+    setTimeout(animateTags, nextDelay);
   }
 
   setTimeout(animateTags, delayValue);
@@ -101,12 +101,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const containers = document.querySelectorAll('[animation="loopingtags"]');
 
   containers.forEach((container) => {
+    // Fetch the CSS variable for movement from the container, or set a default
     const movement =
-      getComputedStyle(container).getPropertyValue("--movement").trim() ||
-      "130rem";
+      getComputedStyle(container).getPropertyValue("--movement") || "130rem";
     const delay = container.getAttribute("data-delay") || 3000;
-    const speed = container.getAttribute("data-speed") || "0.2s";
+    const animationSpeed = container.getAttribute("data-speed") || "0.2s";
 
-    loopingTagsAnimation(container, movement, delay, speed);
+    loopingTagsAnimation(
+      container,
+      movement.trim(),
+      parseInt(delay, 10),
+      animationSpeed
+    );
   });
 });
