@@ -117,7 +117,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
   const tags = document.querySelectorAll(".tag--parent");
+  const delay = 3000; // 3 seconds delay by default
   let activeTag = 0;
+
   tags.forEach((tag, index) => {
     tag.style.opacity = 0;
     tag.style.left = "0";
@@ -135,19 +137,21 @@ document.addEventListener("DOMContentLoaded", function () {
     if (activeTag >= tags.length) {
       activeTag = 0;
       tags.forEach((tag) => {
-        tag.style.transition = "opacity 0s ease-out, left 0s"; // Make the transition instant
+        tag.style.transition = "opacity 0s, left 0s"; // Make the transition instant
         tag.style.left = "0";
       });
+
+      // Restore the transitions for the active tag
+      tags[activeTag].style.transition =
+        "opacity 0.2s ease-out, left 0.2s ease-out";
 
       setTimeout(animateTags, delay); // Schedule the next cycle after the default delay
     } else {
       tags.forEach((tag) => {
         tag.style.transition = "opacity 0.2s ease-out, left 0.2s ease-out"; // Restore the transition
-        // Move each tag left by 260rem multiplied by the active tag index
-        tag.style.left = `-${130 * activeTag}rem`;
+        tag.style.left = `-${130 * activeTag}rem`; // Move each tag left by 130rem multiplied by the active tag index
       });
 
-      // If we're moving to the last tag, shorten the delay; otherwise, use the default delay
       const nextDelay = activeTag === tags.length - 1 ? 1000 : delay;
       setTimeout(animateTags, nextDelay);
     }
