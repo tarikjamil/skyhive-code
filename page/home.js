@@ -156,6 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
     perMove: 1,
     autoplay: true,
     interval: 4500,
+    drag: false,
     speed: 500,
     arrows: false,
     pagination: false,
