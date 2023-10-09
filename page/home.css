@@ -13,3 +13,11 @@
 .home--accordion--response {
   height: 0px;
 }
+
+.splide__slide.is--home-tag {
+  opacity: 0;
+}
+
+.splide__slide.is--home-tag.is-active {
+  opacity: 1;
+}
