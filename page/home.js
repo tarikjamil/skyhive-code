@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
       setTimeout(animateTags, delay); // Schedule the next cycle after the default delay
     } else {
       tags.forEach((tag) => {
-        tag.style.transition = "opacity 1s ease-out, left 1s ease-out"; // Restore the transition
+        tag.style.transition = "opacity 0.2s ease-out, left 0.2s ease-out"; // Restore the transition
         // Move each tag left by 260rem multiplied by the active tag index
         tag.style.left = `-${260 * activeTag}rem`;
       });
