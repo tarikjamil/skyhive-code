@@ -114,3 +114,26 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   splide.mount();
 });
+
+// slider
+document.addEventListener("DOMContentLoaded", function () {
+  let splide = new Splide(".is--home-hero-slider-3", {
+    type: "loop",
+    perPage: 1,
+    perMove: 1,
+    autoplay: true,
+    interval: 3000,
+    speed: 500,
+    arrows: false,
+    pagination: false,
+    gap: "0rem",
+    breakpoints: {
+      991: {
+        // Tablet
+        perPage: 1,
+        arrows: false,
+      },
+    },
+  });
+  splide.mount();
+});
