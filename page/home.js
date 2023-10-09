@@ -115,49 +115,62 @@ document.addEventListener("DOMContentLoaded", function () {
   splide.mount();
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const tags = document.querySelectorAll(".tag--parent");
-  const delay = 3000; // 3 seconds delay by default
+function loopingTagsAnimation(
+  container,
+  movementValue = 130,
+  movementUnit = "rem",
+  delayValue = 3000
+) {
+  const tags = container.querySelectorAll(".tag--parent");
   let activeTag = 0;
 
-  tags.forEach((tag, index) => {
+  tags.forEach((tag) => {
     tag.style.opacity = 0;
     tag.style.left = "0";
   });
 
-  tags[activeTag].style.opacity = 1; // Start with the first tag active
+  tags[activeTag].style.opacity = 1;
 
   function animateTags() {
-    // Reset opacity of the currently active tag
     tags[activeTag].style.opacity = 0;
 
-    // Move to the next tag
     activeTag++;
 
     if (activeTag >= tags.length) {
       activeTag = 0;
       tags.forEach((tag) => {
-        tag.style.transition = "opacity 0s, left 0s"; // Make the transition instant
+        tag.style.transition = "opacity 0s, left 0s";
         tag.style.left = "0";
       });
 
-      // Restore the transitions for the active tag
       tags[activeTag].style.transition =
         "opacity 0.2s ease-out, left 0.2s ease-out";
-
-      setTimeout(animateTags, delay); // Schedule the next cycle after the default delay
+      setTimeout(animateTags, delayValue);
     } else {
       tags.forEach((tag) => {
-        tag.style.transition = "opacity 0.2s ease-out, left 0.2s ease-out"; // Restore the transition
-        tag.style.left = `-${130 * activeTag}rem`; // Move each tag left by 130rem multiplied by the active tag index
+        tag.style.transition = "opacity 0.2s ease-out, left 0.2s ease-out";
+        tag.style.left = `-${movementValue * activeTag}${movementUnit}`;
       });
 
-      const nextDelay = activeTag === tags.length - 1 ? 1000 : delay;
+      const nextDelay = activeTag === tags.length - 1 ? 1000 : delayValue;
       setTimeout(animateTags, nextDelay);
     }
 
-    tags[activeTag].style.opacity = 1; // Set the opacity of the new active tag to 1
+    tags[activeTag].style.opacity = 1;
   }
 
-  setTimeout(animateTags, delay);
+  setTimeout(animateTags, delayValue);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const containers = document.querySelectorAll('[animation="loopingtags"]');
+
+  containers.forEach((container) => {
+    // Fetch data-attributes from the container for configuration, or set defaults
+    const movement = container.getAttribute("data-movement") || 130;
+    const unit = container.getAttribute("data-unit") || "rem";
+    const delay = container.getAttribute("data-delay") || 3000;
+
+    loopingTagsAnimation(container, movement, unit, delay);
+  });
 });
