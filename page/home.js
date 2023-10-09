@@ -100,7 +100,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   containers.forEach((container) => {
     // Fetch the CSS variable for movement from the container, or set a default
-    const movement = container.style.getPropertyValue("--movement") || "130rem";
+    const movement =
+      window
+        .getComputedStyle(container)
+        .getPropertyValue("--movement")
+        .trim() || "130rem";
     const delay = container.getAttribute("data-delay") || 3000;
 
     loopingTagsAnimation(container, movement, delay);
