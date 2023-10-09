@@ -67,20 +67,14 @@ function loopingTagsAnimation(
 
   function animateTags() {
     tags[activeTag].style.opacity = 0;
-
     activeTag++;
 
     if (activeTag >= tags.length) {
-      activeTag = 0;
-      tags.forEach((tag) => {
+      tags.forEach((tag, index) => {
         tag.style.transition = `opacity 0s, left 0s`;
-        tag.style.left = "0";
+        tag.style.left = `calc(-${movementValue} * ${index})`;
       });
-
-      tags[activeTag].style.opacity = 1;
-      // Directly call animateTags to instantly switch to the first tag without delay
-      animateTags();
-      return;
+      activeTag = 0;
     } else {
       tags.forEach((tag) => {
         tag.style.transition = `opacity ${speed} ease-out, left ${speed} ease-out`;
@@ -89,9 +83,7 @@ function loopingTagsAnimation(
     }
 
     tags[activeTag].style.opacity = 1;
-
-    const nextDelay = activeTag === tags.length - 1 ? 0 : delayValue; // Set delay to 0 for the last tag
-    setTimeout(animateTags, nextDelay);
+    setTimeout(animateTags, delayValue);
   }
 
   setTimeout(animateTags, delayValue);
