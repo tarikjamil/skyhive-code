@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
       tags.forEach((tag) => {
         tag.style.transition = "opacity 0.2s ease-out, left 0.2s ease-out"; // Restore the transition
         // Move each tag left by 260rem multiplied by the active tag index
-        tag.style.left = `-${260 * activeTag}rem`;
+        tag.style.left = `-${130 * activeTag}rem`;
       });
 
       // If we're moving to the last tag, shorten the delay; otherwise, use the default delay
