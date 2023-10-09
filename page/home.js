@@ -118,7 +118,10 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   const tags = document.querySelectorAll(".tag--parent");
   let activeTag = 0;
-  const delay = 3000; // Default delay
+  tags.forEach((tag, index) => {
+    tag.style.opacity = 0;
+    tag.style.left = "0";
+  });
 
   tags[activeTag].style.opacity = 1; // Start with the first tag active
 
