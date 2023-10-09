@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
     perPage: 1,
     perMove: 1,
     autoplay: true,
-    interval: 3000,
+    interval: 3500,
     speed: 500,
     arrows: false,
     pagination: false,
@@ -121,7 +121,41 @@ document.addEventListener("DOMContentLoaded", function () {
     perPage: 1,
     perMove: 1,
     autoplay: true,
-    interval: 3000,
+    interval: 4000,
+    speed: 500,
+    arrows: false,
+    pagination: false,
+    gap: "0rem",
+    breakpoints: {
+      991: {
+        // Tablet
+        perPage: 1,
+        arrows: false,
+      },
+    },
+  });
+
+  splide.on("move", function (newIndex) {
+    const slides = document.querySelectorAll(".splide__slide.is--home-tag");
+    slides.forEach((slide, index) => {
+      if (index === newIndex) {
+        slide.style.opacity = 1;
+      } else {
+        slide.style.opacity = 0;
+      }
+    });
+  });
+
+  splide.mount();
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  let splide = new Splide(".is--home-hero-slider-4", {
+    type: "loop",
+    perPage: 1,
+    perMove: 1,
+    autoplay: true,
+    interval: 4500,
     speed: 500,
     arrows: false,
     pagination: false,
