@@ -115,7 +115,6 @@ document.addEventListener("DOMContentLoaded", function () {
   splide.mount();
 });
 
-// slider
 document.addEventListener("DOMContentLoaded", function () {
   let splide = new Splide(".is--home-hero-slider-3", {
     type: "loop",
@@ -135,5 +134,12 @@ document.addEventListener("DOMContentLoaded", function () {
       },
     },
   });
+
+  splide.on("move", function (newIndex, oldIndex, destIndex) {
+    const slides = document.querySelectorAll(".splide__slide");
+    slides[oldIndex].style.opacity = 0;
+    slides[destIndex].style.opacity = 1;
+  });
+
   splide.mount();
 });
