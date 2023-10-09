@@ -135,10 +135,15 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   });
 
-  splide.on("move", function (newIndex, oldIndex, destIndex) {
+  splide.on("move", function (newIndex) {
     const slides = document.querySelectorAll(".splide__slide");
-    slides[oldIndex].style.opacity = 0;
-    slides[destIndex].style.opacity = 1;
+    slides.forEach((slide, index) => {
+      if (index === newIndex) {
+        slide.style.opacity = 1;
+      } else {
+        slide.style.opacity = 0;
+      }
+    });
   });
 
   splide.mount();
