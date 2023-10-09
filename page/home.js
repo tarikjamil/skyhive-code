@@ -131,12 +131,12 @@ document.addEventListener("DOMContentLoaded", function () {
     if (activeTag >= tags.length) {
       activeTag = 0;
       tags.forEach((tag) => {
-        tag.style.transition = "opacity 0s ease-out, left 0s"; // Make the transition instant
+        tag.style.transition = "opacity 0s ease-out, left 0s ease-out"; // Make the transition instant
         tag.style.left = "0";
       });
     } else {
       tags.forEach((tag) => {
-        tag.style.transition = "opacity 0.3s ease-out, left 0.3s linear"; // Restore the transition
+        tag.style.transition = "opacity 0.3s ease-out, left 0.3s ease-out"; // Restore the transition
         // Move each tag left by 260rem multiplied by the active tag index
         tag.style.left = `-${260 * activeTag}rem`;
       });
