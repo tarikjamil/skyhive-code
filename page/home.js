@@ -116,70 +116,20 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  let splide = new Splide(".is--home-hero-slider-3", {
-    type: "loop",
-    perPage: 1,
-    perMove: 1,
-    autoplay: true,
-    interval: 4000,
-    speed: 500,
-    arrows: false,
-    pagination: false,
-    gap: "0rem",
-    breakpoints: {
-      991: {
-        // Tablet
-        perPage: 1,
-        arrows: false,
-      },
-    },
-  });
+  const tags = document.querySelectorAll(".tag--parent");
+  let activeTag = 0;
 
-  splide.on("move", function (newIndex) {
-    const slides = document.querySelectorAll(".splide__slide.is--home-tag");
-    slides.forEach((slide, index) => {
-      if (index === newIndex) {
-        slide.style.opacity = 1;
-      } else {
-        slide.style.opacity = 0;
-      }
-    });
-  });
+  tags[activeTag].style.opacity = 1; // Set the first tag's opacity to 1
 
-  splide.mount();
-});
+  setInterval(function () {
+    // Reset the position and opacity of the currently active tag
+    tags[activeTag].style.opacity = 0;
+    tags[activeTag].style.animation = "none";
 
-document.addEventListener("DOMContentLoaded", function () {
-  let splide = new Splide(".is--home-hero-slider-4", {
-    type: "loop",
-    perPage: 1,
-    perMove: 1,
-    autoplay: true,
-    interval: 4500,
-    drag: false,
-    speed: 500,
-    arrows: false,
-    pagination: false,
-    gap: "0rem",
-    breakpoints: {
-      991: {
-        // Tablet
-        perPage: 1,
-        arrows: false,
-      },
-    },
-  });
+    activeTag = (activeTag + 1) % tags.length; // Move to the next tag
 
-  splide.on("move", function (newIndex) {
-    const slides = document.querySelectorAll(".splide__slide.is--home-tag");
-    slides.forEach((slide, index) => {
-      if (index === newIndex) {
-        slide.style.opacity = 1;
-      } else {
-        slide.style.opacity = 0;
-      }
-    });
-  });
-
-  splide.mount();
+    // Set the next tag's opacity to 1 and apply the moveLeft animation
+    tags[activeTag].style.opacity = 1;
+    tags[activeTag].style.animation = "moveLeft 3s linear forwards";
+  }, 3000);
 });

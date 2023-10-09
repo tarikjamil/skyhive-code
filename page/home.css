@@ -21,3 +21,16 @@
 .splide__slide.is--home-tag.is-active {
   opacity: 1;
 }
+
+.tag--parent {
+  opacity: 0;
+  position: relative;
+  left: 0;
+  transition: opacity 1s ease-out;
+}
+
+@keyframes moveLeft {
+  100% {
+    left: -260rem;
+  }
+}
