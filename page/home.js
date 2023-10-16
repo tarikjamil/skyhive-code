@@ -52,53 +52,42 @@ $(".home--accordion-trigger").on("click", function () {
 document.addEventListener("DOMContentLoaded", function () {
   function initiateAnimationForContainer(container) {
     const tags = container.querySelectorAll(".tag--parent");
-    let activeIndex = 1;
-    let cumulativeMovement = 0;
+    let activeIndex = 1; // Start from the second tag since the first is already active
+    let cumulativeMovement = tags[0].getBoundingClientRect().width; // The cumulative movement starts from the width of the first tag
 
     function animate() {
-      // Remove active class from the previous tag if any
-      if (activeIndex > 0) {
-        tags[activeIndex - 1].classList.remove("active");
-      }
+      // Remove active class from the previous tag
+      tags[activeIndex - 1].classList.remove("active");
 
       // Add active class to the current tag
       tags[activeIndex].classList.add("active");
 
-      // Adjust cumulativeMovement for the first tag separately
-      if (activeIndex === 0) {
-        cumulativeMovement += tags[0].getBoundingClientRect().width;
-      } else {
-        cumulativeMovement +=
-          tags[activeIndex - 1].getBoundingClientRect().width;
-      }
+      cumulativeMovement += tags[activeIndex - 1].getBoundingClientRect().width;
       container.style.transform = `translateX(-${cumulativeMovement}px)`;
 
       activeIndex++;
 
       if (activeIndex === tags.length) {
         setTimeout(() => {
-          // Reset the animation instantly after the last tag has animated
-          container.style.transition = "none"; // Disable transition
-          container.style.transform = "translateX(0)"; // Reset movement
-          tags[tags.length - 1].classList.remove("active"); // Remove active from the last tag
+          container.style.transition = "none";
+          container.style.transform = "translateX(0)";
+          tags[tags.length - 1].classList.remove("active");
           activeIndex = 0;
           cumulativeMovement = 0;
 
-          // Small delay before re-enabling transition to avoid any visual glitches
           setTimeout(() => {
-            container.style.transition = "transform 0.5s"; // Re-enable the transition
-            animate(); // Restart the animation loop from the first tag
+            container.style.transition = "transform 0.5s";
+            animate();
           }, 20);
-        }, 500); // Match the delay with the transition duration
+        }, 500);
       } else {
-        setTimeout(animate, 3000); // Continue to the next tag after 3 seconds
+        setTimeout(animate, 3000);
       }
     }
 
-    setTimeout(animate, 3000); // Start the first animation after 3 seconds
+    setTimeout(animate, 3000);
   }
 
-  // Apply the animation for each `.looping-els` container
   const containers = document.querySelectorAll(".looping-els");
   containers.forEach((container) => initiateAnimationForContainer(container));
 });
