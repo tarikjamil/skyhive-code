@@ -52,12 +52,21 @@ $(".home--accordion-trigger").on("click", function () {
 document.addEventListener("DOMContentLoaded", function () {
   function initiateAnimationForContainer(container) {
     const tags = container.querySelectorAll(".tag--parent");
-    let activeIndex = 1; // Start from the second tag since the first is already active
-    let cumulativeMovement = tags[0].getBoundingClientRect().width; // The cumulative movement starts from the width of the first tag
+    tags[0].classList.add("active"); // Initially, make the first tag active
+    let activeIndex = 1;
+    let cumulativeMovement = 0;
 
     function animate() {
-      // Remove active class from the previous tag
-      tags[activeIndex - 1].classList.remove("active");
+      // If it's the first tag after resetting, animate its opacity to 0
+      if (activeIndex === 0) {
+        tags[activeIndex].classList.add("active");
+        setTimeout(() => {
+          tags[activeIndex].classList.remove("active");
+          activeIndex++;
+          animate();
+        }, 500); // duration to match the transition in CSS
+        return;
+      }
 
       // Add active class to the current tag
       tags[activeIndex].classList.add("active");
@@ -65,19 +74,23 @@ document.addEventListener("DOMContentLoaded", function () {
       cumulativeMovement += tags[activeIndex - 1].getBoundingClientRect().width;
       container.style.transform = `translateX(-${cumulativeMovement}px)`;
 
+      // Remove active class from the previous tag after the transition
+      setTimeout(() => {
+        tags[activeIndex - 1].classList.remove("active");
+      }, 500);
+
       activeIndex++;
 
       if (activeIndex === tags.length) {
         setTimeout(() => {
           container.style.transition = "none";
           container.style.transform = "translateX(0)";
-          tags[tags.length - 1].classList.remove("active");
-          activeIndex = 0;
           cumulativeMovement = 0;
+          activeIndex = 0;
 
           setTimeout(() => {
             container.style.transition = "transform 0.5s";
-            animate();
+            animate(); // Restart the animation loop from the first tag
           }, 20);
         }, 500);
       } else {
