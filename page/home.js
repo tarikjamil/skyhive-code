@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function initiateAnimationForContainer(container) {
     const tags = container.querySelectorAll(".tag--parent");
     let activeIndex = 0;
-    let cumulativeMovement = 0;
+    let cumulativeMovement = tags[0].getBoundingClientRect().width; // Start from the width of the first tag
 
     function animate() {
       if (activeIndex > 0) {
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
           container.style.transform = "translateX(0)";
           tags[tags.length - 1].classList.remove("active");
           activeIndex = 0;
-          cumulativeMovement = 0; // Reset the cumulative movement
+          cumulativeMovement = tags[0].getBoundingClientRect().width; // Reset to the width of the first tag
 
           // Small delay before re-enabling transition to avoid the snap back being animated
           setTimeout(() => {

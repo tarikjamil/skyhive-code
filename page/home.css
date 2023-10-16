@@ -28,3 +28,7 @@
 .tag--parent.active {
   opacity: 1;
 }
+
+.looping-els .tag--parent:first-child {
+  opacity: 1;
+}
