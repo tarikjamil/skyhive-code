@@ -62,9 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       tags[activeIndex].classList.add("active");
 
-      // Calculate the movement based on the width of the active tag
       const movement = tags[activeIndex].getBoundingClientRect().width;
-
       cumulativeMovement += movement;
       container.style.transform = `translateX(-${cumulativeMovement}px)`;
 
@@ -73,21 +71,18 @@ document.addEventListener("DOMContentLoaded", function () {
       if (activeIndex === tags.length) {
         setTimeout(() => {
           // Instantly reset animation
-          container.style.transition = "none"; // Temporarily disable transition
+          container.style.transition = "none"; // Disable transition
           container.style.transform = "translateX(0)";
           tags[tags.length - 1].classList.remove("active");
           activeIndex = 0;
           cumulativeMovement = 0; // Reset the cumulative movement
 
-          // Force a reflow to make sure the transition is really disabled
-          container.offsetWidth;
-
-          // Re-enable transition
-          container.style.transition = "transform 0.5s";
-
-          // Recursively call the function to loop the animation
-          animate();
-        }, 500); // Waiting for the last animation to finish
+          // Small delay before re-enabling transition to avoid the snap back being animated
+          setTimeout(() => {
+            container.style.transition = "transform 0.5s"; // Re-enable the transition
+            animate(); // Continue the animation loop
+          }, 20);
+        }, 500); // Wait for the last animation to finish
       } else {
         setTimeout(animate, 3000);
       }
