@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function initiateAnimationForContainer(container) {
     const tags = container.querySelectorAll(".tag--parent");
     let activeIndex = 0;
+    let cumulativeMovement = 0;
 
     function animate() {
       if (activeIndex > 0) {
@@ -61,8 +62,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
       tags[activeIndex].classList.add("active");
 
-      const movement = container.getAttribute("data-movement");
-      container.style.transform = `translateX(-${movement * activeIndex}rem)`;
+      // Calculate the movement based on the width of the active tag
+      const movement = tags[activeIndex].getBoundingClientRect().width;
+
+      cumulativeMovement += movement;
+      container.style.transform = `translateX(-${cumulativeMovement}px)`;
 
       activeIndex++;
 
@@ -72,6 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
           container.style.transform = "translateX(0)";
           tags[tags.length - 1].classList.remove("active");
           activeIndex = 0;
+          cumulativeMovement = 0; // Reset the cumulative movement
 
           // Recursively call the function to loop the animation
           animate();
