@@ -13,24 +13,3 @@
 .home--accordion--response {
   height: 0px;
 }
-
-.looping-els {
-  display: flex;
-  overflow: hidden;
-}
-
-.tag--parent {
-  opacity: 0;
-  transform: translateX(0);
-  transition: transform 0.5s, opacity 0.5s;
-}
-
-.tag--parent.active {
-  opacity: 1;
-}
-
-@keyframes slide {
-  to {
-    transform: translateX(calc(-1 * var(--movement)));
-  }
-}
