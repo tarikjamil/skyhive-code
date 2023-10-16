@@ -57,15 +57,9 @@ document.addEventListener("DOMContentLoaded", function () {
     let cumulativeMovement = 0;
 
     function animate() {
-      // If it's the first tag after resetting, animate its opacity to 0
-      if (activeIndex === 0) {
-        tags[activeIndex].classList.add("active");
-        setTimeout(() => {
-          tags[activeIndex].classList.remove("active");
-          activeIndex++;
-          animate();
-        }, 500); // duration to match the transition in CSS
-        return;
+      // Remove active class from the previous tag if any
+      if (activeIndex > 0) {
+        tags[activeIndex - 1].classList.remove("active");
       }
 
       // Add active class to the current tag
@@ -74,25 +68,22 @@ document.addEventListener("DOMContentLoaded", function () {
       cumulativeMovement += tags[activeIndex - 1].getBoundingClientRect().width;
       container.style.transform = `translateX(-${cumulativeMovement}px)`;
 
-      // Remove active class from the previous tag after the transition
-      setTimeout(() => {
-        tags[activeIndex - 1].classList.remove("active");
-      }, 500);
-
       activeIndex++;
 
       if (activeIndex === tags.length) {
         setTimeout(() => {
-          container.style.transition = "none";
-          container.style.transform = "translateX(0)";
-          cumulativeMovement = 0;
-          activeIndex = 0;
+          container.style.transition = "none"; // Disable transition
+          container.style.transform = "translateX(0)"; // Reset movement
+          tags[tags.length - 1].classList.remove("active"); // Remove active from the last tag
+          tags[0].classList.add("active"); // Make the first tag active
+          activeIndex = 1; // Reset index
+          cumulativeMovement = 0; // Reset cumulative movement
 
           setTimeout(() => {
-            container.style.transition = "transform 0.5s";
+            container.style.transition = "transform 0.5s"; // Re-enable the transition
             animate(); // Restart the animation loop from the first tag
           }, 20);
-        }, 500);
+        }, 3000); // Match the delay with the transition duration
       } else {
         setTimeout(animate, 3000);
       }
