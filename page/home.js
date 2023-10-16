@@ -53,38 +53,45 @@ document.addEventListener("DOMContentLoaded", function () {
   function initiateAnimationForContainer(container) {
     const tags = container.querySelectorAll(".tag--parent");
     let activeIndex = 0;
-    let cumulativeMovement = tags[0].getBoundingClientRect().width; // Start from the width of the first tag
+    let cumulativeMovement = 0;
 
     function animate() {
+      // Remove active class from the previous tag if any
       if (activeIndex > 0) {
         tags[activeIndex - 1].classList.remove("active");
       }
 
+      // Add active class to the current tag
       tags[activeIndex].classList.add("active");
 
-      const movement = tags[activeIndex].getBoundingClientRect().width;
-      cumulativeMovement += movement;
+      // Adjust cumulativeMovement for the first tag separately
+      if (activeIndex === 0) {
+        cumulativeMovement += tags[0].getBoundingClientRect().width;
+      } else {
+        cumulativeMovement +=
+          tags[activeIndex - 1].getBoundingClientRect().width;
+      }
       container.style.transform = `translateX(-${cumulativeMovement}px)`;
 
       activeIndex++;
 
       if (activeIndex === tags.length) {
         setTimeout(() => {
-          // Instantly reset animation
+          // Reset the animation instantly after the last tag has animated
           container.style.transition = "none"; // Disable transition
-          container.style.transform = "translateX(0)";
-          tags[tags.length - 1].classList.remove("active");
+          container.style.transform = "translateX(0)"; // Reset movement
+          tags[tags.length - 1].classList.remove("active"); // Remove active from the last tag
           activeIndex = 0;
-          cumulativeMovement = tags[0].getBoundingClientRect().width; // Reset to the width of the first tag
+          cumulativeMovement = 0;
 
-          // Small delay before re-enabling transition to avoid the snap back being animated
+          // Small delay before re-enabling transition to avoid any visual glitches
           setTimeout(() => {
             container.style.transition = "transform 0.5s"; // Re-enable the transition
-            animate(); // Continue the animation loop
+            animate(); // Restart the animation loop from the first tag
           }, 20);
-        }, 500); // Wait for the last animation to finish
+        }, 500); // Match the delay with the transition duration
       } else {
-        setTimeout(animate, 3000);
+        setTimeout(animate, 3000); // Continue to the next tag after 3 seconds
       }
     }
 
