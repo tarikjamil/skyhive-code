@@ -62,14 +62,14 @@ document.addEventListener("DOMContentLoaded", function () {
       tags[activeIndex].classList.add("active");
 
       const movement = container.getAttribute("data-movement");
-      container.style.setProperty("--movement", `${movement * activeIndex}rem`);
+      container.style.transform = `translateX(-${movement * activeIndex}rem)`;
 
       activeIndex++;
 
       if (activeIndex === tags.length) {
         setTimeout(() => {
           // Reset animation
-          container.style.setProperty("--movement", `0rem`);
+          container.style.transform = "translateX(0)";
           tags[tags.length - 1].classList.remove("active");
           activeIndex = 0;
 
