@@ -50,36 +50,41 @@ $(".home--accordion-trigger").on("click", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  const container = document.querySelector(".looping-els");
-  const tags = document.querySelectorAll(".tag--parent");
-  let activeIndex = 0;
+  function initiateAnimationForContainer(container) {
+    const tags = container.querySelectorAll(".tag--parent");
+    let activeIndex = 0;
 
-  function animate() {
-    if (activeIndex > 0) {
-      tags[activeIndex - 1].classList.remove("active");
+    function animate() {
+      if (activeIndex > 0) {
+        tags[activeIndex - 1].classList.remove("active");
+      }
+
+      tags[activeIndex].classList.add("active");
+
+      const movement = container.getAttribute("data-movement");
+      container.style.setProperty("--movement", `${movement * activeIndex}rem`);
+
+      activeIndex++;
+
+      if (activeIndex === tags.length) {
+        setTimeout(() => {
+          // Reset animation
+          container.style.setProperty("--movement", `0rem`);
+          tags[tags.length - 1].classList.remove("active");
+          activeIndex = 0;
+
+          // Recursively call the function to loop the animation
+          animate();
+        }, 500); // Waiting for the last animation to finish
+      } else {
+        setTimeout(animate, 3000);
+      }
     }
 
-    tags[activeIndex].classList.add("active");
-
-    const movement = container.getAttribute("data-movement");
-    container.style.setProperty("--movement", `${movement * activeIndex}rem`);
-
-    activeIndex++;
-
-    if (activeIndex === tags.length) {
-      setTimeout(() => {
-        // Reset animation
-        container.style.setProperty("--movement", `0rem`);
-        tags[tags.length - 1].classList.remove("active");
-        activeIndex = 0;
-
-        // Recursively call the function to loop the animation
-        animate();
-      }, 500); // Waiting for the last animation to finish
-    } else {
-      setTimeout(animate, 3000);
-    }
+    setTimeout(animate, 3000); // Start the first animation after 3 seconds
   }
 
-  setTimeout(animate, 3000); // Start the first animation after 3 seconds
+  // Apply the animation for each `.looping-els` container
+  const containers = document.querySelectorAll(".looping-els");
+  containers.forEach((container) => initiateAnimationForContainer(container));
 });
