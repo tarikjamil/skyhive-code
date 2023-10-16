@@ -72,11 +72,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (activeIndex === tags.length) {
         setTimeout(() => {
-          // Reset animation
+          // Instantly reset animation
+          container.style.transition = "none"; // Temporarily disable transition
           container.style.transform = "translateX(0)";
           tags[tags.length - 1].classList.remove("active");
           activeIndex = 0;
           cumulativeMovement = 0; // Reset the cumulative movement
+
+          // Force a reflow to make sure the transition is really disabled
+          container.offsetWidth;
+
+          // Re-enable transition
+          container.style.transition = "transform 0.5s";
 
           // Recursively call the function to loop the animation
           animate();
