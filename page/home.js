@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function initiateAnimationForContainer(container) {
     const tags = container.querySelectorAll(".tag--parent");
     let activeIndex = 0;
-    let cumulativeMovement = 1;
+    let cumulativeMovement = 0;
 
     function animate() {
       // Remove active class from the previous tag if any
