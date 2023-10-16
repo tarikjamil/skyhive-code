@@ -14,15 +14,23 @@
   height: 0px;
 }
 
-.splide__slide.is--home-tag {
-  opacity: 0;
-}
-
-.splide__slide.is--home-tag.is-active {
-  opacity: 1;
+.looping-els {
+  display: flex;
+  overflow: hidden;
 }
 
 .tag--parent {
   opacity: 0;
-  transition: opacity 0.3s ease-out, left 0.3s ease-out;
+  transform: translateX(0);
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.tag--parent.active {
+  opacity: 1;
+}
+
+@keyframes slide {
+  to {
+    transform: translateX(calc(-1 * var(--movement)));
+  }
 }
