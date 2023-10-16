@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const containers = document.querySelectorAll(".looping-els");
   containers.forEach((container, index) => {
-    const delay = index * 1000; // 1 second delay multiplied by the index
+    const delay = index * 200; // 1 second delay multiplied by the index
     initiateAnimationForContainer(container, delay);
   });
 });
