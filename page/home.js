@@ -52,7 +52,7 @@ $(".home--accordion-trigger").on("click", function () {
 document.addEventListener("DOMContentLoaded", function () {
   function initiateAnimationForContainer(container) {
     const tags = container.querySelectorAll(".tag--parent");
-    let activeIndex = 0;
+    let activeIndex = 1;
     let cumulativeMovement = 0;
 
     function animate() {
