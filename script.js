@@ -159,27 +159,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // marquee code
 document.addEventListener("DOMContentLoaded", function () {
+  const marqueeWrapper = document.querySelector(".marquee-wrapper");
   const marqueeContent = document.querySelector(".marquee-content");
-  let startPosition = 0;
-  const animate = () => {
-    // Reset the start position once half the content is moved out of view, creating a loop effect
-    if (startPosition <= -marqueeContent.offsetWidth / 2) {
-      startPosition = 0;
+  const clone = marqueeContent.cloneNode(true); // Clone the content
+
+  marqueeWrapper.appendChild(clone); // Append the clone to the wrapper
+
+  let scrollPosition = 0;
+
+  function animate() {
+    // Calculate the width of a single content (not including the clone)
+    const contentWidth = marqueeContent.offsetWidth;
+
+    if (scrollPosition <= -contentWidth) {
+      // Reset position to start
+      scrollPosition = 0;
     }
 
-    // Adjust this value to control the speed. Larger = faster.
-    startPosition -= 2;
-    marqueeContent.style.transform = `translateX(${startPosition}px)`;
+    // Adjust this value to control the speed. Larger value = faster.
+    scrollPosition -= 2;
+    marqueeWrapper.style.transform = `translateX(${scrollPosition}px)`;
 
-    // Using requestAnimationFrame for smoother animations
-    requestAnimationFrame(animate);
-  };
+    requestAnimationFrame(animate); // Recursive call for continuous animation
+  }
 
-  // Start the animation
   animate();
 
-  // Recalculate width on window resize
+  // Handle window resizing
   window.addEventListener("resize", () => {
-    startPosition = 0; // Reset position
+    scrollPosition = 0; // Reset position
   });
 });
