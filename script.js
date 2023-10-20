@@ -158,3 +158,22 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // marquee code
+const content = document.getElementById("marqueeContent");
+const contentWidth = content.offsetWidth;
+let leftPosition = 0;
+
+function scrollMarquee() {
+  leftPosition -= 2; // Change '2' to adjust the speed of the marquee
+
+  // Reset position to start when the content is fully scrolled out of view
+  if (-leftPosition >= contentWidth) {
+    leftPosition = window.innerWidth;
+  }
+
+  content.style.transform = `translateX(${leftPosition}px)`;
+
+  requestAnimationFrame(scrollMarquee);
+}
+
+// Start the marquee scrolling
+scrollMarquee();
