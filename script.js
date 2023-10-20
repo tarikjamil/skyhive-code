@@ -159,21 +159,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // marquee code
 document.addEventListener("DOMContentLoaded", function () {
-  const baseSpeed = 100; // pixels per second
+  const marquee = document.querySelector(".marquee-row-gsap");
+  const container = document.querySelector(".marquees--parent");
 
-  const setMarqueeAnimations = () => {
-    const marquees = document.querySelectorAll(".marquee-row-gsap");
+  let speed = 2; // Pixels per frame, adjust for desired speed
 
-    marquees.forEach((marquee) => {
-      const width = marquee.offsetWidth;
-      const duration = width / baseSpeed;
-      marquee.style.animationDuration = duration + "s";
-    });
-  };
+  function updateMarqueePosition() {
+    let currentLeft = parseInt(marquee.style.left, 10);
 
-  // Set the marquee animations on page load
-  setMarqueeAnimations();
+    // If the content has fully exited on the left, reset to start from the right
+    if (currentLeft + marquee.offsetWidth < 0) {
+      currentLeft = container.offsetWidth;
+    }
 
-  // Update the marquee animations on window resize
-  window.addEventListener("resize", setMarqueeAnimations);
+    marquee.style.left = currentLeft - speed + "px";
+    requestAnimationFrame(updateMarqueePosition);
+  }
+
+  // Initiate the marquee movement
+  updateMarqueePosition();
 });
