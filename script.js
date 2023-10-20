@@ -157,18 +157,21 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// marquee code
 document.addEventListener("DOMContentLoaded", function () {
   const baseSpeed = 100; // pixels per second
 
-  const marquees = document.querySelectorAll(".marquee-row-gsap"); // replace '.marquee-class' with a common class that all your marquee inner divs share
+  const marquees = document.querySelectorAll(".marquee-row-gsap");
 
   marquees.forEach((marquee) => {
     const width = marquee.offsetWidth;
+    const parentWidth = marquee.parentElement.offsetWidth;
+    const moveDistance = width + parentWidth; // total distance the marquee content needs to travel
 
-    const duration = width / baseSpeed;
+    const duration = moveDistance / baseSpeed;
 
     gsap.to(marquee, {
-      x: "-100%",
+      x: -moveDistance + "px", // use the calculated move distance in pixels
       repeat: -1,
       duration: duration,
       ease: "linear",
