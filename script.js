@@ -161,36 +161,19 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   const baseSpeed = 100; // pixels per second
 
-  const startMarqueeAnimations = () => {
+  const setMarqueeAnimations = () => {
     const marquees = document.querySelectorAll(".marquee-row-gsap");
 
     marquees.forEach((marquee) => {
-      // Kill existing GSAP animations on this element to prevent overlap
-      gsap.killTweensOf(marquee);
-
       const width = marquee.offsetWidth;
-      const parentWidth = marquee.parentElement.offsetWidth;
-      const moveDistance = width + parentWidth;
-
-      // Set an initial position (might help with Safari rendering)
-      gsap.set(marquee, {
-        x: "0px",
-      });
-
-      const duration = moveDistance / baseSpeed;
-
-      gsap.to(marquee, {
-        translateX: -width + "px",
-        repeat: -1,
-        duration: duration,
-        ease: "linear",
-      });
+      const duration = width / baseSpeed;
+      marquee.style.animationDuration = duration + "s";
     });
   };
 
-  // Start the marquee animations on page load
-  startMarqueeAnimations();
+  // Set the marquee animations on page load
+  setMarqueeAnimations();
 
-  // Restart the marquee animations on window resize
-  window.addEventListener("resize", startMarqueeAnimations);
+  // Update the marquee animations on window resize
+  window.addEventListener("resize", setMarqueeAnimations);
 });
