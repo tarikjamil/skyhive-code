@@ -158,24 +158,3 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // marquee code
-document.addEventListener("DOMContentLoaded", function () {
-  const marquee = document.querySelector(".marquee-row-gsap");
-  const container = document.querySelector(".marquees--parent");
-
-  let speed = 2; // Pixels per frame, adjust for desired speed
-
-  function updateMarqueePosition() {
-    let currentLeft = parseInt(marquee.style.left, 10);
-
-    // If the content has fully exited on the left, reset to start from the right
-    if (currentLeft + marquee.offsetWidth < 0) {
-      currentLeft = container.offsetWidth;
-    }
-
-    marquee.style.left = currentLeft - speed + "px";
-    requestAnimationFrame(updateMarqueePosition);
-  }
-
-  // Initiate the marquee movement
-  updateMarqueePosition();
-});
