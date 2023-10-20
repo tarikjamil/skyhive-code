@@ -161,20 +161,31 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   const baseSpeed = 100; // pixels per second
 
-  const marquees = document.querySelectorAll(".marquee-row-gsap");
+  const startMarqueeAnimations = () => {
+    const marquees = document.querySelectorAll(".marquee-row-gsap");
 
-  marquees.forEach((marquee) => {
-    const width = marquee.offsetWidth;
-    const parentWidth = marquee.parentElement.offsetWidth;
-    const moveDistance = width + parentWidth; // total distance the marquee content needs to travel
+    marquees.forEach((marquee) => {
+      // If there's an existing GSAP instance on this element, kill it to prevent overlap.
+      gsap.killTweensOf(marquee);
 
-    const duration = moveDistance / baseSpeed;
+      const width = marquee.offsetWidth;
+      const parentWidth = marquee.parentElement.offsetWidth;
+      const moveDistance = width + parentWidth; // total distance the marquee content needs to travel
 
-    gsap.to(marquee, {
-      x: -moveDistance + "px", // use the calculated move distance in pixels
-      repeat: -1,
-      duration: duration,
-      ease: "linear",
+      const duration = moveDistance / baseSpeed;
+
+      gsap.to(marquee, {
+        x: -moveDistance + "px", // use the calculated move distance in pixels
+        repeat: -1,
+        duration: duration,
+        ease: "linear",
+      });
     });
-  });
+  };
+
+  // Start the marquee animations on page load
+  startMarqueeAnimations();
+
+  // Restart the marquee animations on window resize
+  window.addEventListener("resize", startMarqueeAnimations);
 });
