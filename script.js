@@ -160,8 +160,14 @@ document.addEventListener("DOMContentLoaded", function () {
 // marquee code
 document.addEventListener("DOMContentLoaded", function () {
   const marqueeContent = document.querySelector(".marquee-content");
-  void marqueeContent.offsetHeight;
   const images = marqueeContent.querySelectorAll("img");
-  const baseDuration = 2; // Base duration for 1 image (in seconds)
-  marqueeContent.style.animationDuration = `${baseDuration * images.length}s`;
+  const baseDuration = 10; // Base duration for 1 image (in seconds)
+
+  // Adjust animation duration based on number of images
+  const adjustedDuration = `${(baseDuration * images.length) / 2}s`; // Divide by 2 since we duplicated the content
+  marqueeContent.style.animationDuration = adjustedDuration;
+  marqueeContent.style.WebkitAnimationDuration = adjustedDuration; // For Safari
+
+  // Force a reflow to kickstart the animation in Safari
+  void marqueeContent.offsetHeight;
 });
