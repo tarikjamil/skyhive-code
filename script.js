@@ -158,12 +158,20 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  const marquee = document.querySelector(".marquee-row-gsap");
+  const baseSpeed = 100; // pixels per second
 
-  gsap.to(marquee, {
-    x: "-100%", // Assuming left-to-right movement
-    repeat: -1, // Infinite loop
-    duration: 40, // Duration in seconds
-    ease: "linear",
+  const marquees = document.querySelectorAll(".marquee-row-gsap"); // replace '.marquee-class' with a common class that all your marquee inner divs share
+
+  marquees.forEach((marquee) => {
+    const width = marquee.offsetWidth;
+
+    const duration = width / baseSpeed;
+
+    gsap.to(marquee, {
+      x: "-100%",
+      repeat: -1,
+      duration: duration,
+      ease: "linear",
+    });
   });
 });
