@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   const marqueeContent = document.querySelector(".marquee-content");
   const images = marqueeContent.querySelectorAll("img");
-  const baseDuration = 10; // Base duration for 1 image (in seconds)
+  const baseDuration = 2; // Base duration for 1 image (in seconds)
 
   // Adjust animation duration based on number of images
   const adjustedDuration = `${(baseDuration * images.length) / 2}s`; // Divide by 2 since we duplicated the content
