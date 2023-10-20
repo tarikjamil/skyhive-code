@@ -131,3 +131,25 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   splide.mount();
 });
+
+// slider
+// slider
+document.addEventListener("DOMContentLoaded", function () {
+  let splide = new Splide(".is--resources-slider", {
+    type: "slide",
+    perPage: 1,
+    perMove: 1,
+    gap: "24rem",
+    drag: false,
+    arrows: false,
+    pagination: false,
+    breakpoints: {
+      991: {
+        // Tablet
+        gap: "24rem",
+        drag: true,
+      },
+    },
+  });
+  splide.mount();
+});
