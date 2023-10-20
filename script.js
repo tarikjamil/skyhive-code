@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       gsap.to(marquee, {
         x: -width + "px", // Using the marquee's width for the animation distance
-        repeat: -1,
+
         duration: duration,
         ease: "linear",
       });
