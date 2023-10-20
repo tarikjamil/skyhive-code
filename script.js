@@ -156,3 +156,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }).mount();
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const marquee = document.querySelector(".marquee-row-gsap");
+
+  gsap.to(marquee, {
+    x: "-100%", // Assuming left-to-right movement
+    repeat: -1, // Infinite loop
+    duration: 10, // Duration in seconds
+    ease: "linear",
+  });
+});
