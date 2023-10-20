@@ -165,17 +165,22 @@ document.addEventListener("DOMContentLoaded", function () {
     const marquees = document.querySelectorAll(".marquee-row-gsap");
 
     marquees.forEach((marquee) => {
-      // If there's an existing GSAP instance on this element, kill it to prevent overlap.
+      // Kill existing GSAP animations on this element to prevent overlap
       gsap.killTweensOf(marquee);
 
       const width = marquee.offsetWidth;
       const parentWidth = marquee.parentElement.offsetWidth;
-      const moveDistance = width + parentWidth; // total distance the marquee content needs to travel
+      const moveDistance = width + parentWidth;
+
+      // Set an initial position (might help with Safari rendering)
+      gsap.set(marquee, {
+        x: "0px",
+      });
 
       const duration = moveDistance / baseSpeed;
 
       gsap.to(marquee, {
-        x: -moveDistance + "px", // use the calculated move distance in pixels
+        x: -width + "px", // Using the marquee's width for the animation distance
         repeat: -1,
         duration: duration,
         ease: "linear",
