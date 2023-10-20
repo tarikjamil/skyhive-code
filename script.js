@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", function () {
   gsap.to(marquee, {
     x: "-100%", // Assuming left-to-right movement
     repeat: -1, // Infinite loop
-    duration: 10, // Duration in seconds
+    duration: 40, // Duration in seconds
     ease: "linear",
   });
 });
