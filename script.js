@@ -158,35 +158,55 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // marquee code
-document.addEventListener("DOMContentLoaded", function () {
-  const marqueeWrapper = document.querySelector(".marquee-wrapper");
-  const marqueeContent = document.querySelector(".marquee-content");
-  const clone = marqueeContent.cloneNode(true); // Clone the content
-
-  marqueeWrapper.appendChild(clone); // Append the clone to the wrapper
-
-  let scrollPosition = 0;
-
-  function animate() {
-    // Calculate the width of a single content (not including the clone)
-    const contentWidth = marqueeContent.offsetWidth;
-
-    if (scrollPosition <= -contentWidth) {
-      // Reset position to start
-      scrollPosition = 0;
-    }
-
-    // Adjust this value to control the speed. Larger value = faster.
-    scrollPosition -= 2;
-    marqueeWrapper.style.transform = `translateX(${scrollPosition}px)`;
-
-    requestAnimationFrame(animate); // Recursive call for continuous animation
+class InfiniteMarque {
+  constructor(payload) {
+    this.DOM = {
+      marque: payload.element,
+    };
+    this.init();
   }
+  init() {
+    this.DOM.marque.forEach((marque) => {
+      var marqueContent = marque.childNodes[1];
+      var contentCloned = marqueContent.cloneNode(true);
+      marque.append(contentCloned);
+      this.playMarque({
+        marque: marque,
+        content: marqueContent,
+      });
+      window.addEventListener("resize", (e) => {
+        this.playMarque({
+          marque: marque,
+          content: marqueContent,
+        });
+      });
+    });
+  }
+  playMarque(payload) {
+    console.log("test");
+    // calculate gap + total distance
+    // ! it's 0, but if it needs to be just in case.
+    let gap = parseInt(
+      getComputedStyle(payload.marque).getPropertyValue("column-gap"),
+      10
+    );
+    let width = parseInt(
+      getComputedStyle(payload.content).getPropertyValue("width"),
+      10
+    );
 
-  animate();
+    let distanceToTranslate = -1 * (width + gap);
 
-  // Handle window resizing
-  window.addEventListener("resize", () => {
-    scrollPosition = 0; // Reset position
+    gsap.fromTo(
+      payload.marque.children,
+      { x: 0 },
+      { x: distanceToTranslate, duration: 15, ease: "linear", repeat: -1 }
+    );
+  }
+}
+
+window.addEventListener("DOMContentLoaded", (event) => {
+  new InfiniteMarque({
+    element: document.querySelectorAll(".marquee-content"),
   });
 });
