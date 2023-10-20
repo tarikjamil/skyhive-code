@@ -160,6 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // marquee code
 document.addEventListener("DOMContentLoaded", function () {
   const marqueeContent = document.querySelector(".marquee-content");
+  void marqueeContent.offsetHeight;
   const images = marqueeContent.querySelectorAll("img");
   const baseDuration = 2; // Base duration for 1 image (in seconds)
   marqueeContent.style.animationDuration = `${baseDuration * images.length}s`;
