@@ -161,13 +161,14 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   const marqueeContent = document.querySelector(".marquee-content");
   const images = marqueeContent.querySelectorAll("img");
-  const baseDuration = 2; // Base duration for 1 image (in seconds)
+  const baseDuration = 10; // Base duration for 1 image (in seconds)
 
   // Adjust animation duration based on number of images
   const adjustedDuration = `${(baseDuration * images.length) / 2}s`; // Divide by 2 since we duplicated the content
   marqueeContent.style.animationDuration = adjustedDuration;
   marqueeContent.style.WebkitAnimationDuration = adjustedDuration; // For Safari
 
-  // Force a reflow to kickstart the animation in Safari
-  void marqueeContent.offsetHeight;
+  // Add and then immediately remove a dummy CSS class to trigger a reflow
+  marqueeContent.classList.add("dummyClass");
+  marqueeContent.classList.remove("dummyClass");
 });
