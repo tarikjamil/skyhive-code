@@ -160,16 +160,26 @@ document.addEventListener("DOMContentLoaded", function () {
 // marquee code
 document.addEventListener("DOMContentLoaded", function () {
   const marqueeContent = document.querySelector(".marquee-content");
-  const images = marqueeContent.querySelectorAll("img");
-  const baseDuration = 2; // Base duration for 1 image (in seconds)
-  const adjustedDuration = `${(baseDuration * images.length) / 2}s`; // Divide by 2 since we duplicated the content
+  let startPosition = 0;
+  const animate = () => {
+    // Reset the start position once half the content is moved out of view, creating a loop effect
+    if (startPosition <= -marqueeContent.offsetWidth / 2) {
+      startPosition = 0;
+    }
 
-  setTimeout(() => {
-    marqueeContent.style.animationDuration = adjustedDuration;
-    marqueeContent.style.WebkitAnimationDuration = adjustedDuration; // For Safari
+    // Adjust this value to control the speed. Larger = faster.
+    startPosition -= 2;
+    marqueeContent.style.transform = `translateX(${startPosition}px)`;
 
-    // Add and then immediately remove a dummy CSS class to trigger a reflow
-    marqueeContent.classList.add("dummyClass");
-    marqueeContent.classList.remove("dummyClass");
-  }, 50); // Delay for 50ms
+    // Using requestAnimationFrame for smoother animations
+    requestAnimationFrame(animate);
+  };
+
+  // Start the animation
+  animate();
+
+  // Recalculate width on window resize
+  window.addEventListener("resize", () => {
+    startPosition = 0; // Reset position
+  });
 });
