@@ -158,10 +158,21 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // marquee code
+console.clear();
+
 const wrapper = document.querySelector(".marquee-content");
+const colors = ["#f38630", "#6fb936", "#ccc", "#6fb936"];
 const boxes = gsap.utils.toArray(".marquee-item");
 
-const loop = horizontalLoop(boxes, { paused: false, repeat: -1 });
+gsap.set(boxes, {
+  backgroundColor: gsap.utils.wrap(colors),
+});
+
+const loop = horizontalLoop(boxes, {
+  paused: false,
+  repeat: -1,
+  speed: 1.25,
+});
 
 /*
 This helper function makes a group of elements animate along the x-axis in a seamless, responsive loop.
