@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
   splide.mount();
 });
 
-// slider
+// slider resources
 document.addEventListener("DOMContentLoaded", function () {
   // Select all .is--resources-slider elements
   let sliders = document.querySelectorAll(".is--resources-slider");
