@@ -180,8 +180,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const duration = moveDistance / baseSpeed;
 
       gsap.to(marquee, {
-        x: -width + "px", // Using the marquee's width for the animation distance
-
+        translateX: -width + "px",
+        repeat: -1,
         duration: duration,
         ease: "linear",
       });
