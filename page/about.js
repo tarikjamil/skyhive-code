@@ -24,6 +24,9 @@ document.addEventListener("DOMContentLoaded", function () {
     type: "slide",
     perPage: 1,
     perMove: 1,
+    drag: false,
+    arrows: false,
+    pagination: false,
     gap: "24rem",
     breakpoints: {
       991: {
@@ -40,6 +43,9 @@ document.addEventListener("DOMContentLoaded", function () {
     type: "slide",
     perPage: 1,
     perMove: 1,
+    drag: false,
+    arrows: false,
+    pagination: false,
     gap: "24rem",
     breakpoints: {
       991: {
