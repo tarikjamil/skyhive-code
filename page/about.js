@@ -57,10 +57,18 @@ $(".about-team-bg").on("click", function () {
 
 const scrollSpeed = 50; // pixels per second, adjust as needed
 
-document.querySelectorAll(".is--scrolling-2").forEach((element) => {
-  const scrollWidth = element.offsetWidth;
-  const duration = scrollWidth / scrollSpeed; // seconds
+function updateScrollingSpeed() {
+  document.querySelectorAll(".is--scrolling").forEach((element) => {
+    const scrollWidth = element.offsetWidth;
+    const duration = scrollWidth / scrollSpeed; // seconds
 
-  element.style.setProperty("--scroll-width", `${scrollWidth}px`);
-  element.style.animationDuration = `${duration}s`;
-});
+    element.style.setProperty("--scroll-width", `${scrollWidth}px`);
+    element.style.animationDuration = `${duration}s`;
+  });
+}
+
+// Call initially
+updateScrollingSpeed();
+
+// Update on window resize
+window.addEventListener("resize", updateScrollingSpeed);
