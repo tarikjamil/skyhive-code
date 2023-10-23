@@ -55,29 +55,12 @@ $(".about-team-bg").on("click", function () {
   $(".about-team-close").click();
 });
 
-const scrollers = document.querySelectorAll(".scroller");
+const scrollSpeed = 50; // pixels per second, adjust as needed
 
-// If a user hasn't opted in for recuded motion, then we add the animation
-if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  addAnimation();
-}
+document.querySelectorAll(".is--scrolling").forEach((element) => {
+  const scrollWidth = element.offsetWidth;
+  const duration = scrollWidth / scrollSpeed; // seconds
 
-function addAnimation() {
-  scrollers.forEach((scroller) => {
-    // add data-animated="true" to every `.scroller` on the page
-    scroller.setAttribute("data-animated", true);
-
-    // Make an array from the elements within `.scroller-inner`
-    const scrollerInner = scroller.querySelector(".scroller__inner");
-    const scrollerContent = Array.from(scrollerInner.children);
-
-    // For each item in the array, clone it
-    // add aria-hidden to it
-    // add it into the `.scroller-inner`
-    scrollerContent.forEach((item) => {
-      const duplicatedItem = item.cloneNode(true);
-      duplicatedItem.setAttribute("aria-hidden", true);
-      scrollerInner.appendChild(duplicatedItem);
-    });
-  });
-}
+  element.style.setProperty("--scroll-width", `${scrollWidth}px`);
+  element.style.animationDuration = `${duration}s`;
+});
