@@ -57,7 +57,7 @@ $(".about-team-bg").on("click", function () {
 
 const scrollSpeed = 50; // pixels per second, adjust as needed
 
-document.querySelectorAll(".is--scrolling").forEach((element) => {
+document.querySelectorAll(".is--scrolling-2").forEach((element) => {
   const scrollWidth = element.offsetWidth;
   const duration = scrollWidth / scrollSpeed; // seconds
 
