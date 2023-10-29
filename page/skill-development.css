@@ -6,7 +6,7 @@
   margin-bottom: calc(50vh - 300rem);
 }
 
-.feature-item-image--parent img {
+.feature-item-image--parent .img--100 {
   opacity: 0;
 }
 
