@@ -44,6 +44,12 @@
   left: 0;
 }
 
+.body--new.is--feature2 .feature-item-image--parent.is--2 img {
+  opacity: 1;
+  top: 0;
+  left: 0;
+}
+
 .body--new.is--feature3 .feature-item-image--parent.is--3 img {
   opacity: 1;
   top: 0;
@@ -51,48 +57,6 @@
 }
 
 .body--new.is--feature4 .feature-item-image--parent.is--4 img {
-  opacity: 1;
-  top: 0;
-  left: 0;
-}
-
-/* skills development animation */
-.feature-item-image--parent .is--skilldev1,
-.feature-item-image--parent .is--skilldev2,
-.feature-item-image--parent .is--skilldev3,
-.feature-item-image--parent .is--skilldev4,
-.feature-item-image--parent .is--skilldev5 {
-  top: -20rem;
-  transition-duration: 200ms;
-  transition-property: all;
-  transition-timing-function: ease;
-}
-
-.body--new.is--feature2-1 .feature-item-image--parent.is--2 .is--skilldev1 {
-  opacity: 1;
-  top: 0;
-  left: 0;
-}
-
-.body--new.is--feature2-2 .feature-item-image--parent.is--2 .is--skilldev2 {
-  opacity: 1;
-  top: 0;
-  left: 0;
-}
-
-.body--new.is--feature2-3 .feature-item-image--parent.is--2 .is--skilldev3 {
-  opacity: 1;
-  top: 0;
-  left: 0;
-}
-
-.body--new.is--feature2-4 .feature-item-image--parent.is--2 .is--skilldev4 {
-  opacity: 1;
-  top: 0;
-  left: 0;
-}
-
-.body--new.is--feature2-5 .feature-item-image--parent.is--2 .is--skilldev5 {
   opacity: 1;
   top: 0;
   left: 0;
