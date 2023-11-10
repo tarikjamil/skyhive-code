@@ -117,7 +117,7 @@
 }
 
 .embed--form .hs-error-msgs label {
-  color: #20212e;
+  color: #red;
   font-size: 10rem;
   font-weight: 700;
   padding-top: 8rem;
@@ -140,7 +140,7 @@
 
 .embed--form .no-list.hs-error-msgs.inputs-list {
   display: block !important;
-  padding-top: 16rem !important;
+  padding-top: 0rem !important;
   padding-bottom: 16rem !important;
 }
 
