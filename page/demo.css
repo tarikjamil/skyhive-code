@@ -92,7 +92,7 @@
   color: #20212e;
 }
 
-.embed--form .hs-button {
+.embed--form .hs-button.primary.large {
   color: #fff !important;
   letter-spacing: -0.04em;
   background-color: #334ceb !important;
@@ -105,13 +105,13 @@
   text-decoration: none;
 }
 
-.embed--form .hs-button:hover {
+.embed--form .hs-button.primary.large:hover {
   border-color: #d3f48b;
   background-color: #d3f48b;
   color: #080d27;
 }
 
-.embed--form .hs-button:small {
+.embed--form .hs-button.primary.large:small {
   width: 100%;
   text-align: center;
 }
