@@ -149,6 +149,10 @@
   grid-row-gap: 16rem;
 }
 
+.embed--form .hs-form-checkbox ::marker {
+  opacity: transparent;
+}
+
 @media (max-width: 991px) {
   .embed--form .hs-dependent-field ul {
     grid-template-columns: 1fr;
