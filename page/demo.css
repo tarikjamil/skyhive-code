@@ -180,3 +180,7 @@
 .legal-consent-container .hs-form-booleancheckbox-display > span {
   margin-left: 0px !important;
 }
+
+.form-submitting {
+  opacity: 0.5;
+}
