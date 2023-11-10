@@ -106,9 +106,8 @@
 }
 
 .embed--form .hs-button.primary.large:hover {
-  border-color: #d3f48b;
-  background-color: #d3f48b;
-  color: #080d27;
+  background-color: transparent !important;
+  color: #334ceb !important;
 }
 
 .embed--form .hs-button.primary.large:small {
