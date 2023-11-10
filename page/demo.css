@@ -117,7 +117,7 @@
 }
 
 .embed--form .hs-error-msgs label {
-  color: #red;
+  color: red;
   font-size: 10rem;
   font-weight: 700;
   padding-top: 8rem;
