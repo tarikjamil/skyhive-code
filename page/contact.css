@@ -169,6 +169,11 @@
   display: inline-block !important;
 }
 
+.embed--form .hs-button.primary.large:hover {
+  background-color: transparent !important;
+  color: #334ceb !important;
+}
+
 @media (max-width: 991px) {
   .embed--form .hs-dependent-field ul {
     grid-template-columns: 1fr;
