@@ -9,7 +9,7 @@ function pageLoad() {
     {
       y: "-20rem",
       opacity: "0",
-      stagger: { each: 0.1, from: "start" },
+      stagger: { each: 0.2, from: "start" },
       ease: "Quint.easeOut",
       duration: 1,
     },
