@@ -15,15 +15,6 @@ function pageLoad() {
     },
     "loadingAnimationsStart"
   ); // <-- position parameter set to the label
-}
-
-pageLoad();
-
-// On Page Load
-function pageLoad() {
-  let tl = gsap.timeline();
-
-  tl.add("loadingAnimationsStart");
 
   tl.from(
     "[animation=loadingfloor]",
