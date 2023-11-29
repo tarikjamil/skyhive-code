@@ -96,6 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
     perPage: 1,
     perMove: 1,
     arrows: false,
+    pagination: false,
     gap: "24rem",
     breakpoints: {
       991: {
