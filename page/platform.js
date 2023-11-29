@@ -91,6 +91,22 @@ $(".platform--graph-parent").each(function (index) {
 
 // slider
 document.addEventListener("DOMContentLoaded", function () {
+  let splide = new Splide(".is--platform-features-slider", {
+    type: "slide",
+    perPage: 1,
+    perMove: 1,
+    gap: "24rem",
+    breakpoints: {
+      991: {
+        // Tablet
+        arrows: false,
+      },
+    },
+  });
+  splide.mount();
+});
+
+document.addEventListener("DOMContentLoaded", function () {
   let splide = new Splide(".slider1", {
     type: "slide",
     perPage: 1,
