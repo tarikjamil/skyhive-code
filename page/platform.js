@@ -95,6 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
     type: "slide",
     perPage: 1,
     perMove: 1,
+    arrows: false,
     gap: "24rem",
     breakpoints: {
       991: {
