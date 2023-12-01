@@ -183,9 +183,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         // Add more conditions for other positions
 
-        // Go to the calculated frame
+        // Animate to the calculated frame using GSAP
         if (targetFrame !== undefined) {
-          animation.goToAndStop(targetFrame, true);
+          gsap.to(animation, {
+            frame: targetFrame,
+            duration: 1, // specify the duration in seconds
+            ease: "power1.inOut", // specify the easing function
+            onUpdate: () => animation.goToAndStop(animation.frame, true),
+          });
         }
       }
     });
