@@ -141,6 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
       gsap.to(animation, {
         frame: endFrame, // target frame
         duration: 2, // duration of 1 second
+        markers: true,
         onUpdate: () => animation.goToAndStop(animation.frame, true),
       });
     };
