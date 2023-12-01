@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
       trigger: "#position1",
       start: "top bottom",
       end: "top top", // when the top of position1 hits the bottom of the viewport
-      onEnter: () => animateFrames(animation.totalFrames * 0.25),
+      onEnter: () => animateFrames(animation.totalFrames * 0.09),
       onEnterBack: () => animateFrames(0),
     });
 
@@ -159,8 +159,8 @@ document.addEventListener("DOMContentLoaded", function () {
       trigger: "#position2",
       start: "top bottom",
       end: "top top",
-      onEnter: () => animateFrames(animation.totalFrames * 0.5),
-      onEnterBack: () => animateFrames(animation.totalFrames * 0.25),
+      onEnter: () => animateFrames(animation.totalFrames * 0.28),
+      onEnterBack: () => animateFrames(animation.totalFrames * 0.09),
     });
 
     // ScrollTrigger for position3
@@ -168,8 +168,71 @@ document.addEventListener("DOMContentLoaded", function () {
       trigger: "#position3",
       start: "top bottom",
       end: "top top",
-      onEnter: () => animateFrames(animation.totalFrames * 0.85),
-      onEnterBack: () => animateFrames(animation.totalFrames * 0.5),
+      onEnter: () => animateFrames(animation.totalFrames * 0.44),
+      onEnterBack: () => animateFrames(animation.totalFrames * 0.28),
+    });
+
+    // ScrollTrigger for position4
+    ScrollTrigger.create({
+      trigger: "#position4",
+      start: "top bottom",
+      end: "top top",
+      onEnter: () => animateFrames(animation.totalFrames * 0.49),
+      onEnterBack: () => animateFrames(animation.totalFrames * 0.44),
+    });
+
+    // ScrollTrigger for position5
+    ScrollTrigger.create({
+      trigger: "#position5",
+      start: "top bottom",
+      end: "top top",
+      onEnter: () => animateFrames(animation.totalFrames * 0.58),
+      onEnterBack: () => animateFrames(animation.totalFrames * 0.49),
+    });
+
+    // ScrollTrigger for position6
+    ScrollTrigger.create({
+      trigger: "#position6",
+      start: "top bottom",
+      end: "top top",
+      onEnter: () => animateFrames(animation.totalFrames * 0.73),
+      onEnterBack: () => animateFrames(animation.totalFrames * 0.58),
+    });
+
+    // ScrollTrigger for position7
+    ScrollTrigger.create({
+      trigger: "#position7",
+      start: "top bottom",
+      end: "top top",
+      onEnter: () => animateFrames(animation.totalFrames * 0.81),
+      onEnterBack: () => animateFrames(animation.totalFrames * 0.73),
+    });
+
+    // ScrollTrigger for position8
+    ScrollTrigger.create({
+      trigger: "#position8",
+      start: "top bottom",
+      end: "top top",
+      onEnter: () => animateFrames(animation.totalFrames * 0.87),
+      onEnterBack: () => animateFrames(animation.totalFrames * 0.81),
+    });
+
+    // ScrollTrigger for position9
+    ScrollTrigger.create({
+      trigger: "#position9",
+      start: "top bottom",
+      end: "top top",
+      onEnter: () => animateFrames(animation.totalFrames * 0.94),
+      onEnterBack: () => animateFrames(animation.totalFrames * 0.87),
+    });
+
+    // ScrollTrigger for position10
+    ScrollTrigger.create({
+      trigger: "#position10",
+      start: "top bottom",
+      end: "top top",
+      onEnter: () => animateFrames(animation.totalFrames * 1),
+      onEnterBack: () => animateFrames(animation.totalFrames * 0.94),
     });
   });
 });
