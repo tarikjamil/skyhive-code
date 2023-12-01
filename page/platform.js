@@ -134,6 +134,13 @@ document.addEventListener("DOMContentLoaded", function () {
     path: "https://uploads-ssl.webflow.com/60a69b2a011f012edbe2cd9d/65698ce5d18bf3a35ff09967_Complete%20Animation.json",
   });
 
+  // Define animation segments
+  const segments = [
+    { trigger: "#position1", startFrame: 0, endFrame: 25, duration: 1 },
+    { trigger: "#position2", startFrame: 26, endFrame: 50, duration: 1 },
+    // ... more segments
+  ];
+
   // Function to play animation segment
   const playAnimationSegment = (segment) => {
     animation.playSegments([segment.startFrame, segment.endFrame], true);
