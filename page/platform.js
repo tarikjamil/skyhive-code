@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
       gsap.to(animation, {
         frame: endFrame, // target frame
         duration: 2, // duration of 1 second
-        markers: true,
+
         onUpdate: () => animation.goToAndStop(animation.frame, true),
       });
     };
@@ -151,6 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
       trigger: "#position1",
       start: "top bottom",
       end: "top top", // when the top of position1 hits the bottom of the viewport
+      markers: true,
       onEnter: () => animateFrames(animation.totalFrames * 0.09),
       onEnterBack: () => animateFrames(0),
     });
