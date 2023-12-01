@@ -123,3 +123,53 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   splide.mount();
 });
+
+//lottie animation
+document.addEventListener("DOMContentLoaded", function () {
+  // Initialize Lottie animation
+  var animation = lottie.loadAnimation({
+    container: document.querySelector(".lottie--platform"), // targeting the container
+    renderer: "canvas",
+    loop: false,
+    autoplay: false,
+    path: "https://uploads-ssl.webflow.com/60a69b2a011f012edbe2cd9d/65698ce5d18bf3a35ff09967_Complete%20Animation.json", // path to your Lottie file
+  });
+
+  animation.addEventListener("DOMLoaded", function () {
+    // Function to animate Lottie frames
+    const animateFrames = (endFrame) => {
+      gsap.to(animation, {
+        frame: endFrame, // target frame
+        duration: 2, // duration of 1 second
+        onUpdate: () => animation.goToAndStop(animation.frame, true),
+      });
+    };
+
+    // ScrollTrigger for position1
+    ScrollTrigger.create({
+      trigger: "#position1",
+      start: "top bottom",
+      end: "top top", // when the top of position1 hits the bottom of the viewport
+      onEnter: () => animateFrames(animation.totalFrames * 0.25),
+      onEnterBack: () => animateFrames(0),
+    });
+
+    // ScrollTrigger for position2
+    ScrollTrigger.create({
+      trigger: "#position2",
+      start: "top bottom",
+      end: "top top",
+      onEnter: () => animateFrames(animation.totalFrames * 0.5),
+      onEnterBack: () => animateFrames(animation.totalFrames * 0.25),
+    });
+
+    // ScrollTrigger for position3
+    ScrollTrigger.create({
+      trigger: "#position3",
+      start: "top bottom",
+      end: "top top",
+      onEnter: () => animateFrames(animation.totalFrames * 0.85),
+      onEnterBack: () => animateFrames(animation.totalFrames * 0.5),
+    });
+  });
+});
