@@ -177,8 +177,24 @@ document.addEventListener("DOMContentLoaded", function () {
         const classList = document.body.classList;
         let targetFrame;
         if (classList.contains("is--position1")) {
-          targetFrame = animation.totalFrames * 0.25;
+          targetFrame = animation.totalFrames * 0.09;
         } else if (classList.contains("is--position2")) {
+          targetFrame = animation.totalFrames * 0.28;
+        } else if (classList.contains("is--position3")) {
+          targetFrame = animation.totalFrames * 0.44;
+        } else if (classList.contains("is--position4")) {
+          targetFrame = animation.totalFrames * 0.49;
+        } else if (classList.contains("is--position5")) {
+          targetFrame = animation.totalFrames * 0.5;
+        } else if (classList.contains("is--position6")) {
+          targetFrame = animation.totalFrames * 0.5;
+        } else if (classList.contains("is--position7")) {
+          targetFrame = animation.totalFrames * 0.5;
+        } else if (classList.contains("is--position8")) {
+          targetFrame = animation.totalFrames * 0.5;
+        } else if (classList.contains("is--position9")) {
+          targetFrame = animation.totalFrames * 0.5;
+        } else if (classList.contains("is--position10")) {
           targetFrame = animation.totalFrames * 0.5;
         }
         // Add more conditions for other positions
