@@ -134,25 +134,24 @@ document.addEventListener("DOMContentLoaded", function () {
     path: "https://uploads-ssl.webflow.com/60a69b2a011f012edbe2cd9d/65698ce5d18bf3a35ff09967_Complete%20Animation.json",
   });
 
-  // Define animation segments
-  const segments = [
-    { trigger: "#position1", startFrame: 0, endFrame: 25, duration: 1 },
-    { trigger: "#position2", startFrame: 26, endFrame: 50, duration: 1 },
-    // ... more segments
-  ];
-
-  // Function to control animation
+  // Function to play animation segment
   const playAnimationSegment = (segment) => {
     animation.playSegments([segment.startFrame, segment.endFrame], true);
     animation.setSpeed(segment.duration);
+  };
+
+  // Function to reset animation to start frame
+  const resetAnimation = (segment) => {
+    animation.goToAndStop(segment.startFrame, true);
   };
 
   segments.forEach((segment) => {
     ScrollTrigger.create({
       trigger: segment.trigger,
       start: "top bottom",
+      end: "bottom top",
       onEnter: () => playAnimationSegment(segment),
-      onEnterBack: () => playAnimationSegment(segment),
+      onLeaveBack: () => resetAnimation(segment),
     });
   });
 });
