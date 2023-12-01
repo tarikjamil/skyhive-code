@@ -196,6 +196,8 @@ document.addEventListener("DOMContentLoaded", function () {
           targetFrame = animation.totalFrames * 0.5;
         } else if (classList.contains("is--position10")) {
           targetFrame = animation.totalFrames * 0.5;
+        } else {
+          targetFrame = animation.totalFrames * 0;
         }
         // Add more conditions for other positions
 
