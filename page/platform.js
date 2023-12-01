@@ -147,16 +147,18 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   // Initialize ScrollTriggers
-  segments.forEach((segment, index) => {
+  segments.forEach((segment) => {
     ScrollTrigger.create({
       trigger: segment.trigger,
       start: "top bottom",
       end: "bottom top",
-      onEnter: () => controlAnimation(segment),
-      onLeaveBack: () => {
-        if (index > 0) {
-          controlAnimation(segments[index - 1], true);
-        }
+      scrub: true, // enables smooth scrubbing
+      onUpdate: (self) => {
+        const progress = self.progress;
+        const frame =
+          segment.startFrame +
+          progress * (segment.endFrame - segment.startFrame);
+        animation.goToAndStop(frame, true);
       },
     });
   });
