@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
     renderer: "canvas",
     loop: false,
     autoplay: false,
-    path: "https://uploads-ssl.webflow.com/60a69b2a011f012edbe2cd9d/65698ce5d18bf3a35ff09967_Complete%20Animation.json",
+    path: "https://uploads-ssl.webflow.com/60a69b2a011f012edbe2cd9d/6569c597cfa1d94906ea3d1a_Full%20Animation.json",
   });
 
   const observer = new MutationObserver((mutations) => {
