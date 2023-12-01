@@ -136,30 +136,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Define animation segments
   const segments = [
-    { trigger: "#position1", startFrame: 0, endFrame: 25 },
-    { trigger: "#position2", startFrame: 26, endFrame: 50 },
-    // Add more segments as needed
+    { trigger: "#position1", startFrame: 0, endFrame: 25, duration: 1 },
+    { trigger: "#position2", startFrame: 26, endFrame: 50, duration: 1 },
+    // ... more segments
   ];
 
   // Function to control animation
-  const controlAnimation = (segment, reverse = false) => {
-    animation.playSegments([segment.startFrame, segment.endFrame], !reverse);
+  const playAnimationSegment = (segment) => {
+    animation.playSegments([segment.startFrame, segment.endFrame], true);
+    animation.setSpeed(segment.duration);
   };
 
-  // Initialize ScrollTriggers
   segments.forEach((segment) => {
     ScrollTrigger.create({
       trigger: segment.trigger,
       start: "top bottom",
-      end: "bottom top",
-      scrub: true, // enables smooth scrubbing
-      onUpdate: (self) => {
-        const progress = self.progress;
-        const frame =
-          segment.startFrame +
-          progress * (segment.endFrame - segment.startFrame);
-        animation.goToAndStop(frame, true);
-      },
+      onEnter: () => playAnimationSegment(segment),
+      onEnterBack: () => playAnimationSegment(segment),
     });
   });
 });
