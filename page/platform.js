@@ -185,17 +185,17 @@ document.addEventListener("DOMContentLoaded", function () {
         } else if (classList.contains("is--position4")) {
           targetFrame = animation.totalFrames * 0.49;
         } else if (classList.contains("is--position5")) {
-          targetFrame = animation.totalFrames * 0.5;
+          targetFrame = animation.totalFrames * 0.58;
         } else if (classList.contains("is--position6")) {
-          targetFrame = animation.totalFrames * 0.5;
+          targetFrame = animation.totalFrames * 0.73;
         } else if (classList.contains("is--position7")) {
-          targetFrame = animation.totalFrames * 0.5;
+          targetFrame = animation.totalFrames * 0.81;
         } else if (classList.contains("is--position8")) {
-          targetFrame = animation.totalFrames * 0.5;
+          targetFrame = animation.totalFrames * 0.87;
         } else if (classList.contains("is--position9")) {
-          targetFrame = animation.totalFrames * 0.5;
+          targetFrame = animation.totalFrames * 0.94;
         } else if (classList.contains("is--position10")) {
-          targetFrame = animation.totalFrames * 0.5;
+          targetFrame = animation.totalFrames * 1;
         } else {
           targetFrame = animation.totalFrames * 0;
         }
