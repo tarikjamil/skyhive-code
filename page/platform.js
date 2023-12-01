@@ -124,8 +124,45 @@ document.addEventListener("DOMContentLoaded", function () {
   splide.mount();
 });
 
+// PAGE COLOR POWER-UP
+window.addEventListener("DOMContentLoaded", (event) => {
+  // attribute value checker
+  function attr(defaultVal, attrVal) {
+    const defaultValType = typeof defaultVal;
+    if (typeof attrVal !== "string" || attrVal.trim() === "") return defaultVal;
+    if (attrVal === "true" && defaultValType === "boolean") return true;
+    if (attrVal === "false" && defaultValType === "boolean") return false;
+    if (isNaN(attrVal) && defaultValType === "string") return attrVal;
+    if (!isNaN(attrVal) && defaultValType === "number") return +attrVal;
+    return defaultVal;
+  }
+  // pagecolor trigger
+  $("[tr-pagecolor-element='trigger']").each(function (index) {
+    // elements
+    let triggerEl = $(this),
+      targetEl = $(".body--new");
+    // settings
+    let classSetting = attr(
+      "after-hero-body",
+      triggerEl.attr("tr-pagecolor-class")
+    );
+    // result
+    ScrollTrigger.create({
+      trigger: triggerEl,
+      start: "top center",
+      end: "bottom center",
+      onToggle: ({ self, isActive }) => {
+        if (isActive) {
+          targetEl.addClass(classSetting);
+        } else {
+          targetEl.removeClass(classSetting);
+        }
+      },
+    });
+  });
+});
+
 document.addEventListener("DOMContentLoaded", function () {
-  // Initialize Lottie animation
   var animation = lottie.loadAnimation({
     container: document.querySelector(".lottie--platform"),
     renderer: "canvas",
@@ -134,31 +171,25 @@ document.addEventListener("DOMContentLoaded", function () {
     path: "https://uploads-ssl.webflow.com/60a69b2a011f012edbe2cd9d/65698ce5d18bf3a35ff09967_Complete%20Animation.json",
   });
 
-  // Define animation segments
-  const segments = [
-    { trigger: "#position1", startFrame: 0, endFrame: 25, duration: 1 },
-    { trigger: "#position2", startFrame: 26, endFrame: 50, duration: 1 },
-    // ... more segments
-  ];
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.attributeName === "class") {
+        const classList = document.body.classList;
+        let targetFrame;
+        if (classList.contains("is--position1")) {
+          targetFrame = animation.totalFrames * 0.25;
+        } else if (classList.contains("is--position2")) {
+          targetFrame = animation.totalFrames * 0.5;
+        }
+        // Add more conditions for other positions
 
-  // Function to play animation segment
-  const playAnimationSegment = (segment) => {
-    animation.playSegments([segment.startFrame, segment.endFrame], true);
-    animation.setSpeed(segment.duration);
-  };
-
-  // Function to reset animation to start frame
-  const resetAnimation = (segment) => {
-    animation.goToAndStop(segment.startFrame, true);
-  };
-
-  segments.forEach((segment) => {
-    ScrollTrigger.create({
-      trigger: segment.trigger,
-      start: "top bottom",
-      end: "bottom top",
-      onEnter: () => playAnimationSegment(segment),
-      onLeaveBack: () => resetAnimation(segment),
+        // Go to the calculated frame
+        if (targetFrame !== undefined) {
+          animation.goToAndStop(targetFrame, true);
+        }
+      }
     });
   });
+
+  observer.observe(document.body, { attributes: true });
 });
