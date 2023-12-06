@@ -91,6 +91,10 @@
   background-color: hsla(0, 0%, 100%, 0.9);
 }
 
+.footer--form-block .hs-richtext {
+  display: absolute;
+}
+
 .footer--form-block label,
 .footer--form-block p {
   font-size: 12rem;
