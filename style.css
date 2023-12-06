@@ -55,31 +55,25 @@
 
 .footer--form-block .hs-button.primary.large {
   position: relative;
-  left: auto;
   top: 5rem;
-  right: 0%;
-  bottom: 0%;
   padding-right: 24rem;
   padding-left: 24rem;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 2rem;
-  border-bottom-left-radius: 0rem;
-  border-bottom-right-radius: 2rem;
-  background-color: #d3f48b;
+  border-radius: 4rem;
+  background-color: transparent;
   transition-property: all;
   transition-duration: 200ms;
   transition-timing-function: ease;
-  color: #080d27;
+  color: white;
   font-size: 16rem;
   line-height: 1.5;
   font-weight: 500;
   height: 56rem;
-  border-color: transparent;
+  border-color: white;
 }
 
 .footer--form-block .hs-button.primary.large:hover {
-  background-color: #080d27;
-  color: white;
+  background-color: white;
+  color: black;
 }
 
 .footer--form-block .input {
