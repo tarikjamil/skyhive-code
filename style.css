@@ -92,7 +92,11 @@
 }
 
 .footer--form-block .hs-richtext {
-  display: absolute;
+  position: absolute;
+}
+
+.footer--form-block .hs_email {
+  flex-grow: 1;
 }
 
 .footer--form-block label,
