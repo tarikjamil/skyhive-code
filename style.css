@@ -47,8 +47,10 @@
   font-size: 14rem;
 }
 
-.hs-form-private {
-  display: flex;
+.footer--form-block .hs-form-private {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-column-gap: 16rem;
 }
 
 .footer--form-block .hs-button.primary.large {
