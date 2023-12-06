@@ -52,7 +52,7 @@
 }
 
 .footer--form-block .hs-button.primary.large {
-  position: absolute;
+  position: relative;
   left: auto;
   top: 5rem;
   right: 0%;
