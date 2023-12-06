@@ -97,7 +97,11 @@
   flex-grow: 1;
 }
 
-.footer--form-block label,
+.footer--form-block label {
+  margin: 0px;
+  font-size: 12rem;
+}
+
 .footer--form-block p {
   font-size: 12rem;
 }
