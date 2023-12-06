@@ -118,11 +118,9 @@
 
   .footer--form-block .input {
     display: flex;
-    overflow: visible;
     height: auto;
     flex-direction: column;
     grid-row-gap: 16rem;
-    background-color: transparent;
   }
 
   .footer--form-block .hs-form-private {
