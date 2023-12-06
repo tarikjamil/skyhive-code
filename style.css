@@ -128,6 +128,6 @@
   .footer--form-block .hs-form-private {
     display: grid;
     grid-template-columns: 1fr;
-    grid-column-gap: 16rem;
+    grid-row-gap: 16rem;
   }
 }
