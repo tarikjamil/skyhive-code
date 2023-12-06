@@ -47,6 +47,10 @@
   font-size: 14rem;
 }
 
+.hs-form-private {
+  display: flex;
+}
+
 .footer--form-block .hs-button.primary.large {
   position: absolute;
   left: auto;
