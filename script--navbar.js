@@ -1,14 +1,17 @@
 $(document).ready(function () {
   // Navbar dropdown logic
   $(".navbar--dropdown-toggle-new").on("click", function () {
+    let screenWidth = $(window).width();
+
     // Close other accordions when opening a new one
     if (!$(this).hasClass("open")) {
       $(".navbar--dropdown-toggle-new.open").click();
-      $(".navbar").removeClass("dropdown-active"); // Remove class when another dropdown is closed
+      if (screenWidth > 991) {
+        $(".navbar").removeClass("dropdown-active"); // Remove class when another dropdown is closed, for larger screens
+      }
     }
 
     let sibling = $(this).siblings(".navbar--dropdown-list-new");
-    let screenWidth = $(window).width();
     let animationDuration = 1;
 
     if ($(this).hasClass("open")) {
@@ -20,7 +23,9 @@ $(document).ready(function () {
       }
 
       $(".navbar--menu--bg-new").hide();
-      $(".navbar").removeClass("dropdown-active"); // Remove class when this dropdown is closed
+      if (screenWidth > 991) {
+        $(".navbar").removeClass("dropdown-active"); // Remove class when this dropdown is closed, for larger screens
+      }
     } else {
       // Open the content div if already closed
       if (screenWidth <= 991) {
@@ -35,7 +40,9 @@ $(document).ready(function () {
       }
 
       $(".navbar--menu--bg-new").show();
-      $(".navbar").addClass("dropdown-active"); // Add class when this dropdown is opened
+      if (screenWidth > 991) {
+        $(".navbar").addClass("dropdown-active"); // Add class when this dropdown is opened, for larger screens
+      }
     }
 
     $(this).toggleClass("open");
@@ -44,7 +51,9 @@ $(document).ready(function () {
   // Handle clicks on .navbar--menu--bg-new
   $(".navbar--menu--bg-new").on("click", function () {
     $(".navbar--dropdown-toggle-new.open").click();
-    $(".navbar").removeClass("dropdown-active"); // Remove class when background is clicked
+    if ($(window).width() > 991) {
+      $(".navbar").removeClass("dropdown-active"); // Remove class when background is clicked, for larger screens
+    }
   });
 
   // Handle clicks on .navbar--menu-toggle-new for screens below 991px
@@ -53,20 +62,7 @@ $(document).ready(function () {
 
     if (screenWidth <= 991) {
       // Toggle 'dropdown-active' class on .navbar
-      if ($(".navbar").hasClass("dropdown-active")) {
-        $(".navbar").removeClass("dropdown-active");
-      } else {
-        $(".navbar").addClass("dropdown-active");
-      }
+      $(".navbar").toggleClass("dropdown-active");
     }
   });
-});
-
-$(".navbar--menu-close-new").on("click", function () {
-  $(".navbar--menu-toggle-new").click();
-  $(".navbar--goback-link-back-new").click();
-});
-
-$(".navbar--goback-link-back-new").on("click", function () {
-  $(".navbar--dropdown-toggle-new.open").click();
 });
