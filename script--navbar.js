@@ -86,3 +86,20 @@ function updateLanguageLinks() {
 }
 
 updateLanguageLinks();
+
+function updateLanguageIndicator() {
+  var hostname = window.location.hostname;
+  var langDiv = document.getElementById("lang");
+
+  if (hostname.startsWith("en.")) {
+    langDiv.innerText = "En";
+  } else if (hostname.startsWith("jp.")) {
+    langDiv.innerText = "Jp";
+  } else if (hostname.startsWith("kr.")) {
+    langDiv.innerText = "Kr";
+  } else {
+    langDiv.innerText = "En"; // Default language, adjust as necessary
+  }
+}
+
+updateLanguageIndicator();
