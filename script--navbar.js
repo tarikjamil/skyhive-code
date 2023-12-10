@@ -61,3 +61,7 @@ $(document).ready(function () {
     }
   });
 });
+
+$(".navbar--menu-close-new").on("click", function () {
+  $(".navbar--menu-toggle-new").click();
+});
