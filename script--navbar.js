@@ -80,12 +80,9 @@ function updateLanguageLinks() {
   var currentUrl = window.location.href;
   var basePath = currentUrl.split("/").slice(3).join("/"); // Adjust this based on your URL structure
 
-  document.getElementById("linkEn").href =
-    "https://en.yoursite.com/" + basePath;
-  document.getElementById("linkJp").href =
-    "https://jp.yoursite.com/" + basePath;
-  document.getElementById("linkKr").href =
-    "https://kr.yoursite.com/" + basePath;
+  document.getElementById("linkEn").href = "https://www.skyhive.ai/" + basePath;
+  document.getElementById("linkJp").href = "https://ja.skyhive.ai/" + basePath;
+  document.getElementById("linkKr").href = "https://kr.skyhive.ai/" + basePath;
 }
 
 updateLanguageLinks();
