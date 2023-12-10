@@ -15,3 +15,10 @@
   color: var(--white);
   border-color: var(--white);
 }
+
+@media screen and (max-width: 991px) {
+  .dropdown-active .btn--navbar-new {
+    color: var(--primary-blue);
+    border-color: var(--white);
+  }
+}
