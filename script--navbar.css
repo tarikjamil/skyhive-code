@@ -6,3 +6,12 @@
   background-color: var(--primary-blue);
   color: var(--white);
 }
+
+.dropdown-active .navbar--login-new {
+  color: var(--white);
+}
+
+.dropdown-active .btn--navbar-new {
+  color: var(--white);
+  border-color: var(--white);
+}
