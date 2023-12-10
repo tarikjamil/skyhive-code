@@ -6,7 +6,7 @@ $(".navbar--dropdown-toggle-new").on("click", function () {
   }
   // Save the sibling of the toggle we clicked on
   let sibling = $(this).siblings(".navbar--dropdown-list-new");
-  let animationDuration = 0;
+  let animationDuration = 1;
 
   if ($(this).hasClass("open")) {
     // Close the content div if already open
