@@ -93,7 +93,7 @@ function updateLanguageIndicator() {
 
   if (hostname.startsWith("en.")) {
     langDiv.innerText = "En";
-  } else if (hostname.startsWith("jp.")) {
+  } else if (hostname.startsWith("ja.")) {
     langDiv.innerText = "Jp";
   } else if (hostname.startsWith("kr.")) {
     langDiv.innerText = "Kr";
