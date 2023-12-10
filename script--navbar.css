@@ -16,6 +16,10 @@
   border-color: var(--white);
 }
 
+.wg-default.weglot-container--left .country-selector {
+  display: none;
+}
+
 @media screen and (max-width: 991px) {
   .dropdown-active .btn--navbar-new {
     color: var(--primary-blue);
