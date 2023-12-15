@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     gsap.to(list, {
       opacity: 0,
       y: "20rem",
-      duration: 0.5,
+      duration: 0.3,
       ease: "power1.in",
       onComplete: () => {
         list.style.display = "none";
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Open the hovered dropdown
       const list = dropdown.querySelector(".navbar--dropdown-list-new");
       list.style.display = "flex";
-      gsap.to(list, { opacity: 1, y: 0, duration: 0.5, ease: "power1.out" });
+      gsap.to(list, { opacity: 1, y: 0, duration: 0.3, ease: "power1.out" });
     });
 
     dropdown.addEventListener("mouseleave", (event) => {
