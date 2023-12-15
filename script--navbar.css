@@ -8,6 +8,11 @@
   transform: translateY(20rem);
 }
 
+.navbar.is--active {
+  background-color: var(--primary-blue);
+  color: var(--white);
+}
+
 .wg-default.weglot-container--left .country-selector {
   display: none;
 }

@@ -1,7 +1,3 @@
-gsap.registerPlugin(CustomEase);
-
-CustomEase.create("smooth", "M0,0 C0.38,0.005 0.215,1 1,1");
-
 document.addEventListener("DOMContentLoaded", function () {
   const navbar = document.querySelector(".navbar");
   const dropdowns = document.querySelectorAll(".navbar--dropdown-new");
@@ -23,13 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   dropdowns.forEach((dropdown) => {
     dropdown.addEventListener("mouseenter", () => {
-      // Animate navbar background and text color
-      gsap.to(navbar, {
-        backgroundColor: "var(--primary-blue)",
-        color: "var(--white)",
-        duration: 0.3,
-        ease: "smooth",
-      });
+      navbar.classList.add("is--active");
 
       // Close the previously active dropdown if there is one
       if (activeDropdown && activeDropdown !== dropdown) {
@@ -48,13 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!navbar.contains(event.relatedTarget)) {
         closeDropdown(dropdown);
         activeDropdown = null;
-        // Animate navbar background and text color to original
-        gsap.to(navbar, {
-          backgroundColor: "",
-          color: "",
-          duration: 0.3,
-          ease: "smooth",
-        });
+        navbar.classList.remove("is--active");
       }
     });
   });
@@ -65,13 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
       closeDropdown(activeDropdown);
       activeDropdown = null;
     }
-    // Animate navbar background and text color to original when leaving the navbar
-    gsap.to(navbar, {
-      backgroundColor: "",
-      color: "",
-      duration: 0.3,
-      ease: "smooth",
-    });
+    navbar.classList.remove("is--active");
   });
 });
 
