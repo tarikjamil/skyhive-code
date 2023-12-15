@@ -2,6 +2,10 @@
   background-image: url("https://uploads-ssl.webflow.com/60a69b2a011f012edbe2cd9d/64db50a704ce1045dd02abd2_Logotype-h-white.svg");
 }
 
+.navbar--login-new {
+  color: inherit;
+}
+
 .navbar.is--active .btn--navbar-new {
   color: var(--white);
   border-color: var(--white);
