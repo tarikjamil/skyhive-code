@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const closeDropdown = (dropdown) => {
     const list = dropdown.querySelector(".navbar--dropdown-list-new");
+    const icon = dropdown.querySelector(".navbar--dropdown-icon");
     gsap.to(list, {
       opacity: 0,
       y: "20rem",
@@ -15,11 +16,14 @@ document.addEventListener("DOMContentLoaded", function () {
         list.style.display = "none";
       },
     });
+    // Rotate the icon back to its original state
+    gsap.to(icon, { rotation: 0, duration: 0.3, ease: "smooth" });
   };
 
   dropdowns.forEach((dropdown) => {
     dropdown.addEventListener("mouseenter", () => {
       navbar.classList.add("is--active");
+      const icon = dropdown.querySelector(".navbar--dropdown-icon");
 
       // Close the previously active dropdown if there is one
       if (activeDropdown && activeDropdown !== dropdown) {
@@ -31,6 +35,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const list = dropdown.querySelector(".navbar--dropdown-list-new");
       list.style.display = "flex";
       gsap.to(list, { opacity: 1, y: 0, duration: 0.3, ease: "smooth" });
+      // Rotate the icon by 180 degrees
+      gsap.to(icon, { rotation: 180, duration: 0.3, ease: "smooth" });
     });
 
     dropdown.addEventListener("mouseleave", (event) => {
