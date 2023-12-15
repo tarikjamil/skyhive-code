@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     gsap.to(list, {
       opacity: 0,
       y: "20rem",
-      duration: 0.5,
+      duration: 0.3,
       ease: "smooth",
       onComplete: () => {
         list.style.display = "none";
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
       activeDropdown = dropdown;
       const list = dropdown.querySelector(".navbar--dropdown-list-new");
       list.style.display = "flex";
-      gsap.to(list, { opacity: 1, y: 0, duration: 0.5, ease: "power1.out" });
+      gsap.to(list, { opacity: 1, y: 0, duration: 0.3, ease: "smooth" });
     });
 
     dropdown.addEventListener("mouseleave", (event) => {
