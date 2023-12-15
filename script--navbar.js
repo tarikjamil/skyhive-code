@@ -23,6 +23,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   dropdowns.forEach((dropdown) => {
     dropdown.addEventListener("mouseenter", () => {
+      // Change navbar background and text color
+      navbar.style.backgroundColor = "var(--primary-blue)";
+      navbar.style.color = "var(--white)";
+
       // Close the previously active dropdown if there is one
       if (activeDropdown && activeDropdown !== dropdown) {
         closeDropdown(activeDropdown);
@@ -40,6 +44,9 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!navbar.contains(event.relatedTarget)) {
         closeDropdown(dropdown);
         activeDropdown = null;
+        // Revert navbar background and text color
+        navbar.style.backgroundColor = ""; // original background color
+        navbar.style.color = ""; // original text color
       }
     });
   });
@@ -50,6 +57,9 @@ document.addEventListener("DOMContentLoaded", function () {
       closeDropdown(activeDropdown);
       activeDropdown = null;
     }
+    // Revert navbar background and text color when leaving the navbar
+    navbar.style.backgroundColor = ""; // original background color
+    navbar.style.color = ""; // original text color
   });
 });
 
