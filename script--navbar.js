@@ -1,3 +1,7 @@
+gsap.registerPlugin(CustomEase);
+
+CustomEase.create("smooth", "M0,0 C0.38,0.005 0.215,1 1,1");
+
 document.addEventListener("DOMContentLoaded", function () {
   const navbar = document.querySelector(".navbar");
   const dropdowns = document.querySelectorAll(".navbar--dropdown-new");
@@ -10,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
       opacity: 0,
       y: "20rem",
       duration: 0.5,
-      ease: "power1.in",
+      ease: "smooth",
       onComplete: () => {
         list.style.display = "none";
       },
