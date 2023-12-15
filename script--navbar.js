@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     dropdown.addEventListener("mouseenter", () => {
       const list = dropdown.querySelector(".navbar--dropdown-list-new");
       list.style.display = "flex";
-      gsap.to(list, { opacity: 1, y: 0, duration: 0.5 });
+      gsap.to(list, { opacity: 1, y: 0, duration: 0.5, ease: "power1.out" });
     });
 
     dropdown.addEventListener("mouseleave", () => {
@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
         opacity: 0,
         y: "20rem",
         duration: 0.5,
+        ease: "power1.in",
         onComplete: () => {
           list.style.display = "none";
         },
