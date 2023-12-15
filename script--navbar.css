@@ -24,6 +24,11 @@
   border-color: var(--white);
 }
 
+.navbar.is--active .btn--navbar-new:hover {
+  color: var(--primary-blue);
+  background-color: var(--white);
+}
+
 .navbar.is--active .navbar--bg {
   opacity: 1;
 }
