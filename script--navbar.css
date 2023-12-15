@@ -3,11 +3,12 @@
 }
 
 .navbar--dropdown-list-new {
-  display: none;
-  opacity: 0;
-  position: relative;
-  bottom: 20rem;
+  display: none; /* Initially hidden */
+  opacity: 0; /* Initially fully transparent */
+  transform: translateY(20rem); /* Start 20rem below */
+  transition: transform 0.5s, opacity 0.5s; /* Smooth transition for transform and opacity */
 }
+
 .wg-default.weglot-container--left .country-selector {
   display: none;
 }

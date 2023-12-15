@@ -1,31 +1,23 @@
-gsap.registerPlugin(CSSRulePlugin);
+document.addEventListener("DOMContentLoaded", function () {
+  const dropdowns = document.querySelectorAll(".navbar--dropdown-new");
 
-const dropDowns = document.querySelectorAll(".navbar--dropdown-new");
-
-dropDowns.forEach((dropdown) => {
-  dropdown.addEventListener("mouseenter", function () {
-    const list = this.querySelector(".navbar--dropdown-list-new");
-    list.style.display = "flex";
-
-    gsap.to(list, {
-      duration: 0.5, // Adjust duration according to your needs
-      opacity: 1,
-      bottom: "0rem",
-      ease: "power1.out", // You can choose different easing functions
+  dropdowns.forEach((dropdown) => {
+    dropdown.addEventListener("mouseenter", () => {
+      const list = dropdown.querySelector(".navbar--dropdown-list-new");
+      list.style.display = "flex";
+      gsap.to(list, { opacity: 1, y: 0, duration: 0.5 });
     });
-  });
 
-  dropdown.addEventListener("mouseleave", function () {
-    const list = this.querySelector(".navbar--dropdown-list-new");
-
-    gsap.to(list, {
-      duration: 0.5, // Adjust duration according to your needs
-      opacity: 0,
-      bottom: "20rem",
-      ease: "power1.in",
-      onComplete: function () {
-        list.style.display = "none";
-      },
+    dropdown.addEventListener("mouseleave", () => {
+      const list = dropdown.querySelector(".navbar--dropdown-list-new");
+      gsap.to(list, {
+        opacity: 0,
+        y: "20rem",
+        duration: 0.5,
+        onComplete: () => {
+          list.style.display = "none";
+        },
+      });
     });
   });
 });
