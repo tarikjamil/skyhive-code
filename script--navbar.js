@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const navbar = document.querySelector(".navbar");
   const dropdowns = document.querySelectorAll(".navbar--dropdown-new");
 
   dropdowns.forEach((dropdown) => {
@@ -8,17 +9,20 @@ document.addEventListener("DOMContentLoaded", function () {
       gsap.to(list, { opacity: 1, y: 0, duration: 0.5, ease: "power1.out" });
     });
 
-    dropdown.addEventListener("mouseleave", () => {
-      const list = dropdown.querySelector(".navbar--dropdown-list-new");
-      gsap.to(list, {
-        opacity: 0,
-        y: "20rem",
-        duration: 0.5,
-        ease: "power1.in",
-        onComplete: () => {
-          list.style.display = "none";
-        },
-      });
+    dropdown.addEventListener("mouseleave", (event) => {
+      // Check if the new target is a descendant of the navbar or another dropdown
+      if (!navbar.contains(event.relatedTarget)) {
+        const list = dropdown.querySelector(".navbar--dropdown-list-new");
+        gsap.to(list, {
+          opacity: 0,
+          y: "20rem",
+          duration: 0.5,
+          ease: "power1.in",
+          onComplete: () => {
+            list.style.display = "none";
+          },
+        });
+      }
     });
   });
 });
