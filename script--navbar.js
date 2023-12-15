@@ -1,81 +1,36 @@
-$(document).ready(function () {
-  // Navbar dropdown logic
-  $(".navbar--dropdown-toggle-new").on("click", function () {
-    let screenWidth = $(window).width();
+gsap.registerPlugin(CSSRulePlugin);
 
-    // Close other accordions when opening a new one
-    if (!$(this).hasClass("open")) {
-      $(".navbar--dropdown-toggle-new.open").click();
-      if (screenWidth > 991) {
-        $(".navbar").removeClass("dropdown-active"); // Remove class when another dropdown is closed, for larger screens
-      }
-    }
+const dropDowns = document.querySelectorAll(".navbar--dropdown-new");
 
-    let sibling = $(this).siblings(".navbar--dropdown-list-new");
-    let animationDuration = 1;
+dropDowns.forEach((dropdown) => {
+  dropdown.addEventListener("mouseenter", function () {
+    const list = this.querySelector(".navbar--dropdown-list-new");
+    list.style.display = "flex";
 
-    if ($(this).hasClass("open")) {
-      // Close the content div if already open
-      if (screenWidth <= 991) {
-        sibling.css("display", "none");
-      } else {
-        sibling.animate({ height: "0px" }, animationDuration);
-      }
-
-      $(".navbar--menu--bg-new").hide();
-      if (screenWidth > 991) {
-        $(".navbar").removeClass("dropdown-active"); // Remove class when this dropdown is closed, for larger screens
-      }
-    } else {
-      // Open the content div if already closed
-      if (screenWidth <= 991) {
-        sibling.css("display", "flex");
-      } else {
-        sibling.css("height", "auto");
-        let autoHeight = sibling.height();
-        sibling.css("height", "0px");
-        sibling.animate({ height: autoHeight }, animationDuration, () => {
-          sibling.css("height", "auto");
-        });
-      }
-
-      $(".navbar--menu--bg-new").show();
-      if (screenWidth > 991) {
-        $(".navbar").addClass("dropdown-active"); // Add class when this dropdown is opened, for larger screens
-      }
-    }
-
-    $(this).toggleClass("open");
+    gsap.to(list, {
+      duration: 0.5, // Adjust duration according to your needs
+      opacity: 1,
+      bottom: "0rem",
+      ease: "power1.out", // You can choose different easing functions
+    });
   });
 
-  // Handle clicks on .navbar--menu--bg-new
-  $(".navbar--menu--bg-new").on("click", function () {
-    $(".navbar--dropdown-toggle-new.open").click();
-    if ($(window).width() > 991) {
-      $(".navbar").removeClass("dropdown-active"); // Remove class when background is clicked, for larger screens
-    }
-  });
+  dropdown.addEventListener("mouseleave", function () {
+    const list = this.querySelector(".navbar--dropdown-list-new");
 
-  // Handle clicks on .navbar--menu-toggle-new for screens below 991px
-  $(".navbar--menu-toggle-new").on("click", function () {
-    let screenWidth = $(window).width();
-
-    if (screenWidth <= 991) {
-      // Toggle 'dropdown-active' class on .navbar
-      $(".navbar").toggleClass("dropdown-active");
-    }
+    gsap.to(list, {
+      duration: 0.5, // Adjust duration according to your needs
+      opacity: 0,
+      bottom: "20rem",
+      ease: "power1.in",
+      onComplete: function () {
+        list.style.display = "none";
+      },
+    });
   });
 });
 
-$(".navbar--menu-close-new").on("click", function () {
-  $(".navbar--menu-toggle-new").click();
-  $(".navbar--goback-link-back-new").click();
-});
-
-$(".navbar--goback-link-back-new").on("click", function () {
-  $(".navbar--dropdown-toggle-new.open").click();
-});
-
+// language switcher ---------------->
 function updateLanguageLinks() {
   var currentUrl = window.location.href;
   var basePath = currentUrl.split("/").slice(3).join("/"); // Adjust this based on your URL structure

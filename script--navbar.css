@@ -2,20 +2,12 @@
   background-image: url("https://uploads-ssl.webflow.com/60a69b2a011f012edbe2cd9d/64db50a704ce1045dd02abd2_Logotype-h-white.svg");
 }
 
-.dropdown-active {
-  background-color: var(--primary-blue);
-  color: var(--white);
+.navbar--dropdown-list-new {
+  display: none;
+  opacity: 0;
+  position: relative;
+  bottom: 20rem;
 }
-
-.dropdown-active .navbar--login-new {
-  color: var(--white);
-}
-
-.dropdown-active .btn--navbar-new {
-  color: var(--white);
-  border-color: var(--white);
-}
-
 .wg-default.weglot-container--left .country-selector {
   display: none;
 }
