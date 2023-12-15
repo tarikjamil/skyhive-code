@@ -6,6 +6,10 @@
   opacity: 1;
 }
 
+.navbar--bg {
+  opacity: 0;
+}
+
 .navbar--login-new {
   color: inherit;
 }
@@ -13,6 +17,10 @@
 .navbar.is--active .btn--navbar-new {
   color: var(--white);
   border-color: var(--white);
+}
+
+.navbar.is--active .navbar--bg {
+  opacity: 1;
 }
 
 .navbar--dropdown-list-new {
