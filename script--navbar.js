@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const navbar = document.querySelector(".navbar");
   const dropdowns = document.querySelectorAll(".navbar--dropdown-new");
 
+  let activeDropdown = null;
+
   const closeDropdown = (dropdown) => {
     const list = dropdown.querySelector(".navbar--dropdown-list-new");
     gsap.to(list, {
@@ -17,25 +19,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
   dropdowns.forEach((dropdown) => {
     dropdown.addEventListener("mouseenter", () => {
-      // Close any other open dropdowns
-      dropdowns.forEach((otherDropdown) => {
-        if (otherDropdown !== dropdown) {
-          closeDropdown(otherDropdown);
-        }
-      });
+      // Close the previously active dropdown if there is one
+      if (activeDropdown && activeDropdown !== dropdown) {
+        closeDropdown(activeDropdown);
+      }
 
       // Open the hovered dropdown
+      activeDropdown = dropdown;
       const list = dropdown.querySelector(".navbar--dropdown-list-new");
       list.style.display = "flex";
       gsap.to(list, { opacity: 1, y: 0, duration: 0.5, ease: "power1.out" });
     });
 
     dropdown.addEventListener("mouseleave", (event) => {
-      // Check if the mouse is moving to a child of the dropdown
-      if (!dropdown.contains(event.relatedTarget)) {
+      // Close the dropdown only if the mouse leaves for a non-navbar area
+      if (!navbar.contains(event.relatedTarget)) {
         closeDropdown(dropdown);
+        activeDropdown = null;
       }
     });
+  });
+
+  // Close the active dropdown if mouse leaves the navbar area
+  navbar.addEventListener("mouseleave", () => {
+    if (activeDropdown) {
+      closeDropdown(activeDropdown);
+      activeDropdown = null;
+    }
   });
 });
 
