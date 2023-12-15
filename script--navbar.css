@@ -10,7 +10,8 @@
   opacity: 0;
 }
 
-.navbar--login-new {
+.navbar--login-new,
+.navlink--dropdown {
   color: inherit;
 }
 
