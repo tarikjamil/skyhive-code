@@ -45,6 +45,13 @@
 }
 
 @media screen and (max-width: 991px) {
+  .navbar--dropdown-list-new {
+    box-shadow: none;
+    display: flex;
+    opacity: 1;
+    transform: translateY(0rem);
+  }
+
   .dropdown-active .btn--navbar-new {
     color: var(--primary-blue);
     border-color: var(--white);
