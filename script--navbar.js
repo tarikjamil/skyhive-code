@@ -56,45 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   };
 
-  const toggleDropdownAnimation = (list) => {
-    if (gsap.getProperty(list, "xPercent") === 0) {
-      gsap.to(list, { xPercent: 100, duration: 0.5, ease: "smooth" });
-    } else {
-      gsap.to(list, { xPercent: 0, duration: 0.5, ease: "smooth" });
-    }
-  };
-
-  const enableMobileDropdown = () => {
-    dropdowns.forEach((dropdown) => {
-      const toggle = dropdown.querySelector(".navbar--dropdown-toggle-new");
-      const list = dropdown.querySelector(".navbar--dropdown-list-new");
-
-      // Initialize off-screen using GSAP
-      gsap.set(list, { xPercent: 100 });
-
-      toggle.addEventListener("click", () => {
-        toggleDropdownAnimation(list);
-      });
-    });
-  };
-
-  const disableMobileDropdown = () => {
-    dropdowns.forEach((dropdown) => {
-      const toggle = dropdown.querySelector(".navbar--dropdown-toggle-new");
-      toggle.removeEventListener("click", enableMobileDropdown);
-    });
-  };
-
-  const updateDropdown = () => {
-    if (window.innerWidth >= 992) {
-      enableDropdown();
-      disableMobileDropdown();
-    } else {
-      disableDropdown();
-      enableMobileDropdown();
-    }
-  };
-
+  // Function to disable dropdown interactions
   const disableDropdown = () => {
     dropdowns.forEach((dropdown) => {
       dropdown.removeEventListener("mouseenter", enableDropdown);
@@ -107,12 +69,20 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  window.addEventListener("resize", updateDropdown);
-  updateDropdown();
-});
+  // Function to update dropdown based on screen size
+  const updateDropdown = () => {
+    if (window.innerWidth >= 992) {
+      enableDropdown();
+    } else {
+      disableDropdown();
+    }
+  };
 
-$(".navbar--goback").on("click", function () {
-  $(this).closest(".navbar--dropdown-new").find(".navbar--dropdown-toggle-new");
+  // Attach resize listener to update dropdowns on window resize
+  window.addEventListener("resize", updateDropdown);
+
+  // Initialize the dropdown functionality based on the current screen size
+  updateDropdown();
 });
 
 // language switcher ---------------->
