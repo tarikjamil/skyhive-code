@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
   const navbar = document.querySelector(".navbar");
   const dropdowns = document.querySelectorAll(".navbar--dropdown-new");
-
   let activeDropdown = null;
 
   const closeDropdown = (dropdown) => {
+    if (!dropdown) return;
     const list = dropdown.querySelector(".navbar--dropdown-list-new");
     const icon = dropdown.querySelector(".navbar--dropdown-icon");
     gsap.to(list, {
@@ -16,47 +16,71 @@ document.addEventListener("DOMContentLoaded", function () {
         list.style.display = "none";
       },
     });
-    // Rotate the icon back to its original state
     gsap.to(icon, { rotation: 0, duration: 0.3, ease: "smooth" });
   };
 
-  dropdowns.forEach((dropdown) => {
-    dropdown.addEventListener("mouseenter", () => {
-      navbar.classList.add("is--active");
-      const icon = dropdown.querySelector(".navbar--dropdown-icon");
+  const enableDropdown = () => {
+    dropdowns.forEach((dropdown) => {
+      dropdown.addEventListener("mouseenter", () => {
+        navbar.classList.add("is--active");
+        const icon = dropdown.querySelector(".navbar--dropdown-icon");
 
-      // Close the previously active dropdown if there is one
-      if (activeDropdown && activeDropdown !== dropdown) {
+        if (activeDropdown && activeDropdown !== dropdown) {
+          closeDropdown(activeDropdown);
+        }
+
+        activeDropdown = dropdown;
+        const list = dropdown.querySelector(".navbar--dropdown-list-new");
+        list.style.display = "flex";
+        gsap.to(list, { opacity: 1, y: 0, duration: 0.3, ease: "smooth" });
+        gsap.to(icon, { rotation: 180, duration: 0.3, ease: "smooth" });
+      });
+
+      dropdown.addEventListener("mouseleave", (event) => {
+        if (!navbar.contains(event.relatedTarget)) {
+          closeDropdown(dropdown);
+          activeDropdown = null;
+          navbar.classList.remove("is--active");
+        }
+      });
+    });
+
+    navbar.addEventListener("mouseleave", () => {
+      if (activeDropdown) {
         closeDropdown(activeDropdown);
-      }
-
-      // Open the hovered dropdown
-      activeDropdown = dropdown;
-      const list = dropdown.querySelector(".navbar--dropdown-list-new");
-      list.style.display = "flex";
-      gsap.to(list, { opacity: 1, y: 0, duration: 0.3, ease: "smooth" });
-      // Rotate the icon by 180 degrees
-      gsap.to(icon, { rotation: 180, duration: 0.3, ease: "smooth" });
-    });
-
-    dropdown.addEventListener("mouseleave", (event) => {
-      // Close the dropdown only if the mouse leaves for a non-navbar area
-      if (!navbar.contains(event.relatedTarget)) {
-        closeDropdown(dropdown);
         activeDropdown = null;
-        navbar.classList.remove("is--active");
       }
+      navbar.classList.remove("is--active");
     });
-  });
+  };
 
-  // Close the active dropdown if mouse leaves the navbar area
-  navbar.addEventListener("mouseleave", () => {
+  // Function to disable dropdown interactions
+  const disableDropdown = () => {
+    dropdowns.forEach((dropdown) => {
+      dropdown.removeEventListener("mouseenter", enableDropdown);
+      dropdown.removeEventListener("mouseleave", enableDropdown);
+    });
+    navbar.removeEventListener("mouseleave", enableDropdown);
     if (activeDropdown) {
       closeDropdown(activeDropdown);
       activeDropdown = null;
     }
-    navbar.classList.remove("is--active");
-  });
+  };
+
+  // Function to update dropdown based on screen size
+  const updateDropdown = () => {
+    if (window.innerWidth >= 992) {
+      enableDropdown();
+    } else {
+      disableDropdown();
+    }
+  };
+
+  // Attach resize listener to update dropdowns on window resize
+  window.addEventListener("resize", updateDropdown);
+
+  // Initialize the dropdown functionality based on the current screen size
+  updateDropdown();
 });
 
 // language switcher ---------------->
