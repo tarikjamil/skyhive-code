@@ -1,3 +1,5 @@
+// navbar animation ---------------->
+
 document.addEventListener("DOMContentLoaded", function () {
   const navbar = document.querySelector(".navbar");
   const dropdowns = document.querySelectorAll(".navbar--dropdown-new");
@@ -54,7 +56,43 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   };
 
-  // Function to disable dropdown interactions
+  const toggleDropdownAnimation = (list) => {
+    if (gsap.getProperty(list, "x") === "0vw") {
+      gsap.to(list, { x: "100vw", duration: 0.5, ease: "smooth" });
+    } else {
+      gsap.to(list, { x: "0vw", duration: 0.5, ease: "smooth" });
+    }
+  };
+
+  const enableMobileDropdown = () => {
+    dropdowns.forEach((dropdown) => {
+      const toggle = dropdown.querySelector(".navbar--dropdown-toggle-new");
+      const list = dropdown.querySelector(".navbar--dropdown-list-new");
+      list.style.x = "100vw"; // Initialize off-screen
+
+      toggle.addEventListener("click", () => {
+        toggleDropdownAnimation(list);
+      });
+    });
+  };
+
+  const disableMobileDropdown = () => {
+    dropdowns.forEach((dropdown) => {
+      const toggle = dropdown.querySelector(".navbar--dropdown-toggle-new");
+      toggle.removeEventListener("click", enableMobileDropdown);
+    });
+  };
+
+  const updateDropdown = () => {
+    if (window.innerWidth >= 992) {
+      enableDropdown();
+      disableMobileDropdown();
+    } else {
+      disableDropdown();
+      enableMobileDropdown();
+    }
+  };
+
   const disableDropdown = () => {
     dropdowns.forEach((dropdown) => {
       dropdown.removeEventListener("mouseenter", enableDropdown);
@@ -67,19 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  // Function to update dropdown based on screen size
-  const updateDropdown = () => {
-    if (window.innerWidth >= 992) {
-      enableDropdown();
-    } else {
-      disableDropdown();
-    }
-  };
-
-  // Attach resize listener to update dropdowns on window resize
   window.addEventListener("resize", updateDropdown);
-
-  // Initialize the dropdown functionality based on the current screen size
   updateDropdown();
 });
 
