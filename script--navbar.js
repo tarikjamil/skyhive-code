@@ -109,6 +109,10 @@ document.addEventListener("DOMContentLoaded", function () {
   updateDropdown();
 });
 
+$(".navbar--goback").on("click", function () {
+  $(this).closest(".navbar--dropdown-new").find(".navbar--dropdown-toggle-new");
+});
+
 // language switcher ---------------->
 function updateLanguageLinks() {
   var currentUrl = window.location.href;
