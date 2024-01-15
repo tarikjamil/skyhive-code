@@ -173,14 +173,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var percentages = [9, 28, 44, 49, 58, 73, 81, 87, 94, 100];
   var currentIndex = 0;
-  var progressBar = document.querySelector(".lottie-platform--progressbar");
 
   function goToPercentage(index) {
     var totalFrames = animation.totalFrames;
     var frameToGo = Math.floor((percentages[index] / 100) * totalFrames);
-    var currentFrame = animation.currentFrame;
-
-    animation.playSegments([currentFrame, frameToGo], true);
+    animation.goToAndStop(frameToGo, true);
   }
 
   document
