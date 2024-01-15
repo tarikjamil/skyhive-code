@@ -180,9 +180,9 @@ document.addEventListener("DOMContentLoaded", function () {
     animation.goToAndStop(frameToGo, true);
 
     // Update progress bar
+    var initialPercentage = percentages[currentIndex];
     var progressBar = document.querySelector(".lottie-platform--progressbar");
-    var progressPercentage = percentages[index];
-    progressBar.style.width = progressPercentage + "%";
+    progressBar.style.width = initialPercentage + "%";
   }
 
   document
