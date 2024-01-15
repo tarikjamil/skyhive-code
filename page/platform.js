@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function () {
     path: "https://uploads-ssl.webflow.com/60a69b2a011f012edbe2cd9d/656dd8c9e43f2346ba251b4b_Full%20Animation%20Updated.json", // Replace with your Lottie file path
   });
 
-  var percentages = [9, 28, 44, 49, 58, 73, 81, 87, 94, 100];
+  var percentages = [0, 9, 28, 44, 49, 58, 73, 81, 87, 94, 100];
   var currentIndex = 0;
 
   function goToPercentage(index) {
