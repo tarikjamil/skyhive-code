@@ -178,6 +178,11 @@ document.addEventListener("DOMContentLoaded", function () {
     var totalFrames = animation.totalFrames;
     var frameToGo = Math.floor((percentages[index] / 100) * totalFrames);
     animation.goToAndStop(frameToGo, true);
+
+    // Update progress bar
+    var progressBar = document.querySelector(".lottie-platform--progressbar");
+    var progressPercentage = percentages[index];
+    progressBar.style.width = progressPercentage + "%";
   }
 
   document
