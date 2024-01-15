@@ -164,37 +164,55 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 document.addEventListener("DOMContentLoaded", function () {
   var animation = lottie.loadAnimation({
-    container: document.querySelector(".lottie--platform-new"), // Replace with your Lottie container
-    renderer: "svg",
+    container: document.querySelector(".lottie--platform"),
+    renderer: "canvas",
     loop: false,
     autoplay: false,
-    path: "https://uploads-ssl.webflow.com/60a69b2a011f012edbe2cd9d/65a4eb64969bf33254ececa4_web%20-%20animation.json", // Replace with your Lottie file path
+    path: "https://uploads-ssl.webflow.com/60a69b2a011f012edbe2cd9d/656dd8c9e43f2346ba251b4b_Full%20Animation%20Updated.json",
   });
 
-  var percentages = [9, 28, 44, 49, 58, 73, 81, 87, 94, 100];
-  var currentIndex = 0;
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.attributeName === "class") {
+        const classList = document.body.classList;
+        let targetFrame;
+        if (classList.contains("is--position1")) {
+          targetFrame = animation.totalFrames * 0.09;
+        } else if (classList.contains("is--position2")) {
+          targetFrame = animation.totalFrames * 0.28;
+        } else if (classList.contains("is--position3")) {
+          targetFrame = animation.totalFrames * 0.44;
+        } else if (classList.contains("is--position4")) {
+          targetFrame = animation.totalFrames * 0.49;
+        } else if (classList.contains("is--position5")) {
+          targetFrame = animation.totalFrames * 0.58;
+        } else if (classList.contains("is--position6")) {
+          targetFrame = animation.totalFrames * 0.73;
+        } else if (classList.contains("is--position7")) {
+          targetFrame = animation.totalFrames * 0.81;
+        } else if (classList.contains("is--position8")) {
+          targetFrame = animation.totalFrames * 0.87;
+        } else if (classList.contains("is--position9")) {
+          targetFrame = animation.totalFrames * 0.94;
+        } else if (classList.contains("is--position10")) {
+          targetFrame = animation.totalFrames * 1;
+        } else {
+          targetFrame = animation.totalFrames * 0;
+        }
+        // Add more conditions for other positions
 
-  function goToPercentage(index) {
-    var totalFrames = animation.totalFrames;
-    var frameToGo = Math.floor((percentages[index] / 100) * totalFrames);
-    animation.goToAndStop(frameToGo, true);
-  }
-
-  document
-    .querySelector(".lottie-platform-arrow:first-child")
-    .addEventListener("click", function () {
-      if (currentIndex > 0) {
-        currentIndex--;
-        goToPercentage(currentIndex);
+        // Animate to the calculated frame using GSAP
+        if (targetFrame !== undefined) {
+          gsap.to(animation, {
+            frame: targetFrame,
+            duration: 1, // specify the duration in seconds
+            ease: "power1.inOut", // specify the easing function
+            onUpdate: () => animation.goToAndStop(animation.frame, true),
+          });
+        }
       }
     });
+  });
 
-  document
-    .querySelector(".lottie-platform-arrow:last-child")
-    .addEventListener("click", function () {
-      if (currentIndex < percentages.length - 1) {
-        currentIndex++;
-        goToPercentage(currentIndex);
-      }
-    });
+  observer.observe(document.body, { attributes: true });
 });
