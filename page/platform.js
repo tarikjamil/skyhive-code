@@ -179,16 +179,8 @@ document.addEventListener("DOMContentLoaded", function () {
     var totalFrames = animation.totalFrames;
     var frameToGo = Math.floor((percentages[index] / 100) * totalFrames);
     var currentFrame = animation.currentFrame;
-    var frameDifference = Math.abs(frameToGo - currentFrame);
 
-    // Estimate a speed factor to approximate 0.4 seconds duration
-    var speed = frameDifference / (12 * 0.4); // Adjust the denominator based on trial and error
-
-    animation.setSpeed(speed);
     animation.playSegments([currentFrame, frameToGo], true);
-
-    // Update progress bar
-    progressBar.style.width = percentages[index] + "%";
   }
 
   document
