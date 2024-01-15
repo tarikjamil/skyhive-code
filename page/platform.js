@@ -177,7 +177,10 @@ document.addEventListener("DOMContentLoaded", function () {
   function goToPercentage(index) {
     var totalFrames = animation.totalFrames;
     var frameToGo = Math.floor((percentages[index] / 100) * totalFrames);
-    animation.goToAndStop(frameToGo, true);
+    var currentFrame = animation.currentFrame;
+
+    // Play the segment with easing
+    animation.playSegments([currentFrame, frameToGo], true);
   }
 
   document
