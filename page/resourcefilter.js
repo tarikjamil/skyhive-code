@@ -32,13 +32,13 @@ function getresources() {
         date.textContent = resources.date;
 
         let tags = card.getElementsByClassName("tags-resources")[0];
-        tags.textContent = resources.date;
+        tags.textContent = resources.tags;
 
         let category = card.getElementsByClassName("resource-category")[0];
         category.textContent = resources.categories;
 
         let buttontext = card.getElementsByClassName("buttontext")[0];
-        buttontext.textContent = resources.tags;
+        buttontext.textContent = resources.Button_text;
 
         cardContainer.appendChild(card);
       });
