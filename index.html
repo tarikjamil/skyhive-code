@@ -173,3 +173,29 @@
     <div class="lottie-platform-arrow"></div>
   </div>
 </div>
+
+<div class="search-filter-labels">
+  <input
+    class="search--input"
+    type="text"
+    id="filter-name"
+    placeholder="Filter by Name"
+    onkeyup="filterTemplates()"
+  />
+
+  <select
+    class="search--input"
+    id="filter-category"
+    onchange="filterTemplates()"
+  >
+    <option value="">All categories</option>
+    <!-- Options will be populated by JavaScript -->
+  </select>
+
+  <select class="search--input" id="filter-tags" onchange="filterTemplates()">
+    <option value="">All tags</option>
+    <!-- Options will be populated by JavaScript -->
+  </select>
+
+  <button class="filter-link" id="resetFilters">Reset Filters</button>
+</div>
