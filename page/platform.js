@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
     renderer: "svg",
     loop: false,
     autoplay: false,
-    path: "https://uploads-ssl.webflow.com/60a69b2a011f012edbe2cd9d/65a6988c73761152e53126f9_Desktop%20Start.json", // Replace with your Lottie file path
+    path: "https://uploads-ssl.webflow.com/60a69b2a011f012edbe2cd9d/65a4eb64969bf33254ececa4_web%20-%20animation.json", // Replace with your Lottie file path
   });
 
   var percentages = [0, 9, 28, 44, 49, 58, 73, 81, 87, 94, 100];
