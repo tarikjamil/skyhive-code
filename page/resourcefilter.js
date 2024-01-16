@@ -31,8 +31,14 @@ function getresources() {
         let date = card.getElementsByClassName("heading--14")[0];
         date.textContent = resources.date;
 
+        let tags = card.getElementsByClassName("tags-resources")[0];
+        tags.textContent = resources.date;
+
+        let category = card.getElementsByClassName("resource-category")[0];
+        category.textContent = resources.categories;
+
         let buttontext = card.getElementsByClassName("buttontext")[0];
-        buttontext.textContent = resources.Button_text;
+        buttontext.textContent = resources.tags;
 
         cardContainer.appendChild(card);
       });
