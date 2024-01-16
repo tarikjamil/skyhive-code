@@ -57,13 +57,10 @@ function getresources() {
 
 function filterTemplates() {
   let filterName = document.getElementById("filter-name").value.toLowerCase();
-  let filterCountry = document
-    .getElementById("filter-country")
+  let filterCategory = document
+    .getElementById("filter-category")
     .value.toLowerCase();
-  let filterYear = document.getElementById("filter-year").value.toLowerCase();
-  let filterProgram = document
-    .getElementById("filter-program")
-    .value.toLowerCase();
+  let filterTags = document.getElementById("filter-tags").value.toLowerCase();
 
   let templates = document.querySelectorAll('[w-el="memberItem"]');
 
@@ -71,19 +68,17 @@ function filterTemplates() {
     let name = template
       .querySelector('[w-el="name"]')
       .textContent.toLowerCase();
-    let country = template
-      .querySelector(".country-name")
+    let category = template
+      .querySelector(".resource-category")
       .textContent.toLowerCase();
-    let year = template.querySelector(".year").textContent.toLowerCase();
-    let program = template
-      .querySelector('[w-el="program"]')
+    let tags = template
+      .querySelector(".tags-resources")
       .textContent.toLowerCase();
 
     if (
       name.includes(filterName) &&
-      (country === filterCountry || filterCountry === "") &&
-      (year === filterYear || filterYear === "") &&
-      (program === filterProgram || filterProgram === "")
+      (category === filterCategory || filterCategory === "") &&
+      (tags === filterTags || filterTags === "")
     ) {
       template.style.display = "block";
     } else {
@@ -94,37 +89,25 @@ function filterTemplates() {
 
 function populateSelectOptions() {
   const templates = document.querySelectorAll('[w-el="memberItem"]');
-  const countries = new Set();
-  const years = new Set();
-  const programs = new Set();
+  const categories = new Set();
+  const tags = new Set();
 
   templates.forEach((template) => {
-    let countryText = template
-      .querySelector(".country-name")
+    let categoryText = template
+      .querySelector(".resource-category")
       .textContent.trim();
-    let yearText = template.querySelector(".year").textContent.trim();
-    let programText = template
-      .querySelector('[w-el="program"]')
-      .textContent.trim();
+    let tagsText = template.querySelector(".tags-resources").textContent.trim();
 
-    if (countryText && countryText !== "country name here") {
-      countries.add(countryText);
+    if (categoryText && categoryText !== "category name here") {
+      categories.add(categoryText);
     }
-    if (yearText && yearText !== "year here") {
-      years.add(yearText);
-    }
-    if (
-      programText &&
-      programText !== "This is some text inside of a div block."
-    ) {
-      programs.add(programText);
+    if (tagsText && tagsText !== "tags here") {
+      tags.add(tagsText);
     }
   });
 
-  // Convert the Sets to Arrays, sort them, and then pass them to addOptionsToSelect
-  addOptionsToSelect("filter-country", Array.from(countries).sort());
-  addOptionsToSelect("filter-year", Array.from(years).sort());
-  addOptionsToSelect("filter-program", Array.from(programs).sort());
+  addOptionsToSelect("filter-category", Array.from(categories).sort());
+  addOptionsToSelect("filter-tags", Array.from(tags).sort());
 }
 
 function addOptionsToSelect(selectId, items) {
@@ -140,9 +123,8 @@ function addOptionsToSelect(selectId, items) {
 function resetFilters() {
   // Reset input fields
   document.getElementById("filter-name").value = "";
-  document.getElementById("filter-country").value = "";
-  document.getElementById("filter-year").value = "";
-  document.getElementById("filter-program").value = "";
+  document.getElementById("filter-category").value = "";
+  document.getElementById("filter-tags").value = "";
 
   // Display all member items
   const templates = document.querySelectorAll('[w-el="memberItem"]');
