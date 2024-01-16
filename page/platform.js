@@ -165,7 +165,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 document.addEventListener("DOMContentLoaded", function () {
   var animation = lottie.loadAnimation({
     container: document.querySelector(".lottie--platform-new"), // Replace with your Lottie container
-    renderer: "svg",
+    renderer: "canvas",
     loop: false,
     autoplay: false,
     path: "https://uploads-ssl.webflow.com/60a69b2a011f012edbe2cd9d/65a6988c73761152e53126f9_Desktop%20Start.json", // Replace with your Lottie file path
