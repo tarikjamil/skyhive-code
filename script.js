@@ -65,6 +65,8 @@ function pageLoad() {
 
 pageLoad();
 
+// ----------------- navbar ----------------- //
+
 // navbar color
 $(document).ready(function () {
   var scrollTop = 0;
@@ -178,7 +180,7 @@ updateScrollingSpeed();
 // Update on window resize
 window.addEventListener("resize", updateScrollingSpeed);
 
-// navbar animation ---------------->
+//----------------- navbar animation ----------------//
 
 document.addEventListener("DOMContentLoaded", function () {
   const navbar = document.querySelector(".navbar");
