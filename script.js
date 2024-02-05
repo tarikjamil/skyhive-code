@@ -293,3 +293,20 @@ Weglot.onBeforeChange(function () {
     Weglot.switchTo("ko"); // Switch to Korean
   });
 });
+
+function updateLanguageIndicator() {
+  var hostname = window.location.hostname;
+  var langDiv = document.getElementById("lang");
+
+  if (hostname.startsWith("en.")) {
+    langDiv.innerText = "En";
+  } else if (hostname.startsWith("ja.")) {
+    langDiv.innerText = "Jp";
+  } else if (hostname.startsWith("kr.")) {
+    langDiv.innerText = "Kr";
+  } else {
+    langDiv.innerText = "En"; // Default language, adjust as necessary
+  }
+}
+
+updateLanguageIndicator();
