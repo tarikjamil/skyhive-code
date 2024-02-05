@@ -274,9 +274,12 @@ $(".navbar--menu-close-new").on("click", function () {
 // language switcher ---------------->
 function updateLanguageLinks() {
   var currentUrl = window.location.href;
-  var basePath = currentUrl.split("/").slice(3).join("/"); // Adjust this based on your URL structure
+  // Assuming your site does not include the language code in the path for English
+  var basePath = currentUrl.split("/").slice(3).join("/");
 
-  document.getElementById("linkEn").href = "https://www.skyhive.ai/" + basePath;
+  // English URL might need specific handling to ensure it goes back to the default site without language subdomain
+  document.getElementById("linkEn").href =
+    "https://www.skyhive.ai/" + basePath.replace(/^(ja|kr)\//, ""); // Adjust the regex as per your URL structure
   document.getElementById("linkJp").href = "https://ja.skyhive.ai/" + basePath;
   document.getElementById("linkKr").href = "https://kr.skyhive.ai/" + basePath;
 }
