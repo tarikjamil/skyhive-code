@@ -274,7 +274,7 @@ $(".navbar--menu-close-new").on("click", function () {
 //-------------------- language switcher ----------------//
 function() {
     // CHANGE THIS SELECTOR to the element you want to add your custom switcher to.
-    var myDiv = document.getElementById("myDiv");
+    var myDiv = document.getElementById("switcher");
     
     if (!Weglot) {
         return;
@@ -288,7 +288,7 @@ function() {
         .concat(Weglot.options.language_from);
     
     //Create and append select list
-    var selectList = document.createElement("select");
+    var selectList = document.createElement("div");
     myDiv.appendChild(selectList);
     
     var currentLang = Weglot.getCurrentLang();
@@ -296,8 +296,9 @@ function() {
     //Create and append the options
     for (var i = 0; i < availableLanguages.length; i++) {
         var lang = availableLanguages[i];
-        var option = document.createElement("option");
+        var option = document.createElement("a");
         option.value = lang;
+        option.className = "navlink";
         option.text = Weglot.getLanguageName(lang);
         if (lang === currentLang) {
             option.selected = "selected";        
