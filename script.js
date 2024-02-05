@@ -309,7 +309,7 @@ $(".navbar--menu-close-new").on("click", function () {
 
   Weglot.on("languageChanged", function (lang) {
     // Update the current language highlight
-    document.querySelectorAll("#myDiv .navlink").forEach(function (link) {
+    document.querySelectorAll("#switcher .navlink").forEach(function (link) {
       link.classList.remove("current-lang");
       if (link.textContent === Weglot.getLanguageName(lang)) {
         link.classList.add("current-lang");
