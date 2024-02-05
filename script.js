@@ -281,7 +281,12 @@ function updateLanguageLinks() {
   console.log("Current basePath:", basePath);
 
   // Assuming the default site for English does not use a language-specific subdomain
-  document.getElementById("linkEn").href = "https://www.skyhive.ai/" + basePath;
+  document.getElementById("linkEn").addEventListener("click", function (e) {
+    e.preventDefault(); // Prevent the default link behavior
+    window.location.href = this.href; // Set the window location to the href of the link
+    window.location.reload(true); // Force the browser to reload the page from the server
+  });
+
   document.getElementById("linkJp").href = "https://ja.skyhive.ai/" + basePath;
   document.getElementById("linkKr").href = "https://kr.skyhive.ai/" + basePath;
 
