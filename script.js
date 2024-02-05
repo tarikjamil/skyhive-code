@@ -272,49 +272,6 @@ $(".navbar--menu-close-new").on("click", function () {
 });
 
 //-------------------- language switcher ----------------//
-(function () {
-  var myDiv = document.getElementById("switcher");
-
-  if (typeof Weglot === "undefined") {
-    console.log("Weglot not initialized.");
-    return;
-  }
-
-  // Create array of options to be added
-  var availableLanguages = Weglot.options.languages
-    .map(function (language) {
-      return language.language_to;
-    })
-    .concat(Weglot.options.language_from);
-
-  // Create and append div list
-  var selectList = document.createElement("div");
-  myDiv.appendChild(selectList);
-
-  var currentLang = Weglot.getCurrentLang();
-
-  // Create and append the options as links
-  for (var i = 0; i < availableLanguages.length; i++) {
-    var lang = availableLanguages[i];
-    var option = document.createElement("a");
-    option.className = "navlink";
-    option.innerText = Weglot.getLanguageName(lang);
-    option.href = "#"; // Set href to "#" or the appropriate URL
-    option.onclick = (function (lang) {
-      return function (e) {
-        e.preventDefault();
-        Weglot.switchTo(lang);
-      };
-    })(lang);
-
-    selectList.appendChild(option);
-  }
-
-  // Update current language indicator on language change
-  Weglot.on("languageChanged", function (lang) {
-    // Implement logic to visually indicate the current language in your switcher
-  });
-})();
 
 function updateLanguageIndicator() {
   var hostname = window.location.hostname;
