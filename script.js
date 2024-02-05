@@ -272,52 +272,47 @@ $(".navbar--menu-close-new").on("click", function () {
 });
 
 //-------------------- language switcher ----------------//
-(function () {
-  var myDiv = document.getElementById("switcher");
-  if (!window.Weglot) {
-    console.log("Weglot not initialized.");
-    return;
-  }
-
-  // Ensure all desired languages are included, including the default language if not already.
-  var languages = ["en", "ja", "ko"]; // Manually specify the languages you support including the default one.
-
-  var currentLang = Weglot.getCurrentLang();
-
-  // Remove duplicates and ensure the current default language is included
-  var availableLanguages = languages.filter(function (value, index, self) {
-    return self.indexOf(value) === index;
-  });
-
-  // Create and append the links
-  availableLanguages.forEach(function (lang) {
-    var link = document.createElement("a");
-    link.href = "#";
-    link.className = "navlink"; // Add class
-    link.textContent = Weglot.getLanguageName(lang);
-    link.onclick = function (e) {
-      e.preventDefault(); // Prevent the default link behavior
-      Weglot.switchTo(lang); // Switch to the clicked language
-    };
-
-    // Highlight the current language
-    if (lang === currentLang) {
-      link.classList.add("current-lang"); // Add a class to style the current language differently
+function() {
+    // CHANGE THIS SELECTOR to the element you want to add your custom switcher to.
+    var myDiv = document.getElementById("myDiv");
+    
+    if (!Weglot) {
+        return;
     }
 
-    myDiv.appendChild(link);
-  });
-
-  Weglot.on("languageChanged", function (lang) {
-    // Update the current language highlight
-    document.querySelectorAll("#switcher .navlink").forEach(function (link) {
-      link.classList.remove("current-lang");
-      if (link.textContent === Weglot.getLanguageName(lang)) {
-        link.classList.add("current-lang");
-      }
+    //Create array of options to be added
+    var availableLanguages = Weglot.options.languages
+        .map(function(language) {
+            return language.language_to;
+        })
+        .concat(Weglot.options.language_from);
+    
+    //Create and append select list
+    var selectList = document.createElement("select");
+    myDiv.appendChild(selectList);
+    
+    var currentLang = Weglot.getCurrentLang();
+    
+    //Create and append the options
+    for (var i = 0; i < availableLanguages.length; i++) {
+        var lang = availableLanguages[i];
+        var option = document.createElement("option");
+        option.value = lang;
+        option.text = Weglot.getLanguageName(lang);
+        if (lang === currentLang) {
+            option.selected = "selected";        
+        }
+        selectList.appendChild(option);
+    }
+    
+    selectList.onchange = function(){
+        Weglot.switchTo(this.value);
+    };
+    
+    Weglot.on("languageChanged", function(lang) {
+        selectList.value = lang;
     });
-  });
-})();
+}()
 
 function updateLanguageIndicator() {
   var hostname = window.location.hostname;
