@@ -272,45 +272,24 @@ $(".navbar--menu-close-new").on("click", function () {
 });
 
 //-------------------- language switcher ----------------//
-function updateLanguageLinks() {
-  var currentUrl = new URL(window.location.href);
-  var basePath = currentUrl.pathname; // Gets the path portion of the URL
+Weglot.onBeforeChange(function () {
+  // Intercept clicks on language switcher links
+  var switchToEnglish = document.getElementById("linkEn");
+  var switchToJapanese = document.getElementById("linkJp");
+  var switchToKorean = document.getElementById("linkKr");
 
-  // Remove any language part from basePath if necessary
-  basePath = basePath.replace(/^\/(en|ja|kr)\//, "/");
+  switchToEnglish.addEventListener("click", function (e) {
+    e.preventDefault(); // Prevent default action
+    Weglot.switchTo("en"); // Switch to English
+  });
 
-  // Construct the language-specific URLs
-  var linkEnHref = `https://www.skyhive.ai${basePath}`;
-  var linkJpHref = `https://ja.skyhive.ai${basePath}`;
-  var linkKrHref = `https://kr.skyhive.ai${basePath}`;
+  switchToJapanese.addEventListener("click", function (e) {
+    e.preventDefault(); // Prevent default action
+    Weglot.switchTo("ja"); // Switch to Japanese
+  });
 
-  // Set the href attributes for each language link
-  document.getElementById("linkEn").href = linkEnHref;
-  document.getElementById("linkJp").href = linkJpHref;
-  document.getElementById("linkKr").href = linkKrHref;
-
-  // Debugging: Log the URLs being set
-  console.log("English URL:", linkEnHref);
-  console.log("Japanese URL:", linkJpHref);
-  console.log("Korean URL:", linkKrHref);
-}
-
-// Call updateLanguageLinks on page load
-document.addEventListener("DOMContentLoaded", updateLanguageLinks);
-
-function updateLanguageIndicator() {
-  var hostname = window.location.hostname;
-  var langDiv = document.getElementById("lang");
-
-  if (hostname.startsWith("en.")) {
-    langDiv.innerText = "En";
-  } else if (hostname.startsWith("ja.")) {
-    langDiv.innerText = "Jp";
-  } else if (hostname.startsWith("kr.")) {
-    langDiv.innerText = "Kr";
-  } else {
-    langDiv.innerText = "En"; // Default language, adjust as necessary
-  }
-}
-
-updateLanguageIndicator();
+  switchToKorean.addEventListener("click", function (e) {
+    e.preventDefault(); // Prevent default action
+    Weglot.switchTo("ko"); // Switch to Korean
+  });
+});
