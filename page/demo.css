@@ -70,7 +70,7 @@
   margin-bottom: 0rem;
 }
 
-.hs-dependent-field ul input,
+.embed--form .input label input,
 .hs-form-checkbox input {
   width: 16rem !important;
   height: 16rem;
