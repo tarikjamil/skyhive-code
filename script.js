@@ -286,30 +286,35 @@ $(".navbar--menu-close-new").on("click", function () {
     })
     .concat(Weglot.options.language_from);
 
-  // Create and append select list
-  var selectList = document.createElement("select");
-  myDiv.appendChild(selectList);
-
   var currentLang = Weglot.getCurrentLang();
 
-  // Create and append the options
-  for (var i = 0; i < availableLanguages.length; i++) {
-    var lang = availableLanguages[i];
-    var option = document.createElement("option");
-    option.value = lang;
-    option.text = Weglot.getLanguageName(lang);
-    if (lang === currentLang) {
-      option.selected = "selected";
-    }
-    selectList.appendChild(option);
-  }
+  // Create and append the links
+  availableLanguages.forEach(function (lang) {
+    var link = document.createElement("a");
+    link.href = "#";
+    link.className = "navlink"; // Add class
+    link.textContent = Weglot.getLanguageName(lang);
+    link.onclick = function (e) {
+      e.preventDefault(); // Prevent the default link behavior
+      Weglot.switchTo(lang); // Switch to the clicked language
+    };
 
-  selectList.onchange = function () {
-    Weglot.switchTo(this.value);
-  };
+    // Optionally, highlight the current language
+    if (lang === currentLang) {
+      link.classList.add("current-lang"); // Add a class to style the current language differently
+    }
+
+    myDiv.appendChild(link);
+  });
 
   Weglot.on("languageChanged", function (lang) {
-    selectList.value = lang;
+    // Update the current language highlight
+    document.querySelectorAll("#myDiv .navlink").forEach(function (link) {
+      link.classList.remove("current-lang");
+      if (link.textContent === Weglot.getLanguageName(lang)) {
+        link.classList.add("current-lang");
+      }
+    });
   });
 })();
 
