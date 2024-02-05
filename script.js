@@ -271,7 +271,7 @@ $(".navbar--menu-close-new").on("click", function () {
   $(".navbar--goback").click();
 });
 
-// language switcher ---------------->
+//-------------------- language switcher ----------------//
 function updateLanguageLinks() {
   var currentUrl = window.location.href;
   var urlParts = currentUrl.split("/");
