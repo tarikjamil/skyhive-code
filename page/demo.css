@@ -25,11 +25,6 @@ select {
   font-size: 16px;
 }
 
-/* You might also want to style the dropdown arrow */
-select::-ms-expand {
-  display: none;
-}
-
 /* For custom arrow indicators, you may need to add a background-image or use a wrapper */
 
 .embed--form .hbspt-form select {
