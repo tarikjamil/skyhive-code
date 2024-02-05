@@ -273,7 +273,7 @@ $(".navbar--menu-close-new").on("click", function () {
 
 //-------------------- language switcher ----------------//
 (function () {
-  var myDiv = document.getElementById("myDiv");
+  var myDiv = document.getElementById("switcher");
   if (!window.Weglot) {
     console.log("Weglot not initialized.");
     return;
