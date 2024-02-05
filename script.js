@@ -272,33 +272,52 @@ $(".navbar--menu-close-new").on("click", function () {
 });
 
 //-------------------- language switcher ----------------//
-Weglot.onBeforeChange(function () {
-  // Intercept clicks on language switcher links
-  var switchToEnglish = document.getElementById("linkEn");
-  var switchToJapanese = document.getElementById("linkJp");
-  var switchToKorean = document.getElementById("linkKr");
+(function () {
+  var myDiv = document.getElementById("myDiv");
+  if (!window.Weglot) {
+    console.log("Weglot not initialized.");
+    return;
+  }
 
-  switchToEnglish.addEventListener("click", function (e) {
-    e.preventDefault(); // Prevent default action
-    Weglot.switchTo("en"); // Switch to English
-  });
+  // Create array of options to be added
+  var availableLanguages = Weglot.options.languages
+    .map(function (language) {
+      return language.language_to;
+    })
+    .concat(Weglot.options.language_from);
 
-  switchToJapanese.addEventListener("click", function (e) {
-    e.preventDefault(); // Prevent default action
-    Weglot.switchTo("ja"); // Switch to Japanese
-  });
+  // Create and append select list
+  var selectList = document.createElement("select");
+  myDiv.appendChild(selectList);
 
-  switchToKorean.addEventListener("click", function (e) {
-    e.preventDefault(); // Prevent default action
-    Weglot.switchTo("ko"); // Switch to Korean
+  var currentLang = Weglot.getCurrentLang();
+
+  // Create and append the options
+  for (var i = 0; i < availableLanguages.length; i++) {
+    var lang = availableLanguages[i];
+    var option = document.createElement("option");
+    option.value = lang;
+    option.text = Weglot.getLanguageName(lang);
+    if (lang === currentLang) {
+      option.selected = "selected";
+    }
+    selectList.appendChild(option);
+  }
+
+  selectList.onchange = function () {
+    Weglot.switchTo(this.value);
+  };
+
+  Weglot.on("languageChanged", function (lang) {
+    selectList.value = lang;
   });
-});
+})();
 
 function updateLanguageIndicator() {
   var hostname = window.location.hostname;
   var langDiv = document.getElementById("lang");
 
-  if (hostname.startsWith("en.")) {
+  if (hostname.startsWith("www.")) {
     langDiv.innerText = "En";
   } else if (hostname.startsWith("ja.")) {
     langDiv.innerText = "Jp";
