@@ -279,14 +279,15 @@ $(".navbar--menu-close-new").on("click", function () {
     return;
   }
 
-  // Create array of options to be added
-  var availableLanguages = Weglot.options.languages
-    .map(function (language) {
-      return language.language_to;
-    })
-    .concat(Weglot.options.language_from);
+  // Ensure all desired languages are included, including the default language if not already.
+  var languages = ["en", "ja", "ko"]; // Manually specify the languages you support including the default one.
 
   var currentLang = Weglot.getCurrentLang();
+
+  // Remove duplicates and ensure the current default language is included
+  var availableLanguages = languages.filter(function (value, index, self) {
+    return self.indexOf(value) === index;
+  });
 
   // Create and append the links
   availableLanguages.forEach(function (lang) {
@@ -299,7 +300,7 @@ $(".navbar--menu-close-new").on("click", function () {
       Weglot.switchTo(lang); // Switch to the clicked language
     };
 
-    // Optionally, highlight the current language
+    // Highlight the current language
     if (lang === currentLang) {
       link.classList.add("current-lang"); // Add a class to style the current language differently
     }
