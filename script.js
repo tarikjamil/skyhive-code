@@ -274,14 +274,21 @@ $(".navbar--menu-close-new").on("click", function () {
 // language switcher ---------------->
 function updateLanguageLinks() {
   var currentUrl = window.location.href;
-  // Assuming your site does not include the language code in the path for English
-  var basePath = currentUrl.split("/").slice(3).join("/");
+  var urlParts = currentUrl.split("/");
+  var basePath = urlParts.slice(3).join("/"); // Adjust based on your URL structure
 
-  // English URL might need specific handling to ensure it goes back to the default site without language subdomain
-  document.getElementById("linkEn").href =
-    "https://www.skyhive.ai/" + basePath.replace(/^(ja|kr)\//, ""); // Adjust the regex as per your URL structure
+  // Debugging: Log the current basePath
+  console.log("Current basePath:", basePath);
+
+  // Assuming the default site for English does not use a language-specific subdomain
+  document.getElementById("linkEn").href = "https://www.skyhive.ai/" + basePath;
   document.getElementById("linkJp").href = "https://ja.skyhive.ai/" + basePath;
   document.getElementById("linkKr").href = "https://kr.skyhive.ai/" + basePath;
+
+  // Debugging: Log the URLs being set
+  console.log("English URL:", document.getElementById("linkEn").href);
+  console.log("Japanese URL:", document.getElementById("linkJp").href);
+  console.log("Korean URL:", document.getElementById("linkKr").href);
 }
 
 updateLanguageLinks();
