@@ -273,30 +273,30 @@ $(".navbar--menu-close-new").on("click", function () {
 
 //-------------------- language switcher ----------------//
 function updateLanguageLinks() {
-  var currentUrl = window.location.href;
-  var urlParts = currentUrl.split("/");
-  var basePath = urlParts.slice(3).join("/"); // Adjust based on your URL structure
+  var currentUrl = new URL(window.location.href);
+  var basePath = currentUrl.pathname; // Gets the path portion of the URL
 
-  // Debugging: Log the current basePath
-  console.log("Current basePath:", basePath);
+  // Remove any language part from basePath if necessary
+  basePath = basePath.replace(/^\/(en|ja|kr)\//, "/");
 
-  // Assuming the default site for English does not use a language-specific subdomain
-  document.getElementById("linkEn").addEventListener("click", function (e) {
-    e.preventDefault(); // Prevent the default link behavior
-    window.location.href = this.href; // Set the window location to the href of the link
-    window.location.reload(true); // Force the browser to reload the page from the server
-  });
+  // Construct the language-specific URLs
+  var linkEnHref = `https://www.skyhive.ai${basePath}`;
+  var linkJpHref = `https://ja.skyhive.ai${basePath}`;
+  var linkKrHref = `https://kr.skyhive.ai${basePath}`;
 
-  document.getElementById("linkJp").href = "https://ja.skyhive.ai/" + basePath;
-  document.getElementById("linkKr").href = "https://kr.skyhive.ai/" + basePath;
+  // Set the href attributes for each language link
+  document.getElementById("linkEn").href = linkEnHref;
+  document.getElementById("linkJp").href = linkJpHref;
+  document.getElementById("linkKr").href = linkKrHref;
 
   // Debugging: Log the URLs being set
-  console.log("English URL:", document.getElementById("linkEn").href);
-  console.log("Japanese URL:", document.getElementById("linkJp").href);
-  console.log("Korean URL:", document.getElementById("linkKr").href);
+  console.log("English URL:", linkEnHref);
+  console.log("Japanese URL:", linkJpHref);
+  console.log("Korean URL:", linkKrHref);
 }
 
-updateLanguageLinks();
+// Call updateLanguageLinks on page load
+document.addEventListener("DOMContentLoaded", updateLanguageLinks);
 
 function updateLanguageIndicator() {
   var hostname = window.location.hostname;
