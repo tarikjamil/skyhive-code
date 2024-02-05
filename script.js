@@ -272,6 +272,27 @@ $(".navbar--menu-close-new").on("click", function () {
 });
 
 //-------------------- language switcher ----------------//
+Weglot.onBeforeChange(function () {
+  // Intercept clicks on language switcher links
+  var switchToEnglish = document.getElementById("linkEn");
+  var switchToJapanese = document.getElementById("linkJp");
+  var switchToKorean = document.getElementById("linkKr");
+
+  switchToEnglish.addEventListener("click", function (e) {
+    e.preventDefault(); // Prevent default action
+    Weglot.switchTo("en"); // Switch to English
+  });
+
+  switchToJapanese.addEventListener("click", function (e) {
+    e.preventDefault(); // Prevent default action
+    Weglot.switchTo("ja"); // Switch to Japanese
+  });
+
+  switchToKorean.addEventListener("click", function (e) {
+    e.preventDefault(); // Prevent default action
+    Weglot.switchTo("ko"); // Switch to Korean
+  });
+});
 
 function updateLanguageIndicator() {
   var hostname = window.location.hostname;
