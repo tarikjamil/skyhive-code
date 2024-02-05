@@ -272,48 +272,48 @@ $(".navbar--menu-close-new").on("click", function () {
 });
 
 //-------------------- language switcher ----------------//
-function() {
-    // CHANGE THIS SELECTOR to the element you want to add your custom switcher to.
-    var myDiv = document.getElementById("switcher");
-    
-    if (!Weglot) {
-        return;
-    }
+(function () {
+  // CHANGE THIS SELECTOR to the element you want to add your custom switcher to.
+  var myDiv = document.getElementById("switcher");
 
-    //Create array of options to be added
-    var availableLanguages = Weglot.options.languages
-        .map(function(language) {
-            return language.language_to;
-        })
-        .concat(Weglot.options.language_from);
-    
-    //Create and append select list
-    var selectList = document.createElement("div");
-    myDiv.appendChild(selectList);
-    
-    var currentLang = Weglot.getCurrentLang();
-    
-    //Create and append the options
-    for (var i = 0; i < availableLanguages.length; i++) {
-        var lang = availableLanguages[i];
-        var option = document.createElement("a");
-        option.value = lang;
-        option.className = "navlink";
-        option.text = Weglot.getLanguageName(lang);
-        if (lang === currentLang) {
-            option.selected = "selected";        
-        }
-        selectList.appendChild(option);
+  if (!Weglot) {
+    return;
+  }
+
+  //Create array of options to be added
+  var availableLanguages = Weglot.options.languages
+    .map(function (language) {
+      return language.language_to;
+    })
+    .concat(Weglot.options.language_from);
+
+  //Create and append select list
+  var selectList = document.createElement("div");
+  myDiv.appendChild(selectList);
+
+  var currentLang = Weglot.getCurrentLang();
+
+  //Create and append the options
+  for (var i = 0; i < availableLanguages.length; i++) {
+    var lang = availableLanguages[i];
+    var option = document.createElement("a");
+    option.value = lang;
+    option.className = "navlink";
+    option.text = Weglot.getLanguageName(lang);
+    if (lang === currentLang) {
+      option.selected = "selected";
     }
-    
-    selectList.onchange = function(){
-        Weglot.switchTo(this.value);
-    };
-    
-    Weglot.on("languageChanged", function(lang) {
-        selectList.value = lang;
-    });
-}()
+    selectList.appendChild(option);
+  }
+
+  selectList.onchange = function () {
+    Weglot.switchTo(this.value);
+  };
+
+  Weglot.on("languageChanged", function (lang) {
+    selectList.value = lang;
+  });
+})();
 
 function updateLanguageIndicator() {
   var hostname = window.location.hostname;
