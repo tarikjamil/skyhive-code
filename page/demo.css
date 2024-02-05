@@ -16,6 +16,22 @@
   flex-basis: auto;
 }
 
+select {
+  -webkit-appearance: none; /* For older versions of Safari */
+  appearance: none; /* For the latest versions of Safari and other browsers */
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  padding: 5px;
+  font-size: 16px;
+}
+
+/* You might also want to style the dropdown arrow */
+select::-ms-expand {
+  display: none;
+}
+
+/* For custom arrow indicators, you may need to add a background-image or use a wrapper */
+
 .embed--form .hbspt-form select {
   font-size: 12rem;
   padding: 8rem;
