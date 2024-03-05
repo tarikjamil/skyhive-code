@@ -75,3 +75,12 @@ body {
   border-width: 0rem;
   margin-bottom: 16rem;
 }
+
+.submit input {
+  color: #334ceb;
+  padding: 24rem 16rem;
+  border-radius: 4rem;
+  width: 100%;
+  font-size: 16rem;
+  line-height: 1.2;
+}
