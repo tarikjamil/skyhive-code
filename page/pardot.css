@@ -45,58 +45,15 @@ body {
   }
 }
 
-.navbar {
-  /* Card Shadow */
-  box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.04);
+body {
+  padding: 0rem;
 }
 
-.is--scrolling {
-  white-space: nowrap;
-  will-change: transform;
-  animation-name: is--scrolling;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-
-@keyframes is--scrolling {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(calc(-1 * var(--scroll-width)));
-  }
-}
-
-.is--scrolling-reverse {
-  white-space: nowrap;
-  will-change: transform;
-  animation: is--scrolling-reverse 40s linear infinite;
-  /* manipulate the speed of the marquee by changing "40s" line above*/
-}
-
-@media only screen and (max-width: 991px) {
-  .is--scrolling-reverse {
-    white-space: nowrap;
-    will-change: transform;
-    animation: is--scrolling-reverse 60s linear infinite;
-    /* manipulate the speed of the marquee by changing "40s" line above*/
-  }
-}
-
-@keyframes is--scrolling-reverse {
-  from {
-    transform: translateX(0%);
-  }
-  to {
-    transform: translateX(100%);
-  }
-}
-
-.navbar--login:hover .navbar--login-line {
-  left: 0%;
-}
-
-.lightbox--hero:hover .lightbox--hero-img {
-  scale: 1.1;
-  transform: rotate(3deg);
+.input--field {
+  padding: 10rem 16rem;
+  width: 100%;
+  border-radius: 4rem;
+  background-color: #080d2780;
+  font-size: 16rem;
+  color: #5d70ee;
 }
