@@ -78,9 +78,10 @@ body {
 
 .submit input {
   color: #334ceb;
-  padding: 24rem 16rem;
+  padding: 16rem 24rem;
   border-radius: 4rem;
   width: 100%;
   font-size: 16rem;
   line-height: 1.2;
+  border-width: 0rem;
 }
