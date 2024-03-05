@@ -50,6 +50,13 @@ body {
   margin: 0rem !important;
 }
 
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 24rem;
+  grid-row-gap: 16rem;
+}
+
 .input--field-wrapper {
   display: flex;
   flex-direction: column;
@@ -73,7 +80,6 @@ body {
   font-size: 16rem;
   color: #5d70ee;
   border-width: 0rem;
-  margin-bottom: 16rem;
 }
 
 .submit input {
