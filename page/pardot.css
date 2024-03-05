@@ -47,14 +47,16 @@ body {
 
 body {
   padding: 0rem;
+  margin: 0rem !important;
 }
 
 .input--field-wrapper {
   display: flex;
+  flex-direction: column;
 }
 
 .input--field-wrapper label {
-  color: #bbc3f8;
+  color: #bbc3f8 !important;
   font-family: "Space Grotesk";
   font-size: 14rem;
   font-style: normal;
@@ -70,4 +72,6 @@ body {
   background-color: #080d2780;
   font-size: 16rem;
   color: #5d70ee;
+  border-width: 0rem;
+  margin-bottom: 16rem;
 }
