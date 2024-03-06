@@ -58,6 +58,7 @@ form {
   grid-row-gap: 16rem;
   grid-auto-columns: 1fr;
   align-items: center;
+  max-width: 100%;
 }
 
 .input--field-wrapper {
