@@ -53,8 +53,11 @@ body {
 form {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
   grid-column-gap: 24rem;
   grid-row-gap: 16rem;
+  grid-auto-columns: 1fr;
+  align-items: center;
 }
 
 .input--field-wrapper {
