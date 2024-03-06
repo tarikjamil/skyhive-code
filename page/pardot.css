@@ -111,3 +111,21 @@ form {
   line-height: 1.2;
   border-width: 0rem;
 }
+
+@media screen and (max-width: 991px) {
+  form {
+    grid-template-columns: minmax(0px, 1fr);
+    grid-template-rows: auto;
+    grid-column-gap: 0rem;
+    grid-row-gap: 16rem;
+    grid-auto-columns: 1fr;
+  }
+
+  .input--field-wrapper.is--1 {
+    grid-column-start: span 1;
+  }
+
+  .input--field-wrapper.is--2 {
+    grid-column-start: span 1;
+  }
+}
