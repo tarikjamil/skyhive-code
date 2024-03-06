@@ -128,4 +128,8 @@ form {
   .input--field-wrapper.is--2 {
     grid-column-start: span 1;
   }
+
+  .submit {
+    grid-column-start: span 1;
+  }
 }
