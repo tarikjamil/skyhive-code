@@ -1,0 +1,193 @@
+.embed--form .hbspt-form input {
+  font-size: 12rem;
+  padding: 8rem;
+  padding-left: 24rem;
+  padding-right: 24rem;
+  border-radius: 4rem;
+  background-color: #ffffff;
+  border-color: #ebedfd;
+  border-style: solid;
+  border-width: 1px;
+  width: 100%;
+  color: #20212e;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  width: 100%;
+  color: #20212e !important;
+}
+
+.embed--form .hbspt-form textarea {
+  font-size: 12rem;
+  padding: 8rem;
+  padding-left: 24rem;
+  padding-right: 24rem;
+  border-radius: 4rem;
+  background-color: #ffffff;
+  border-color: #ebedfd;
+  border-style: solid;
+  border-width: 1px;
+  width: 100% !important;
+  color: #20212e;
+  min-height: 200rem;
+}
+
+.embed--form .hbspt-form select {
+  font-size: 12rem;
+  padding: 8rem;
+  padding-left: 24rem;
+  padding-right: 24rem;
+  border-radius: 4rem;
+  background-color: #ffffff;
+  border-color: #ebedfd;
+  border-style: solid;
+  border-width: 1px;
+  width: 100%;
+}
+
+.embed--form .hbspt-form label {
+  font-size: 12rem;
+  font-weight: normal;
+  color: #20212e;
+}
+
+.embed--form .hbspt-form form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 24rem;
+  grid-row-gap: 16rem;
+}
+
+.embed--form .hs-dependent-field {
+  grid-column-start: span 2;
+}
+
+.embed--form .hs-dependent-field ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 24rem;
+  grid-row-gap: 16rem;
+  padding-left: 0px;
+  padding-top: 16rem;
+  margin-bottom: 0rem;
+}
+
+.embed--form .hs-dependent-field ul label {
+  display: flex;
+  column-gap: 8rem;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 0rem;
+}
+
+.embed--form .hs-dependent-field ul input {
+  width: 16rem;
+  height: 16rem;
+}
+
+.embed--form .legal-consent-container {
+  grid-column-start: span 2;
+}
+
+.embed--form input.hs-button.primary.large {
+  max-width: none !important;
+  color: white !important;
+}
+
+.embed--form p {
+  margin-bottom: 10rem;
+  font-size: 12rem;
+  color: #20212e;
+}
+
+.embed--form .hs-button {
+  color: #fff !important;
+  letter-spacing: -0.04em;
+  background-color: #334ceb !important;
+  border: 1px solid #334ceb !important;
+  border-radius: 4rem !important;
+  padding: 14rem 32rem !important;
+  font-size: 16rem !important;
+  font-weight: 700;
+  line-height: 1.25;
+  text-decoration: none;
+}
+
+.embed--form .hs-button:hover {
+  border-color: #d3f48b;
+  background-color: #d3f48b;
+  color: #080d27;
+}
+
+.embed--form .hs-button:small {
+  width: 100%;
+  text-align: center;
+}
+
+.embed--form .hs-error-msgs label {
+  color: #20212e;
+  font-size: 10rem;
+  font-weight: 700;
+  padding-top: 8rem;
+}
+
+.embed--form ul.hs-error-msgs {
+  padding-left: 0rem;
+  margin-bottom: 0rem;
+}
+
+.embed--form .hs-richtext a {
+  color: #334ceb;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.embed--form .hs_numemployees.hs-numemployees {
+  padding-top: 16rem !important;
+}
+
+.embed--form .no-list.hs-error-msgs.inputs-list {
+  display: block !important;
+  padding-top: 4rem !important;
+  padding-bottom: 16rem !important;
+}
+
+.embed--form .hs-dependent-field {
+  display: grid;
+  grid-row-gap: 16rem;
+}
+
+.embed--form .form-columns-2,
+.embed--form .form-columns-1 {
+  grid-column-start: span 2;
+  width: 100%;
+  max-width: none !important;
+}
+
+.embed--form .hs_submit.hs-submit {
+  display: inline-block !important;
+}
+
+.embed--form .hs-button.primary.large:hover {
+  background-color: transparent !important;
+  color: #334ceb !important;
+}
+
+@media (max-width: 991px) {
+  .embed--form .hs-dependent-field ul {
+    grid-template-columns: 1fr;
+  }
+
+  .embed--form .hbspt-form form {
+    grid-template-columns: 1fr;
+  }
+
+  .embed--form .hs-dependent-field {
+    grid-column-start: span 1;
+  }
+
+  .embed--form .legal-consent-container {
+    grid-column-start: span 1;
+  }
+}

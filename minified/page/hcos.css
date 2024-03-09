@@ -1,0 +1,114 @@
+.splide__track {
+  overflow: visible;
+}
+
+.splide__slide {
+  align-self: stretch;
+}
+
+.hcos--animation-1 {
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+}
+
+.hcos--animation-2 {
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+  transition-delay: 0.1s;
+}
+
+.hcos--grid-animation-1-lines {
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+  transition-delay: 0.2s;
+}
+
+.img--100.is--feature2,
+.img--100.is--feature4 {
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+  transition-delay: 0.1s;
+}
+
+.hcos--animation-1 {
+  opacity: 0;
+  transform: translate(0px, -20rem);
+}
+
+.hcos--grid-animation-1-lines {
+  opacity: 0;
+}
+
+.hcos--animation-2 {
+  opacity: 0;
+  transform: translate(0px, 20rem);
+}
+
+.img--100.is--feature2,
+.img--100.is--feature3,
+.img--100.is--feature4 {
+  opacity: 0;
+  transform: translate(0px, 20rem);
+}
+
+.body--new.is--feature-1 .hcos--animation-1 {
+  opacity: 1;
+  transform: translate(0px, 0rem);
+}
+
+.body--new.is--feature-1 .hcos--animation-2 {
+  opacity: 1;
+  transform: translate(0px, 0rem);
+}
+
+.body--new.is--feature-1 .hcos--grid-animation-1-lines {
+  opacity: 1;
+}
+
+.body--new.is--feature-2 .img--100.is--feature2 {
+  opacity: 1;
+  transform: translate(0px, 0rem);
+}
+
+.body--new.is--feature-3 .img--100.is--feature2 {
+  opacity: 1;
+  transform: translate(0px, 0rem);
+}
+
+.body--new.is--feature-4 .img--100.is--feature4 {
+  opacity: 1;
+  transform: translate(0px, 0rem);
+}
+.metaball {
+  transition: transform 0.5s ease;
+}
+
+.entreprise--item.is--feature1 {
+  margin-top: calc(50vh - 300rem);
+}
+
+.container--1032.is--hcos-features {
+  margin-bottom: calc(300rem - 50vh);
+}
+
+.entreprise--item.is--feature4 {
+  margin-bottom: calc(50vh - 300rem);
+}
+
+@media (max-width: 991px) {
+  .entreprise--item.is--feature1 {
+    margin-top: 0px;
+  }
+
+  .entreprise--item.is--feature4 {
+    margin-bottom: 0px;
+  }
+
+  .container--1032.is--hcos-features {
+    margin-bottom: 0px;
+  }
+}

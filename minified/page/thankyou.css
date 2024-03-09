@@ -1,0 +1,110 @@
+.navbar.is--scrolled {
+  background-color: #fff;
+}
+
+.is--features-section {
+  margin-top: calc(-60vh + 300rem);
+  margin-bottom: calc(-60vh + 300rem);
+}
+
+@media (max-width: 991px) {
+  .is--features-section {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+  }
+}
+
+.splide__track {
+  overflow: visible;
+}
+
+.splide__slide {
+  align-self: stretch;
+}
+
+.footer--form-block .hs-input {
+  height: 56rem;
+  margin-bottom: 0px;
+  padding-left: 32rem;
+  border-top-style: none;
+  border-top-width: 1px;
+  border-top-color: black;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: black;
+  border-bottom-style: none;
+  border-bottom-width: 1px;
+  border-bottom-color: black;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: black;
+  color: #20212e;
+  width: 100%;
+  font-size: 14rem;
+}
+
+.footer--form-block .hs-button.primary.large {
+  position: absolute;
+  left: auto;
+  top: 5rem;
+  right: 0%;
+  bottom: 0%;
+  padding-right: 24rem;
+  padding-left: 24rem;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 2rem;
+  border-bottom-left-radius: 0rem;
+  border-bottom-right-radius: 2rem;
+  background-color: #d3f48b;
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+  color: #080d27;
+  font-size: 16rem;
+  line-height: 1.5;
+  font-weight: 500;
+  height: 56rem;
+  border-color: transparent;
+}
+
+.footer--form-block .hs-button.primary.large:hover {
+  background-color: #080d27;
+  color: white;
+}
+
+.footer--form-block .input {
+  position: relative;
+  overflow: hidden;
+  height: 56rem;
+  border-top-left-radius: 0rem;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 0rem;
+  border-bottom-right-radius: 4rem;
+  background-color: hsla(0, 0%, 100%, 0.9);
+}
+
+.footer--form-block label,
+.footer--form-block p {
+  font-size: 12rem;
+}
+
+.footer--form-block a {
+  color: #d3f48b;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+  .footer--form-block .hs-button.primary.large {
+    position: static;
+    height: 56rem;
+  }
+
+  .footer--form-block .input {
+    display: flex;
+    overflow: visible;
+    height: auto;
+    flex-direction: column;
+    grid-row-gap: 16rem;
+    background-color: transparent;
+  }
+}

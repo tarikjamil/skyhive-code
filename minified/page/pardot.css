@@ -1,0 +1,135 @@
+html {
+  font-size: calc(100vw / 1280);
+}
+
+/* body settings */
+body {
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1em;
+}
+
+@media only screen and (min-width: 1920px) {
+  html {
+    font-size: calc(100vw / 1920);
+  }
+}
+
+@media only screen and (min-width: 1440px) and (max-width: 1919px) {
+  html {
+    font-size: calc(100vw / 1440);
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  html {
+    font-size: calc(100vw / 768);
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  html {
+    font-size: calc(100vw / 480);
+  }
+}
+
+@media screen and (max-width: 479px) {
+  html {
+    font-size: calc(100vw / 375);
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 375px) {
+  html {
+    font-size: calc(100vw / 375);
+  }
+}
+
+body {
+  padding: 0rem;
+  margin: 0rem !important;
+}
+
+form {
+  display: grid;
+  grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr);
+  grid-template-rows: auto;
+  grid-column-gap: 24rem;
+  grid-row-gap: 16rem;
+  grid-auto-columns: 1fr;
+  align-items: center;
+  max-width: 100%;
+}
+
+.input--field-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.input--field-wrapper.is--1 {
+  display: flex;
+  flex-direction: column;
+  grid-column-start: span 2;
+}
+
+.input--field-wrapper.is--2 {
+  display: flex;
+  flex-direction: column;
+  grid-column-start: span 1;
+}
+
+.input--field-wrapper label {
+  color: #bbc3f8 !important;
+  font-family: "Space Grotesk";
+  font-size: 14rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  margin-bottom: 2rem;
+}
+
+.input--field-wrapper input {
+  padding: 10rem 16rem;
+
+  border-radius: 4rem;
+  background-color: #080d2780;
+  font-size: 16rem;
+  color: #5d70ee;
+  border-width: 0rem;
+}
+
+.submit {
+  grid-column-start: span 2;
+}
+
+.submit input {
+  color: #334ceb;
+  padding: 16rem 24rem;
+  border-radius: 4rem;
+  width: 100%;
+  font-size: 16rem;
+  line-height: 1.2;
+  border-width: 0rem;
+}
+
+@media screen and (max-width: 991px) {
+  form {
+    grid-template-columns: minmax(0px, 1fr);
+    grid-template-rows: auto;
+    grid-column-gap: 0rem;
+    grid-row-gap: 16rem;
+    grid-auto-columns: 1fr;
+  }
+
+  .input--field-wrapper.is--1 {
+    grid-column-start: span 1;
+  }
+
+  .input--field-wrapper.is--2 {
+    grid-column-start: span 1;
+  }
+
+  .submit {
+    grid-column-start: span 1;
+  }
+}
