@@ -173,8 +173,10 @@
   color: var(--white);
 }
 
-.wg-default.weglot-container--left .country-selector {
-  display: none;
+.wg-default,
+.wg-default .country-selector {
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 @media screen and (max-width: 991px) {
