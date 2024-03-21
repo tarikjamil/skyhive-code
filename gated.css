@@ -1,0 +1,4 @@
+.w-richtext:before,
+.w-richtext:after {
+  display: none !important;
+}
