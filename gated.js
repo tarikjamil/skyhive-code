@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
       } else if (speakerItemsCount === 3) {
         richtextSection.classList.add("is--3");
       } else if (speakerItemsCount >= 5) {
-        richtextSection.classList.add("is--5");
+        richtextSection.classList.add("is--3");
       }
     }
   }
