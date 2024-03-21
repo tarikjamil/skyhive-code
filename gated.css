@@ -10,6 +10,7 @@
   border-top-right-radius: 300rem;
   border-bottom-left-radius: 300rem;
   border-bottom-right-radius: 300rem;
+  overflow: hidden;
 }
 
 .gated--speaker-item h3 {
