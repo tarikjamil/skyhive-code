@@ -30,7 +30,12 @@
             https://www.skyhive.ai/company/news-press-release
         </loc>
     </url>
-    url>
+    <url>
+        <loc>
+            https://www.skyhive.ai/company/media-assets
+        </loc>
+    </url>
+    <url>
         <loc>
             https://www.skyhive.ai/company/media-assets/logos
         </loc>
