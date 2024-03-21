@@ -6,44 +6,33 @@ document.addEventListener("DOMContentLoaded", function () {
       // Add the gated--speakers-grid class
       richtextSection.classList.add("gated--speakers-grid");
 
-      var items = [];
-      var childElements = richtextSection.children;
+      var elements = Array.from(richtextSection.children);
+      var wrapper = null;
 
-      // Collect items to be wrapped
-      for (var i = 0; i < childElements.length; i++) {
-        var el = childElements[i];
-        if (
-          el.tagName === "FIGURE" ||
-          el.tagName === "H3" ||
-          el.tagName === "P"
-        ) {
-          items.push(el);
-        }
-
-        // When a set of elements to wrap is complete or at the end of children
-        if (el.tagName === "P" || i === childElements.length - 1) {
-          if (items.length > 0) {
-            var wrapper = document.createElement("div");
-            wrapper.className = "gated--speaker-item";
-
-            // Move items to the wrapper
-            items.forEach(function (item) {
-              wrapper.appendChild(item.cloneNode(true));
-            });
-
-            // Insert the wrapper before the first item in the set
-            richtextSection.insertBefore(wrapper, items[0]);
-
-            // Remove the original items
-            items.forEach(function (item) {
-              richtextSection.removeChild(item);
-            });
-
-            // Reset items for the next set
-            items = [];
+      elements.forEach(function (el, index) {
+        // Start a new wrapper if we're at a figure element
+        if (el.tagName === "FIGURE") {
+          // Finish the previous wrapper if it exists
+          if (wrapper) {
+            richtextSection.insertBefore(wrapper, el);
           }
+
+          // Start a new wrapper
+          wrapper = document.createElement("div");
+          wrapper.className = "gated--speaker-item";
         }
-      }
+
+        // Add the current element to the wrapper if it exists
+        if (wrapper) {
+          wrapper.appendChild(el);
+        }
+
+        // If we're at the end of a grouping or at the last element, append the wrapper to richtextSection
+        if ((el.tagName === "P" || index === elements.length - 1) && wrapper) {
+          richtextSection.appendChild(wrapper);
+          wrapper = null; // Reset wrapper for the next group
+        }
+      });
     }
   }
 });
