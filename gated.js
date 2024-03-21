@@ -54,30 +54,15 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   }
-});
 
-document.addEventListener("DOMContentLoaded", function () {
-  var sectionType = document.querySelector(".gated--section-component-type");
-  if (sectionType && sectionType.textContent.trim() === "speakers") {
-    var richtextSection = document.querySelector(".richtext--gated-section");
-    if (richtextSection) {
-      // Existing code to manipulate speaker items...
-
-      // New code starts here
-      var gatedContentSection = document.querySelector(
-        ".section.is--gated-content"
-      );
-      if (
-        gatedContentSection &&
-        gatedContentSection.classList.contains("w-condition-invisible")
-      ) {
-        var paddingSection = document.querySelector(
-          ".section.is--144padding-top"
-        );
-        if (paddingSection) {
-          paddingSection.classList.add("is--gated-gray");
-        }
-      }
+  // Additional functionality to check for .is--gated-content with .w-condition-invisible
+  var gatedContent = document.querySelector(
+    ".is--gated-content.w-condition-invisible"
+  );
+  if (gatedContent) {
+    var paddedSection = document.querySelector(".is--144padding-top");
+    if (paddedSection) {
+      paddedSection.classList.remove("is--gated-gray");
     }
   }
 });
