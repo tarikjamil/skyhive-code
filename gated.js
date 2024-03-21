@@ -55,3 +55,29 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  var sectionType = document.querySelector(".gated--section-component-type");
+  if (sectionType && sectionType.textContent.trim() === "speakers") {
+    var richtextSection = document.querySelector(".richtext--gated-section");
+    if (richtextSection) {
+      // Existing code to manipulate speaker items...
+
+      // New code starts here
+      var gatedContentSection = document.querySelector(
+        ".section.is--gated-content"
+      );
+      if (
+        gatedContentSection &&
+        gatedContentSection.classList.contains("w-condition-invisible")
+      ) {
+        var paddingSection = document.querySelector(
+          ".section.is--144padding-top"
+        );
+        if (paddingSection) {
+          paddingSection.classList.add("is--gated-gray");
+        }
+      }
+    }
+  }
+});
