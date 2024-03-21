@@ -13,6 +13,11 @@
   overflow: hidden;
 }
 
+.gated--speaker-item figure div {
+  max-width: 144rem;
+  width: 100%;
+}
+
 .gated--speaker-item h3 {
   margin-top: 0px;
   margin-bottom: 0px;
