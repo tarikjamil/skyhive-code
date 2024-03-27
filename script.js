@@ -189,7 +189,17 @@ function getSourceValue() {
   return queryParams.get("source");
 }
 
-// Function to append 'source' parameter to all internal links
+// Function to append 'source' parameter to a single link
+function appendSourceToLink(link, sourceValue) {
+  // Create a URL object from the link's href attribute
+  const linkUrl = new URL(link.href);
+  // Append or update the 'source' parameter
+  linkUrl.searchParams.set("source", sourceValue);
+  // Set the modified href back to the link
+  link.href = linkUrl.toString();
+}
+
+// Function to append 'source' parameter to all applicable links
 function appendSourceToLinks() {
   const sourceValue = getSourceValue();
   // Only proceed if 'source' parameter is present
@@ -197,23 +207,35 @@ function appendSourceToLinks() {
     // Get all anchor tags on the page
     const links = document.querySelectorAll("a");
     links.forEach((link) => {
-      // Assuming you want to modify only internal links
-      // Check if the href attribute exists and is relative (not starting with http:// or https://)
-      if (
-        link.href &&
-        !link.href.startsWith("http://") &&
-        !link.href.startsWith("https://")
-      ) {
-        // Construct a new URL object based on the link's href
-        const newUrl = new URL(link.href, window.location.origin);
-        // Append or update the 'source' parameter
-        newUrl.searchParams.set("source", sourceValue);
-        // Set the modified href back to the link
-        link.href = newUrl.href;
+      // Check if the href attribute exists
+      if (link.href) {
+        // Only modify internal links - adjust this condition based on your domain
+        if (link.hostname === window.location.hostname) {
+          appendSourceToLink(link, sourceValue);
+        }
       }
     });
   }
 }
 
-// Run the function to modify the links when the document is fully loaded
-document.addEventListener("DOMContentLoaded", appendSourceToLinks);
+// Observe the DOM for changes and apply the function to new links
+function observeDOM() {
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.addedNodes.length) {
+        appendSourceToLinks(); // Re-apply when new nodes are added
+      }
+    });
+  });
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+  });
+}
+
+// Append source to links and observe the DOM for changes
+document.addEventListener("DOMContentLoaded", () => {
+  appendSourceToLinks();
+  observeDOM();
+});
