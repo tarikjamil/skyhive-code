@@ -44,14 +44,6 @@ document.addEventListener("DOMContentLoaded", function () {
       richtextSection.appendChild(speakersGrid);
 
       // Calculate the number of .gated--speaker-item instances and adjust the class accordingly
-      var speakerItemsCount = speakerItems.length;
-      if (speakerItemsCount === 1) {
-        speakersGrid.classList.add("is--1");
-      } else if (speakerItemsCount === 3) {
-        speakersGrid.classList.add("is--3");
-      } else if (speakerItemsCount >= 5) {
-        speakersGrid.classList.add("is--3");
-      }
     }
   }
 
