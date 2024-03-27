@@ -66,3 +66,26 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 });
+
+// --------------------- form --------------------- //
+
+// Function to get the URL parameter 'source'
+function getSourceValue() {
+  // Construct a URLSearchParams object with the query string of the current URL
+  const queryParams = new URLSearchParams(window.location.search);
+  // Return the value for the 'source' parameter
+  return queryParams.get("source");
+}
+
+// Function to set the 'source' field value
+function setSourceFieldValue() {
+  // Get the 'source' parameter value from the URL
+  const value = getSourceValue();
+  // If the 'source' parameter is present, set the form field's value
+  if (value) {
+    document.getElementById("source").value = value;
+  }
+}
+
+// Set the 'source' field value when the page loads
+window.onload = setSourceFieldValue;
