@@ -180,3 +180,38 @@ updateScrollingSpeed(),
   }),
   updateLanguageIndicator(),
   (window.onload = setSourceFieldValue);
+
+// Function to get the 'source' parameter value from the URL
+function getSourceValue() {
+  const queryParams = new URLSearchParams(window.location.search);
+  return queryParams.get("source");
+}
+
+// Function to append 'source' parameter to all internal links
+function appendSourceToLinks() {
+  const sourceValue = getSourceValue();
+  // Only proceed if 'source' parameter is present
+  if (sourceValue) {
+    // Get all anchor tags on the page
+    const links = document.querySelectorAll("a");
+    links.forEach((link) => {
+      // Assuming you want to modify only internal links
+      // Check if the href attribute exists and is relative (not starting with http:// or https://)
+      if (
+        link.href &&
+        !link.href.startsWith("http://") &&
+        !link.href.startsWith("https://")
+      ) {
+        // Construct a new URL object based on the link's href
+        const newUrl = new URL(link.href, window.location.origin);
+        // Append or update the 'source' parameter
+        newUrl.searchParams.set("source", sourceValue);
+        // Set the modified href back to the link
+        link.href = newUrl.href;
+      }
+    });
+  }
+}
+
+// Run the function to modify the links when the document is fully loaded
+document.addEventListener("DOMContentLoaded", appendSourceToLinks);
