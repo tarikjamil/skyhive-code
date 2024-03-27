@@ -181,6 +181,8 @@ updateScrollingSpeed(),
   updateLanguageIndicator(),
   (window.onload = setSourceFieldValue);
 
+// ---------------------------- add parameters ---------------------------- //
+
 // Function to get the 'source' parameter value from the URL
 function getSourceValue() {
   const queryParams = new URLSearchParams(window.location.search);
