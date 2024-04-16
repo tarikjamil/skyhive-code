@@ -1,6 +1,4 @@
-// split type
 let text;
-// Split the text up
 function runSplit() {
   text = new SplitType("[animation=loading-split]", {
     types: "lines, words",
@@ -8,307 +6,236 @@ function runSplit() {
     wordClass: "loading-animation-split",
   });
 }
-
 runSplit();
-
-// Update on window resize
 let windowWidth = $(window).innerWidth();
-window.addEventListener("resize", function () {
-  if (windowWidth !== $(window).innerWidth()) {
-    windowWidth = $(window).innerWidth();
-    text.revert();
-    runSplit();
-  }
-});
-
-gsap.registerPlugin(ScrollTrigger);
-
-// On Page Load
 function pageLoad() {
-  let tl = gsap.timeline();
-
-  tl.to(".main-wrapper", {
-    opacity: 1,
-    ease: "Quint.easeOut",
-    duration: 0.5,
-  });
-
-  // Add a label to mark the starting point of simultaneous animations
-  tl.add("loadingAnimationsStart");
-
-  // Add the 'loading' animation and set its position to the label
-  tl.from(
-    "[animation=loading]",
-    {
-      y: "20rem",
-      opacity: "0",
-      stagger: { each: 0.1, from: "start" },
-      ease: "Quint.easeOut",
-      duration: 1,
-    },
-    "loadingAnimationsStart"
-  ); // <-- position parameter set to the label
-
-  // Add the 'loading-reverse' animation and set its position to the label
-  tl.from(
-    "[animation=loading-reverse]",
-    {
-      y: "-20rem",
-      opacity: "0",
-      stagger: { each: 0.1, from: "start" },
-      ease: "Quint.easeOut",
-      duration: 1,
-    },
-    "loadingAnimationsStart"
-  ); // <-- position parameter set to the label
+  let e = gsap.timeline();
+  e.to(".main-wrapper", { opacity: 1, ease: "Quint.easeOut", duration: 0.5 }),
+    e.add("loadingAnimationsStart"),
+    e.from(
+      "[animation=loading]",
+      {
+        y: "20rem",
+        opacity: "0",
+        stagger: { each: 0.1, from: "start" },
+        ease: "Quint.easeOut",
+        duration: 1,
+      },
+      "loadingAnimationsStart"
+    ),
+    e.from(
+      "[animation=loading-reverse]",
+      {
+        y: "-20rem",
+        opacity: "0",
+        stagger: { each: 0.1, from: "start" },
+        ease: "Quint.easeOut",
+        duration: 1,
+      },
+      "loadingAnimationsStart"
+    );
 }
-
-pageLoad();
-
-// ----------------- navbar ----------------- //
-
-// navbar color
-$(document).ready(function () {
-  var scrollTop = 0;
-  $(window).scroll(function () {
-    scrollTop = $(window).scrollTop();
-    if (scrollTop >= 50) {
-      $(".navbar").addClass("is--scrolled");
-    } else if (scrollTop < 50) {
-      $(".navbar").removeClass("is--scrolled");
-    }
-  });
-});
-
-// navbar menu background click
-$(".navbar--menu--bg").on("click", function () {
-  $(".navbar--menu-close").click();
-});
-
-// navbar use cases dropdown
-
-$(".navbar--usecases-dropdown").on("click", function () {
-  $(".navbar--usecases-dropdown").toggleClass("is--active");
-  $(".navbar--dropwdown-text-wrapper").toggleClass("is--active");
-});
-
-// slider products
-document.addEventListener("DOMContentLoaded", function () {
-  let splide = new Splide(".is--slider-products", {
-    type: "slide",
-    perPage: 1,
-    perMove: 1,
-    gap: "24rem",
-    drag: false,
-    arrows: false,
-    pagination: false,
-    breakpoints: {
-      991: {
-        // Tablet
-        gap: "24rem",
-        drag: true,
-      },
-    },
-  });
-  splide.mount();
-});
-
-// slider testimonials
-document.addEventListener("DOMContentLoaded", function () {
-  let splide = new Splide(".is--testimonial-slider", {
-    type: "slide",
-    perPage: 1,
-    perMove: 1,
-    gap: "24rem",
-    drag: false,
-    arrows: false,
-    pagination: false,
-    breakpoints: {
-      991: {
-        // Tablet
-        gap: "24rem",
-        drag: true,
-      },
-    },
-  });
-  splide.mount();
-});
-
-// slider resources
-document.addEventListener("DOMContentLoaded", function () {
-  // Select all .is--resources-slider elements
-  let sliders = document.querySelectorAll(".is--resources-slider");
-
-  // For each slider, initialize Splide
-  sliders.forEach(function (slider) {
-    let splide = new Splide(slider, {
+window.addEventListener("resize", function () {
+  windowWidth !== $(window).innerWidth() &&
+    ((windowWidth = $(window).innerWidth()), text.revert(), runSplit());
+}),
+  gsap.registerPlugin(ScrollTrigger),
+  pageLoad(),
+  $(document).ready(function () {
+    var e = 0;
+    $(window).scroll(function () {
+      (e = $(window).scrollTop()) >= 50
+        ? $(".navbar").addClass("is--scrolled")
+        : e < 50 && $(".navbar").removeClass("is--scrolled");
+    });
+  }),
+  $(".navbar--menu--bg").on("click", function () {
+    $(".navbar--menu-close").click();
+  }),
+  $(".navbar--usecases-dropdown").on("click", function () {
+    $(".navbar--usecases-dropdown").toggleClass("is--active"),
+      $(".navbar--dropwdown-text-wrapper").toggleClass("is--active");
+  }),
+  document.addEventListener("DOMContentLoaded", function () {
+    new Splide(".is--slider-products", {
       type: "slide",
       perPage: 1,
       perMove: 1,
       gap: "24rem",
-      drag: false,
-      arrows: false,
-      pagination: false,
-      breakpoints: {
-        991: {
-          // Tablet
-          gap: "24rem",
-          drag: true,
-        },
-      },
+      drag: !1,
+      arrows: !1,
+      pagination: !1,
+      breakpoints: { 991: { gap: "24rem", drag: !0 } },
+    }).mount();
+  }),
+  document.addEventListener("DOMContentLoaded", function () {
+    new Splide(".is--testimonial-slider", {
+      type: "slide",
+      perPage: 1,
+      perMove: 1,
+      gap: "24rem",
+      drag: !1,
+      arrows: !1,
+      pagination: !1,
+      breakpoints: { 991: { gap: "24rem", drag: !0 } },
+    }).mount();
+  }),
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".is--resources-slider").forEach(function (e) {
+      new Splide(e, {
+        type: "slide",
+        perPage: 1,
+        perMove: 1,
+        gap: "24rem",
+        drag: !1,
+        arrows: !1,
+        pagination: !1,
+        breakpoints: { 991: { gap: "24rem", drag: !0 } },
+      }).mount();
     });
-    splide.mount();
   });
-});
-
-// marquee is--scrolling
-const scrollSpeed = 50; // pixels per second, adjust as needed
-
+const scrollSpeed = 50;
 function updateScrollingSpeed() {
-  document.querySelectorAll(".is--scrolling").forEach((element) => {
-    const scrollWidth = element.offsetWidth;
-    const duration = scrollWidth / scrollSpeed; // seconds
-
-    element.style.setProperty("--scroll-width", `${scrollWidth}px`);
-    element.style.animationDuration = `${duration}s`;
+  document.querySelectorAll(".is--scrolling").forEach((e) => {
+    let t = e.offsetWidth;
+    e.style.setProperty("--scroll-width", `${t}px`),
+      (e.style.animationDuration = `${t / 50}s`);
   });
 }
-
-// Call initially
-updateScrollingSpeed();
-
-// Update on window resize
-window.addEventListener("resize", updateScrollingSpeed);
-
-//----------------- navbar animation ----------------//
-
-document.addEventListener("DOMContentLoaded", function () {
-  const navbar = document.querySelector(".navbar");
-  const dropdowns = document.querySelectorAll(".navbar--dropdown-new");
-  let activeDropdown = null;
-
-  const closeDropdown = (dropdown) => {
-    if (!dropdown) return;
-    const list = dropdown.querySelector(".navbar--dropdown-list-new");
-    const icon = dropdown.querySelector(".navbar--dropdown-icon");
-    gsap.to(list, {
-      opacity: 0,
-      y: "20rem",
-      duration: 0.3,
-      ease: "smooth",
-      onComplete: () => {
-        list.style.display = "none";
-      },
-    });
-    gsap.to(icon, { rotation: 0, duration: 0.3, ease: "smooth" });
-  };
-
-  const enableDropdown = () => {
-    dropdowns.forEach((dropdown) => {
-      dropdown.addEventListener("mouseenter", () => {
-        navbar.classList.add("is--active");
-        const icon = dropdown.querySelector(".navbar--dropdown-icon");
-
-        if (activeDropdown && activeDropdown !== dropdown) {
-          closeDropdown(activeDropdown);
-        }
-
-        activeDropdown = dropdown;
-        const list = dropdown.querySelector(".navbar--dropdown-list-new");
-        list.style.display = "flex";
-        gsap.to(list, { opacity: 1, y: 0, duration: 0.3, ease: "smooth" });
-        gsap.to(icon, { rotation: 180, duration: 0.3, ease: "smooth" });
-      });
-
-      dropdown.addEventListener("mouseleave", (event) => {
-        if (!navbar.contains(event.relatedTarget)) {
-          closeDropdown(dropdown);
-          activeDropdown = null;
-          navbar.classList.remove("is--active");
-        }
-      });
-    });
-
-    navbar.addEventListener("mouseleave", () => {
-      if (activeDropdown) {
-        closeDropdown(activeDropdown);
-        activeDropdown = null;
-      }
-      navbar.classList.remove("is--active");
-    });
-  };
-
-  // Function to disable dropdown interactions
-  const disableDropdown = () => {
-    dropdowns.forEach((dropdown) => {
-      dropdown.removeEventListener("mouseenter", enableDropdown);
-      dropdown.removeEventListener("mouseleave", enableDropdown);
-    });
-    navbar.removeEventListener("mouseleave", enableDropdown);
-    if (activeDropdown) {
-      closeDropdown(activeDropdown);
-      activeDropdown = null;
-    }
-  };
-
-  // Function to update dropdown based on screen size
-  const updateDropdown = () => {
-    if (window.innerWidth >= 992) {
-      enableDropdown();
-    } else {
-      disableDropdown();
-    }
-  };
-
-  // Attach resize listener to update dropdowns on window resize
-  window.addEventListener("resize", updateDropdown);
-
-  // Initialize the dropdown functionality based on the current screen size
-  updateDropdown();
-});
-
-$(".navbar--menu-close-new").on("click", function () {
-  $(".navbar--goback").click();
-});
-
-//-------------------- language switcher ----------------//
-
 function updateLanguageIndicator() {
-  var hostname = window.location.hostname;
-  var langDiv = document.getElementById("lang");
-
-  if (hostname.startsWith("www.")) {
-    langDiv.innerText = "En";
-  } else if (hostname.startsWith("ja.")) {
-    langDiv.innerText = "Jp";
-  } else if (hostname.startsWith("kr.")) {
-    langDiv.innerText = "Kr";
-  } else {
-    langDiv.innerText = "En"; // Default language, adjust as necessary
-  }
+  var e = window.location.hostname,
+    t = document.getElementById("lang");
+  e.startsWith("www.")
+    ? (t.innerText = "En")
+    : e.startsWith("ja.")
+    ? (t.innerText = "Jp")
+    : e.startsWith("kr.")
+    ? (t.innerText = "Kr")
+    : (t.innerText = "En");
 }
-
-updateLanguageIndicator();
-
-//-------------------- form source ----------------//
-
-// Function to get the URL parameter 'source'
 function getSourceValue() {
-  // Construct a URLSearchParams object with the query string of the current URL
+  let e = new URLSearchParams(window.location.search);
+  return e.get("source");
+}
+function setSourceFieldValue() {
+  let e = getSourceValue();
+  e && (document.getElementById("source").value = e);
+}
+updateScrollingSpeed(),
+  window.addEventListener("resize", updateScrollingSpeed),
+  document.addEventListener("DOMContentLoaded", function () {
+    let e = document.querySelector(".navbar"),
+      t = document.querySelectorAll(".navbar--dropdown-new"),
+      n = null,
+      a = (e) => {
+        if (!e) return;
+        let t = e.querySelector(".navbar--dropdown-list-new"),
+          n = e.querySelector(".navbar--dropdown-icon");
+        gsap.to(t, {
+          opacity: 0,
+          y: "20rem",
+          duration: 0.3,
+          ease: "smooth",
+          onComplete() {
+            t.style.display = "none";
+          },
+        }),
+          gsap.to(n, { rotation: 0, duration: 0.3, ease: "smooth" });
+      },
+      o = () => {
+        t.forEach((t) => {
+          t.addEventListener("mouseenter", () => {
+            e.classList.add("is--active");
+            let o = t.querySelector(".navbar--dropdown-icon");
+            n && n !== t && a(n), (n = t);
+            let r = t.querySelector(".navbar--dropdown-list-new");
+            (r.style.display = "flex"),
+              gsap.to(r, { opacity: 1, y: 0, duration: 0.3, ease: "smooth" }),
+              gsap.to(o, { rotation: 180, duration: 0.3, ease: "smooth" });
+          }),
+            t.addEventListener("mouseleave", (o) => {
+              e.contains(o.relatedTarget) ||
+                (a(t), (n = null), e.classList.remove("is--active"));
+            });
+        }),
+          e.addEventListener("mouseleave", () => {
+            n && (a(n), (n = null)), e.classList.remove("is--active");
+          });
+      },
+      r = () => {
+        t.forEach((e) => {
+          e.removeEventListener("mouseenter", o),
+            e.removeEventListener("mouseleave", o);
+        }),
+          e.removeEventListener("mouseleave", o),
+          n && (a(n), (n = null));
+      },
+      i = () => {
+        window.innerWidth >= 992 ? o() : r();
+      };
+    window.addEventListener("resize", i), i();
+  }),
+  $(".navbar--menu-close-new").on("click", function () {
+    $(".navbar--goback").click();
+  }),
+  updateLanguageIndicator(),
+  (window.onload = setSourceFieldValue);
+
+// ---------------------------- add parameters ---------------------------- //
+
+// Function to get the 'source' parameter value from the URL
+function getSourceValue() {
   const queryParams = new URLSearchParams(window.location.search);
-  // Return the value for the 'source' parameter
   return queryParams.get("source");
 }
 
-// Function to set the 'source' field value
-function setSourceFieldValue() {
-  // Get the 'source' parameter value from the URL
-  const value = getSourceValue();
-  // If the 'source' parameter is present, set the form field's value
-  if (value) {
-    document.getElementById("source").value = value;
+// Function to append 'source' parameter to a single link
+function appendSourceToLink(link, sourceValue) {
+  // Create a URL object from the link's href attribute
+  const linkUrl = new URL(link.href);
+  // Append or update the 'source' parameter
+  linkUrl.searchParams.set("source", sourceValue);
+  // Set the modified href back to the link
+  link.href = linkUrl.toString();
+}
+
+// Function to append 'source' parameter to all applicable links
+function appendSourceToLinks() {
+  const sourceValue = getSourceValue();
+  // Only proceed if 'source' parameter is present
+  if (sourceValue) {
+    // Get all anchor tags on the page
+    const links = document.querySelectorAll("a");
+    links.forEach((link) => {
+      // Check if the href attribute exists
+      if (link.href) {
+        // Only modify internal links - adjust this condition based on your domain
+        if (link.hostname === window.location.hostname) {
+          appendSourceToLink(link, sourceValue);
+        }
+      }
+    });
   }
 }
 
-// Set the 'source' field value when the page loads
-window.onload = setSourceFieldValue;
+// Observe the DOM for changes and apply the function to new links
+function observeDOM() {
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.addedNodes.length) {
+        appendSourceToLinks(); // Re-apply when new nodes are added
+      }
+    });
+  });
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+  });
+}
+
+// Append source to links and observe the DOM for changes
+document.addEventListener("DOMContentLoaded", () => {
+  appendSourceToLinks();
+  observeDOM();
+});
