@@ -171,3 +171,32 @@
 .mktoForm .mktoClear {
   display: none !important;
 }
+
+.mktoFormCol {
+  padding-right: 0rem !important;
+}
+
+.form-privacy {
+  letter-spacing: 0.01em;
+  font-size: 12rem;
+  line-height: 150%;
+}
+
+.mktoButtonWrap {
+  margin-left: 0rem !important;
+}
+
+.mktoButton {
+  letter-spacing: -0.04em;
+  cursor: pointer;
+  border-radius: 4rem;
+  padding: 14rem 32rem;
+  font-size: 16rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-decoration: none;
+  transition: all 0.2s;
+  border-color: var(--primary-blue);
+  background-color: var(--primary-blue);
+  color: var(--white);
+}
