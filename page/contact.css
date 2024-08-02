@@ -166,6 +166,7 @@
 .mktoFieldWrap {
   display: flex;
   flex-direction: column;
+  float: none;
 }
 
 .mktoForm .mktoClear {
@@ -187,16 +188,16 @@
 }
 
 .mktoButton {
-  letter-spacing: -0.04em;
-  cursor: pointer;
-  border-radius: 4rem;
-  padding: 14rem 32rem;
-  font-size: 16rem;
-  font-weight: 700;
-  line-height: 1.25;
-  text-decoration: none;
-  transition: all 0.2s;
-  border-color: var(--primary-blue);
-  background-color: var(--primary-blue);
-  color: var(--white);
+  letter-spacing: -0.04em !important;
+  cursor: pointer !important;
+  border-radius: 4rem !important;
+  padding: 14rem 32rem !important;
+  font-size: 16rem !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  text-decoration: none !important;
+  transition: all 0.2s !important;
+  border-color: var(--primary-blue) !important;
+  background-color: var(--primary-blue) !important;
+  color: var(--white) !important;
 }
