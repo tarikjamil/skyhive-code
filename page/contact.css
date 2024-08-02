@@ -240,3 +240,7 @@ textarea.mktoField {
 .mktoForm .mktoPlaceholder {
   display: none;
 }
+
+.mktoForm .mktoOffset {
+  display: none !important;
+}
