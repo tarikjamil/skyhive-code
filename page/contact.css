@@ -151,7 +151,7 @@
   column-gap: 16rem;
   width: 100%;
   display: flex;
-  margin-bottom: 16rem !important;
+  margin-bottom: 0rem !important;
 }
 
 .mktoField {
@@ -183,7 +183,7 @@ textarea.mktoField {
 
 .mktoFormCol {
   padding-right: 0rem !important;
-  margin-bottom: 0px !important;
+  margin-bottom: 16rem !important;
   width: 100% !important;
 }
 
@@ -223,7 +223,7 @@ textarea.mktoField {
 }
 
 .mktoButtonRow {
-  margin-top: 16rem;
+  margin-top: 16rem !important;
 }
 
 .mktoForm .mktoGutter {
