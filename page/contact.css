@@ -225,6 +225,7 @@ textarea.mktoField {
   margin-bottom: 2rem;
   font-size: 14rem;
   font-weight: 400 !important;
+  width: fit-content !important;
 }
 
 .mktoButtonRow {
