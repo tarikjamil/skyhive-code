@@ -154,14 +154,14 @@
 }
 
 .mktoField {
-  border: 1px solid var(--light-blue);
-  color: var(--black-primary);
-  background-color: #f3f3f300;
-  border-radius: 4rem;
-  height: 42rem;
-  margin-bottom: 0;
-  padding: 0 16rem;
-  font-size: 14rem;
+  border: 1px solid var(--light-blue) !important;
+  color: var(--black-primary) !important;
+  background-color: #f3f3f300 !important;
+  border-radius: 4rem !important;
+  height: 42rem !important;
+  margin-bottom: 0 !important;
+  padding: 0 16rem !important;
+  font-size: 14rem !important;
   width: 100% !important;
 }
 
