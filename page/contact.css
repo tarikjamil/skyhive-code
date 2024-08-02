@@ -151,6 +151,7 @@
   column-gap: 16rem;
   width: 100%;
   display: flex;
+  margin-bottom: 16rem;
 }
 
 .mktoField {
@@ -210,4 +211,13 @@ textarea.mktoField {
   background-color: var(--primary-blue) !important;
   color: var(--white) !important;
   background-image: none !important;
+}
+
+.mktoForm .mktoLabel {
+  float: left;
+  line-height: 1.2em;
+  padding-top: 0.3em;
+  margin-bottom: 2rem;
+  font-size: 14rem;
+  font-weight: 400 !important;
 }
