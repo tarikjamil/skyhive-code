@@ -225,3 +225,9 @@ textarea.mktoField {
 .mktoButtonRow {
   margin-top: 16rem;
 }
+
+.mktoForm .mktoGutter {
+  float: left;
+  height: 1.2em;
+  display: none;
+}
