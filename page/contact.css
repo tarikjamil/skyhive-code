@@ -231,3 +231,7 @@ textarea.mktoField {
   height: 1.2em;
   display: none;
 }
+
+.mktoForm .mktoPlaceholder {
+  display: none;
+}
