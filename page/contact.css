@@ -195,7 +195,7 @@ textarea.mktoField {
 }
 
 .mktoCaptchaDisclaimer {
-  margin-top: -12rem;
+  margin-top: -12rem !important;
 }
 
 .mktoButtonWrap {
