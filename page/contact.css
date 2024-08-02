@@ -167,8 +167,8 @@
 }
 
 textarea.mktoField {
-  height: 160rem;
-  padding-top: 8rem;
+  height: 160rem !important;
+  padding-top: 8rem !important;
 }
 
 .mktoFieldWrap {
