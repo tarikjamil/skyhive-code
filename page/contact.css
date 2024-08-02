@@ -149,6 +149,8 @@
 
 .mktoFormRow {
   column-gap: 16rem;
+  width: 100%;
+  display: flex;
 }
 
 .mktoField {
@@ -166,7 +168,7 @@
 .mktoFieldWrap {
   display: flex;
   flex-direction: column;
-  float: none;
+  float: none !important;
 }
 
 .mktoForm .mktoClear {
@@ -176,6 +178,7 @@
 .mktoFormCol {
   padding-right: 0rem !important;
   margin-bottom: 0px !important;
+  width: 100% !important;
 }
 
 .form-privacy {
