@@ -165,6 +165,11 @@
   width: 100% !important;
 }
 
+textarea.mktoField {
+  height: 160rem;
+  padding-top: 8rem;
+}
+
 .mktoFieldWrap {
   display: flex;
   flex-direction: column;
