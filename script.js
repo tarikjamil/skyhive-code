@@ -211,12 +211,13 @@ updateScrollingSpeed(),
   });
 document.addEventListener("DOMContentLoaded", function () {
   const domain = window.location.hostname;
+  let formToDisplay = ".form--en"; // Default form
 
   if (domain === "ja.skyhive.ai") {
-    document.querySelector(".form--jp").style.display = "block";
+    formToDisplay = ".form--jp";
   } else if (domain === "kr.skyhive.ai") {
-    document.querySelector(".form--kr").style.display = "block";
-  } else if (domain === "skyhive.ai") {
-    document.querySelector(".form--en").style.display = "block";
+    formToDisplay = ".form--kr";
   }
+
+  document.querySelector(formToDisplay).style.display = "block";
 });
