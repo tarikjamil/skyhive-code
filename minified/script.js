@@ -239,3 +239,18 @@ document.addEventListener("DOMContentLoaded", () => {
   appendSourceToLinks();
   observeDOM();
 });
+
+// form change depending on language //
+
+document.addEventListener("DOMContentLoaded", function () {
+  const domain = window.location.hostname;
+  let formToDisplay = ".form--en"; // Default form
+
+  if (domain === "ja.skyhive.ai") {
+    formToDisplay = ".form--jp";
+  } else if (domain === "kr.skyhive.ai") {
+    formToDisplay = ".form--kr";
+  }
+
+  document.querySelector(formToDisplay).style.display = "block";
+});
