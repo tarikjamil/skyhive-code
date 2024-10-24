@@ -114,12 +114,38 @@ function updateLanguageIndicator() {
     : (t.innerText = "En");
 }
 function getSourceValue() {
-  let e = new URLSearchParams(window.location.search);
-  return e.get("source");
+  return new URLSearchParams(window.location.search).get("source");
 }
 function setSourceFieldValue() {
   let e = getSourceValue();
   e && (document.getElementById("source").value = e);
+}
+function getSourceValue() {
+  let e = new URLSearchParams(window.location.search);
+  return e.get("source");
+}
+function appendSourceToLink(e, t) {
+  let n = new URL(e.href);
+  n.searchParams.set("source", t), (e.href = n.toString());
+}
+function appendSourceToLinks() {
+  let e = getSourceValue();
+  if (e) {
+    let t = document.querySelectorAll("a");
+    t.forEach((t) => {
+      t.href &&
+        t.hostname === window.location.hostname &&
+        appendSourceToLink(t, e);
+    });
+  }
+}
+function observeDOM() {
+  let e = new MutationObserver((e) => {
+    e.forEach((e) => {
+      e.addedNodes.length && appendSourceToLinks();
+    });
+  });
+  e.observe(document.body, { childList: !0, subtree: !0 });
 }
 updateScrollingSpeed(),
   window.addEventListener("resize", updateScrollingSpeed),
@@ -127,7 +153,7 @@ updateScrollingSpeed(),
     let e = document.querySelector(".navbar"),
       t = document.querySelectorAll(".navbar--dropdown-new"),
       n = null,
-      a = (e) => {
+      o = (e) => {
         if (!e) return;
         let t = e.querySelector(".navbar--dropdown-list-new"),
           n = e.querySelector(".navbar--dropdown-icon");
@@ -142,36 +168,36 @@ updateScrollingSpeed(),
         }),
           gsap.to(n, { rotation: 0, duration: 0.3, ease: "smooth" });
       },
-      o = () => {
+      a = () => {
         t.forEach((t) => {
           t.addEventListener("mouseenter", () => {
             e.classList.add("is--active");
-            let o = t.querySelector(".navbar--dropdown-icon");
-            n && n !== t && a(n), (n = t);
+            let a = t.querySelector(".navbar--dropdown-icon");
+            n && n !== t && o(n), (n = t);
             let r = t.querySelector(".navbar--dropdown-list-new");
             (r.style.display = "flex"),
               gsap.to(r, { opacity: 1, y: 0, duration: 0.3, ease: "smooth" }),
-              gsap.to(o, { rotation: 180, duration: 0.3, ease: "smooth" });
+              gsap.to(a, { rotation: 180, duration: 0.3, ease: "smooth" });
           }),
-            t.addEventListener("mouseleave", (o) => {
-              e.contains(o.relatedTarget) ||
-                (a(t), (n = null), e.classList.remove("is--active"));
+            t.addEventListener("mouseleave", (a) => {
+              e.contains(a.relatedTarget) ||
+                (o(t), (n = null), e.classList.remove("is--active"));
             });
         }),
           e.addEventListener("mouseleave", () => {
-            n && (a(n), (n = null)), e.classList.remove("is--active");
+            n && (o(n), (n = null)), e.classList.remove("is--active");
           });
       },
       r = () => {
         t.forEach((e) => {
-          e.removeEventListener("mouseenter", o),
-            e.removeEventListener("mouseleave", o);
+          e.removeEventListener("mouseenter", a),
+            e.removeEventListener("mouseleave", a);
         }),
-          e.removeEventListener("mouseleave", o),
-          n && (a(n), (n = null));
+          e.removeEventListener("mouseleave", a),
+          n && (o(n), (n = null));
       },
       i = () => {
-        window.innerWidth >= 992 ? o() : r();
+        window.innerWidth >= 992 ? a() : r();
       };
     window.addEventListener("resize", i), i();
   }),
@@ -179,69 +205,10 @@ updateScrollingSpeed(),
     $(".navbar--goback").click();
   }),
   updateLanguageIndicator(),
-  (window.onload = setSourceFieldValue);
-
-// ---------------------------- add parameters ---------------------------- //
-
-// Function to get the 'source' parameter value from the URL
-function getSourceValue() {
-  const queryParams = new URLSearchParams(window.location.search);
-  return queryParams.get("source");
-}
-
-// Function to append 'source' parameter to a single link
-function appendSourceToLink(link, sourceValue) {
-  // Create a URL object from the link's href attribute
-  const linkUrl = new URL(link.href);
-  // Append or update the 'source' parameter
-  linkUrl.searchParams.set("source", sourceValue);
-  // Set the modified href back to the link
-  link.href = linkUrl.toString();
-}
-
-// Function to append 'source' parameter to all applicable links
-function appendSourceToLinks() {
-  const sourceValue = getSourceValue();
-  // Only proceed if 'source' parameter is present
-  if (sourceValue) {
-    // Get all anchor tags on the page
-    const links = document.querySelectorAll("a");
-    links.forEach((link) => {
-      // Check if the href attribute exists
-      if (link.href) {
-        // Only modify internal links - adjust this condition based on your domain
-        if (link.hostname === window.location.hostname) {
-          appendSourceToLink(link, sourceValue);
-        }
-      }
-    });
-  }
-}
-
-// Observe the DOM for changes and apply the function to new links
-function observeDOM() {
-  const observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-      if (mutation.addedNodes.length) {
-        appendSourceToLinks(); // Re-apply when new nodes are added
-      }
-    });
+  (window.onload = setSourceFieldValue),
+  document.addEventListener("DOMContentLoaded", () => {
+    appendSourceToLinks(), observeDOM();
   });
-
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true,
-  });
-}
-
-// Append source to links and observe the DOM for changes
-document.addEventListener("DOMContentLoaded", () => {
-  appendSourceToLinks();
-  observeDOM();
-});
-
-// form change depending on language //
-
 document.addEventListener("DOMContentLoaded", function () {
   const domain = window.location.hostname;
   let formToDisplay = ".form--en"; // Default form
