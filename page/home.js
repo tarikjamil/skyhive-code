@@ -2,41 +2,31 @@ document.addEventListener("DOMContentLoaded",function(){new Splide(".slider1",{t
 
 
   document.addEventListener("DOMContentLoaded", function () {
-    // Select the Lottie animation and button
-    const lottieAnimation = document.querySelector('[data-lottie-id="myLottie"]');
-    const playPauseButton = document.querySelector('.pause-play-btn');
+    // Get the Lottie animation and the button
+    const lottieContainer = document.querySelector('.lottie-animation'); // Replace with your Lottie animation class or ID
+    const playPauseButton = document.querySelector('.play-pause-button');
 
-    // Variable to track the animation state
-    let isPaused = false;
-
-    // Pause/Play functionality
-    playPauseButton.addEventListener('click', function () {
-      if (isPaused) {
-        // Play the animation
-        lottieAnimation.dispatchEvent(new CustomEvent('play'));
-        playPauseButton.innerText = "Pause";
-      } else {
-        // Pause the animation
-        lottieAnimation.dispatchEvent(new CustomEvent('pause'));
-        playPauseButton.innerText = "Play";
-      }
-      isPaused = !isPaused;
-    });
-
-    // Initialize Lottie instance
-    const lottieInstance = lottie.loadAnimation({
-      container: lottieAnimation,
+    // Initialize the Lottie instance
+    const animation = lottie.loadAnimation({
+      container: lottieContainer,
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      path: lottieAnimation.getAttribute('data-src') // Lottie JSON path
+      path: lottieContainer.getAttribute('data-src') // Ensure this attribute contains your animation's JSON file URL
     });
 
-    // Set custom events for play and pause
-    lottieAnimation.addEventListener('play', function () {
-      lottieInstance.play();
-    });
-    lottieAnimation.addEventListener('pause', function () {
-      lottieInstance.pause();
+    // Variable to track play/pause state
+    let isPaused = false;
+
+    // Add event listener for the button
+    playPauseButton.addEventListener('click', function () {
+      if (isPaused) {
+        animation.play();
+        playPauseButton.innerText = "Pause";
+      } else {
+        animation.pause();
+        playPauseButton.innerText = "Play";
+      }
+      isPaused = !isPaused;
     });
   });
