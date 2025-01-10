@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded",function(){new Splide(".slider1",{t
 document.addEventListener("DOMContentLoaded", function () {
     console.log("DOM fully loaded and parsed");
 
-    // Get the Lottie animation and the button
-    const lottieContainer = document.querySelector('.lottie-animation'); // Replace with your Lottie animation class or ID
+    // Get the Lottie animation container and the play/pause button
+    const lottieContainer = document.querySelector('.lottie-animation');
     const playPauseButton = document.querySelector('.play-pause-button');
     const icon = playPauseButton.querySelector('i');
 
@@ -33,6 +33,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     console.log("Lottie animation initialized with path:", lottieContainer.getAttribute('data-src'));
+
+    // Remove additional <svg> if any
+    const svgs = lottieContainer.querySelectorAll('svg');
+    if (svgs.length > 1) {
+        console.warn(`Found ${svgs.length} <svg> elements. Removing duplicates.`);
+        for (let i = 1; i < svgs.length; i++) {
+            svgs[i].remove(); // Remove extra <svg> elements
+            console.log(`Removed duplicate <svg> element:`, svgs[i]);
+        }
+    }
 
     // Variable to track play/pause state
     let isPaused = false;
