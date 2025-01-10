@@ -2,10 +2,26 @@ document.addEventListener("DOMContentLoaded",function(){new Splide(".slider1",{t
 
 
 document.addEventListener("DOMContentLoaded", function () {
+    console.log("DOM fully loaded and parsed");
+
     // Get the Lottie animation and the button
     const lottieContainer = document.querySelector('.lottie-animation'); // Replace with your Lottie animation class or ID
     const playPauseButton = document.querySelector('.play-pause-button');
     const icon = playPauseButton.querySelector('i');
+
+    if (!lottieContainer) {
+        console.error("No Lottie container found. Please check your HTML.");
+        return;
+    }
+
+    console.log("Lottie container found:", lottieContainer);
+
+    if (!playPauseButton) {
+        console.error("No play/pause button found. Please check your HTML.");
+        return;
+    }
+
+    console.log("Play/Pause button found:", playPauseButton);
 
     // Initialize the Lottie instance
     const animation = lottie.loadAnimation({
@@ -16,18 +32,24 @@ document.addEventListener("DOMContentLoaded", function () {
         path: lottieContainer.getAttribute('data-src') // Ensure this attribute contains your animation's JSON file URL
     });
 
+    console.log("Lottie animation initialized with path:", lottieContainer.getAttribute('data-src'));
+
     // Variable to track play/pause state
     let isPaused = false;
 
     // Add event listener for the button
     playPauseButton.addEventListener('click', function () {
+        console.log("Play/Pause button clicked");
         if (isPaused) {
             animation.play();
             icon.className = "fas fa-pause"; // Change to pause icon
+            console.log("Animation resumed");
         } else {
             animation.pause();
             icon.className = "fas fa-play"; // Change to play icon
+            console.log("Animation paused");
         }
         isPaused = !isPaused;
+        console.log("isPaused state:", isPaused);
     });
 });
