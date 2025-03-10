@@ -62,23 +62,25 @@ document.addEventListener("DOMContentLoaded", async function () {
   async function loadAllPages() {
   try {
     let pageNumber = 1;
-    let morePagesAvailable = true;
+    let emptyPageCount = 0; // Track consecutive empty pages
+    const maxEmptyPages = 3; // Stop only after 3 empty pages
 
-    while (morePagesAvailable) {
-      console.log(`Fetching: /blog-items/page-${pageNumber}`); // Debugging log
+    while (emptyPageCount < maxEmptyPages) {
+      console.log(`Fetching: /blog-items/page-${pageNumber}`);
       const items = await fetchPageContent(pageNumber);
 
       if (items.length === 0) {
-        morePagesAvailable = false; // Stop fetching when an empty page is returned
-        console.log(`No items found on page ${pageNumber}, stopping.`);
-        break;
+        emptyPageCount++; // Increment empty page counter
+        console.warn(`No items found on page ${pageNumber}, skipping.`);
+      } else {
+        cmsItems.push(...items);
+        emptyPageCount = 0; // Reset counter when valid items are found
       }
 
-      cmsItems.push(...items);
-      pageNumber++; // Move to the next page
+      pageNumber++; // Always move to the next page
     }
 
-    console.log(`Loaded ${cmsItems.length} items from ${pageNumber - 1} pages`);
+    console.log(`Loaded ${cmsItems.length} items from ${pageNumber - emptyPageCount - 1} pages`);
     sortItemsByDate();
     cmsItems.forEach((item) => cmsContainer.appendChild(item));
     applyFilters();
