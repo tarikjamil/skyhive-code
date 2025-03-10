@@ -65,20 +65,23 @@ document.addEventListener("DOMContentLoaded", async function () {
     let morePagesAvailable = true;
 
     while (morePagesAvailable) {
+      console.log(`Fetching: /blog-items/page-${pageNumber}`); // Debugging log
       const items = await fetchPageContent(pageNumber);
+
       if (items.length === 0) {
         morePagesAvailable = false; // Stop fetching when an empty page is returned
+        console.log(`No items found on page ${pageNumber}, stopping.`);
         break;
       }
+
       cmsItems.push(...items);
       pageNumber++; // Move to the next page
     }
 
+    console.log(`Loaded ${cmsItems.length} items from ${pageNumber - 1} pages`);
     sortItemsByDate();
     cmsItems.forEach((item) => cmsContainer.appendChild(item));
     applyFilters();
-
-    console.log(`Loaded ${cmsItems.length} items from ${pageNumber - 1} pages`);
   } catch (error) {
     console.error("Error loading all pages:", error);
   }
