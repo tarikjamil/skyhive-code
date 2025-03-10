@@ -89,11 +89,14 @@ document.addEventListener("DOMContentLoaded", async function () {
     if (searchQuery || activeCategoryFilter) {
       resourceCategoriesSections.forEach(section => section.style.display = "none");
       searchResultsSection.style.display = "block";
+    } else {
+      resourceCategoriesSections.forEach(section => section.style.display = "block");
+      searchResultsSection.style.display = "none";
     }
   }
 
   searchInput.addEventListener("input", (event) => {
-    searchQuery = event.target.value;
+    searchQuery = event.target.value.trim();
     applyFilters();
   });
 
