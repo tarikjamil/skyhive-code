@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   let visibleItems = [];
   let activeCategoryFilter = null;
   let searchQuery = "";
-  let totalPages = 3; // Default pages, but we will adjust dynamically
+  let totalPages = 10; // Default pages, but we will adjust dynamically
 
   if (!cmsContainer) {
     console.error("CMS container not found in the DOM.");
