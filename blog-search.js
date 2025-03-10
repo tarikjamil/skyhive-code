@@ -60,19 +60,29 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 
   async function loadAllPages() {
-    try {
-      for (let i = 1; i <= totalPages; i++) {
-        const items = await fetchPageContent(i);
-        if (items.length === 0) break; // Stop fetching if no items returned
-        cmsItems.push(...items);
+  try {
+    let pageNumber = 1;
+    let morePagesAvailable = true;
+
+    while (morePagesAvailable) {
+      const items = await fetchPageContent(pageNumber);
+      if (items.length === 0) {
+        morePagesAvailable = false; // Stop fetching when an empty page is returned
+        break;
       }
-      sortItemsByDate();
-      cmsItems.forEach((item) => cmsContainer.appendChild(item));
-      applyFilters();
-    } catch (error) {
-      console.error("Error loading all pages:", error);
+      cmsItems.push(...items);
+      pageNumber++; // Move to the next page
     }
+
+    sortItemsByDate();
+    cmsItems.forEach((item) => cmsContainer.appendChild(item));
+    applyFilters();
+
+    console.log(`Loaded ${cmsItems.length} items from ${pageNumber - 1} pages`);
+  } catch (error) {
+    console.error("Error loading all pages:", error);
   }
+}
 
   function applyFilters() {
     visibleItems = cmsItems.filter((item) => {
