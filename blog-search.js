@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", async function () {
-  const totalPages = 5; // Adjust to the actual number of pages
   const cmsContainer = document.getElementById("cms-container");
   const searchInput = document.querySelector(".search-input");
   const categoryFilters = document.querySelectorAll(".filter--radio");
@@ -8,6 +7,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   let visibleItems = [];
   let activeCategoryFilter = null;
   let searchQuery = "";
+  let totalPages = 3; // Default pages, but we will adjust dynamically
 
   if (!cmsContainer) {
     console.error("CMS container not found in the DOM.");
@@ -18,7 +18,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     try {
       const response = await fetch(`/blog-items/page-${pageNumber}`);
       if (!response.ok) {
-        throw new Error(`Failed to fetch page: ${response.status}`);
+        console.warn(`Page ${pageNumber} not found, stopping at ${pageNumber - 1}`);
+        totalPages = pageNumber - 1; // Adjust total pages dynamically
+        return [];
       }
       const pageContent = await response.text();
       const parser = new DOMParser();
@@ -31,11 +33,15 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 
   function parseDate(dateString) {
+    if (!dateString) return new Date(0); // Default to old date if missing
+
     const months = {
       January: 0, February: 1, March: 2, April: 3, May: 4, June: 5,
       July: 6, August: 7, September: 8, October: 9, November: 10, December: 11
     };
     const parts = dateString.split(" ");
+    if (parts.length < 3) return new Date(0); // Handle invalid dates
+
     const month = months[parts[0]];
     const day = parseInt(parts[1].replace(",", ""));
     const year = parseInt(parts[2]);
@@ -43,10 +49,11 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 
   function sortItemsByDate() {
+    cmsItems = cmsItems.filter(item => item.querySelector(".date-field")); // Remove items without date
     cmsItems.sort((a, b) => {
-      const dateA = parseDate(a.querySelector(".date-field").textContent.trim());
-      const dateB = parseDate(b.querySelector(".date-field").textContent.trim());
-      return dateB - dateA;
+      const dateA = parseDate(a.querySelector(".date-field")?.textContent.trim());
+      const dateB = parseDate(b.querySelector(".date-field")?.textContent.trim());
+      return dateB - dateA; // Sort newest to oldest
     });
   }
 
@@ -54,6 +61,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     try {
       for (let i = 1; i <= totalPages; i++) {
         const items = await fetchPageContent(i);
+        if (items.length === 0) break; // Stop fetching if no items returned
         cmsItems.push(...items);
       }
       sortItemsByDate();
@@ -66,19 +74,15 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   function applyFilters() {
     visibleItems = cmsItems.filter((item) => {
-      const itemName = item.querySelector(".heading--20").textContent.trim().toLowerCase();
-      const itemCategory = item.querySelector(".heading--14").textContent.trim();
+      const itemName = item.querySelector(".heading--20")?.textContent.trim().toLowerCase() || "";
+      const itemCategory = item.querySelector(".heading--14")?.textContent.trim() || "";
       const matchesSearch = itemName.includes(searchQuery.toLowerCase());
       const matchesCategory = !activeCategoryFilter || itemCategory === activeCategoryFilter;
       return matchesSearch && matchesCategory;
     });
 
-    cmsItems.forEach((item) => {
-      item.style.display = "none";
-    });
-    visibleItems.forEach((item) => {
-      item.style.display = "block";
-    });
+    cmsItems.forEach((item) => item.style.display = "none");
+    visibleItems.forEach((item) => item.style.display = "block");
   }
 
   searchInput.addEventListener("input", (event) => {
@@ -89,11 +93,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   categoryFilters.forEach((filter) => {
     filter.addEventListener("click", () => {
       const filterValue = filter.textContent.trim();
-      if (activeCategoryFilter === filterValue) {
-        activeCategoryFilter = null;
-      } else {
-        activeCategoryFilter = filterValue;
-      }
+      activeCategoryFilter = activeCategoryFilter === filterValue ? null : filterValue;
       applyFilters();
     });
   });
