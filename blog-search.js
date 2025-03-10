@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async function () {
-  const totalPages = 3; // Adjust to the actual number of pages
+  const totalPages = 5; // Adjust to the actual number of pages
   const cmsContainer = document.getElementById("cms-container");
   const searchInput = document.querySelector(".search-input");
   const categoryFilters = document.querySelectorAll(".filter--radio");
