@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", async function () {
   const searchInput = document.querySelector(".search-input");
   const categoryFilters = document.querySelectorAll(".filter--radio");
   const resetFilterIcon = document.querySelector(".filter-icon");
+  const resourceCategoriesSection = document.querySelector(".section.is--resources-cat");
+  const searchResultsSection = document.querySelector(".is--resources-search-result");
   let cmsItems = [];
   let visibleItems = [];
   let activeCategoryFilter = null;
@@ -83,6 +85,11 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     cmsItems.forEach((item) => item.style.display = "none");
     visibleItems.forEach((item) => item.style.display = "block");
+
+    if (searchQuery || activeCategoryFilter) {
+      resourceCategoriesSection.style.display = "none";
+      searchResultsSection.style.display = "block";
+    }
   }
 
   searchInput.addEventListener("input", (event) => {
@@ -102,8 +109,12 @@ document.addEventListener("DOMContentLoaded", async function () {
     searchInput.value = "";
     searchQuery = "";
     activeCategoryFilter = null;
+    resourceCategoriesSection.style.display = "block";
+    searchResultsSection.style.display = "none";
     applyFilters();
   });
 
+  // Ensure the search result section is hidden initially
+  searchResultsSection.style.display = "none";
   loadAllPages();
 });
