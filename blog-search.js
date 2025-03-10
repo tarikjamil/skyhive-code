@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   let visibleItems = [];
   let activeCategoryFilters = new Set(); // Store multiple active filters
   let searchQuery = "";
-  let totalPages = 3;
+  let totalPages = 10;
 
   if (!cmsContainer) {
     console.error("CMS container not found in the DOM.");
