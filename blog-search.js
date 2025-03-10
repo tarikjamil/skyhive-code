@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     try {
       let pageNumber = 1;
       let emptyPageCount = 0;
-      const maxEmptyPages = 3;
+      const maxEmptyPages = 10;
 
       while (emptyPageCount < maxEmptyPages) {
         const items = await fetchPageContent(pageNumber);
