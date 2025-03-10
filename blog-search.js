@@ -3,11 +3,13 @@ document.addEventListener("DOMContentLoaded", async function () {
   const searchInput = document.querySelector(".search-input");
   const categoryFilters = document.querySelectorAll(".filter--radio");
   const resetFilterIcon = document.querySelector(".filter-icon");
+  const searchIcon = document.querySelector(".search-icon");
+  const filterDropdown = document.querySelector(".filter-dropdown");
   const resourceCategoriesSections = document.querySelectorAll(".section.is--resources-cat");
   const searchResultsSection = document.querySelector(".is--resources-search-result");
   let cmsItems = [];
   let visibleItems = [];
-  let activeCategoryFilters = new Set(); // Store multiple active filters
+  let activeCategoryFilters = new Set();
   let searchQuery = "";
   let totalPages = 10;
 
@@ -15,6 +17,22 @@ document.addEventListener("DOMContentLoaded", async function () {
     console.error("CMS container not found in the DOM.");
     return;
   }
+
+  // Toggle dropdown visibility
+  searchIcon.addEventListener("click", (event) => {
+    event.stopPropagation(); // Prevent immediate closing
+    filterDropdown.style.display =
+      filterDropdown.style.display === "none" || !filterDropdown.style.display
+        ? "block"
+        : "none";
+  });
+
+  // Hide dropdown when clicking outside
+  document.addEventListener("click", (event) => {
+    if (!filterDropdown.contains(event.target) && !searchIcon.contains(event.target)) {
+      filterDropdown.style.display = "none";
+    }
+  });
 
   async function fetchPageContent(pageNumber) {
     try {
@@ -56,21 +74,15 @@ document.addEventListener("DOMContentLoaded", async function () {
       const maxEmptyPages = 3;
 
       while (emptyPageCount < maxEmptyPages) {
-        console.log(`Fetching: /blog-items/page-${pageNumber}`);
         const items = await fetchPageContent(pageNumber);
-
         if (items.length === 0) {
           emptyPageCount++;
-          console.warn(`No items found on page ${pageNumber}, skipping.`);
         } else {
           cmsItems.push(...items);
           emptyPageCount = 0;
         }
-
         pageNumber++;
       }
-
-      console.log(`Loaded ${cmsItems.length} items from ${pageNumber - emptyPageCount - 1} pages`);
       sortItemsByDate();
       cmsItems.forEach((item) => cmsContainer.appendChild(item));
       applyFilters();
@@ -130,5 +142,6 @@ document.addEventListener("DOMContentLoaded", async function () {
   });
 
   searchResultsSection.style.display = "none";
+  filterDropdown.style.display = "none"; // Ensure dropdown is initially hidden
   loadAllPages();
 });
